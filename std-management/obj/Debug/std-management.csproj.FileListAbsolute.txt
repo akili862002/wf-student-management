@@ -1,0 +1,15 @@
+C:\Users\tranv\source\repos\std-management\std-management\bin\Debug\std-management.exe.config
+C:\Users\tranv\source\repos\std-management\std-management\bin\Debug\std-management.exe
+C:\Users\tranv\source\repos\std-management\std-management\bin\Debug\std-management.pdb
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std-management.csproj.AssemblyReference.cache
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std_management.LoginForm.resources
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std_management.Properties.Resources.resources
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std-management.csproj.GenerateResource.cache
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std-management.csproj.CoreCompileInputs.cache
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std-management.exe
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std-management.pdb
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std_management.DashboardForm.resources
+C:\Users\tranv\source\repos\std-management\std-management\bin\Debug\System.Data.SqlClient.dll
+C:\Users\tranv\source\repos\std-management\std-management\bin\Debug\System.Data.SqlClient.xml
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std_management.AddStudentForm.resources
+C:\Users\tranv\source\repos\std-management\std-management\obj\Debug\std-management.csproj.CopyComplete

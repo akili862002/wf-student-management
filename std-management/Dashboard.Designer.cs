@@ -30,11 +30,6 @@ namespace std_management
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.loginLabel = new System.Windows.Forms.Label();
@@ -42,84 +37,29 @@ namespace std_management
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.addStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.studentTableData = new System.Windows.Forms.DataGridView();
+            this.idCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birthdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avatarImg = new System.Windows.Forms.DataGridViewImageColumn();
+            this.avatarURLCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.firstName,
-            this.lastName,
-            this.phone});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 191);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1053, 400);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // firstName
-            // 
-            this.firstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.firstName.DataPropertyName = "first_name";
-            this.firstName.HeaderText = "First Name";
-            this.firstName.MinimumWidth = 6;
-            this.firstName.Name = "firstName";
-            this.firstName.ReadOnly = true;
-            this.firstName.Visible = false;
-            this.firstName.Width = 125;
-            // 
-            // lastName
-            // 
-            this.lastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.lastName.DataPropertyName = "last_name";
-            this.lastName.HeaderText = "Last name";
-            this.lastName.MinimumWidth = 6;
-            this.lastName.Name = "lastName";
-            this.lastName.ReadOnly = true;
-            this.lastName.Visible = false;
-            this.lastName.Width = 125;
-            // 
-            // phone
-            // 
-            this.phone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.phone.DataPropertyName = "phone";
-            this.phone.HeaderText = "Phone";
-            this.phone.MinimumWidth = 6;
-            this.phone.Name = "phone";
-            this.phone.ReadOnly = true;
-            this.phone.Visible = false;
-            this.phone.Width = 125;
             // 
             // searchTextBox
             // 
             this.searchTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(26, 135);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.searchTextBox.Location = new System.Drawing.Point(17, 88);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(278, 30);
+            this.searchTextBox.Size = new System.Drawing.Size(187, 26);
             this.searchTextBox.TabIndex = 2;
             // 
             // searchButton
@@ -128,26 +68,25 @@ namespace std_management
             this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(321, 132);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.searchButton.Location = new System.Drawing.Point(214, 86);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.searchButton.Name = "searchButton";
             this.searchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.searchButton.Size = new System.Drawing.Size(86, 46);
+            this.searchButton.Size = new System.Drawing.Size(57, 30);
             this.searchButton.TabIndex = 9;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // loginLabel
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(16, 58);
+            this.loginLabel.Location = new System.Drawing.Point(11, 38);
+            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(322, 41);
+            this.loginLabel.Size = new System.Drawing.Size(260, 32);
             this.loginLabel.TabIndex = 10;
             this.loginLabel.Text = "Student management";
-            this.loginLabel.Click += new System.EventHandler(this.loginLabel_Click);
             // 
             // toolStrip1
             // 
@@ -156,8 +95,7 @@ namespace std_management
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1096, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(875, 25);
             this.toolStrip1.TabIndex = 11;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -170,64 +108,154 @@ namespace std_management
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(58, 24);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(47, 22);
             this.toolStripDropDownButton1.Text = "Tools";
             // 
             // addStudentsToolStripMenuItem
             // 
             this.addStudentsToolStripMenuItem.Name = "addStudentsToolStripMenuItem";
-            this.addStudentsToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.addStudentsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.addStudentsToolStripMenuItem.Text = "Add student";
             this.addStudentsToolStripMenuItem.Click += new System.EventHandler(this.addStudentsToolStripMenuItem_Click);
             // 
             // editRemoveStudentToolStripMenuItem
             // 
             this.editRemoveStudentToolStripMenuItem.Name = "editRemoveStudentToolStripMenuItem";
-            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.editRemoveStudentToolStripMenuItem.Text = "Edit/Remove student";
             // 
-            // button1
+            // refreshButton
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(950, 129);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(129, 46);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = false;
+            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshButton.BackColor = System.Drawing.Color.White;
+            this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.refreshButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshButton.Location = new System.Drawing.Point(775, 86);
+            this.refreshButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.refreshButton.Size = new System.Drawing.Size(86, 30);
+            this.refreshButton.TabIndex = 12;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // studentTableData
+            // 
+            this.studentTableData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.studentTableData.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.studentTableData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentTableData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idCol,
+            this.firstNameCol,
+            this.lastnameCol,
+            this.Birthdate,
+            this.genderCol,
+            this.phoneCol,
+            this.addressCol,
+            this.avatarImg,
+            this.avatarURLCol});
+            this.studentTableData.Location = new System.Drawing.Point(17, 132);
+            this.studentTableData.Name = "studentTableData";
+            this.studentTableData.Size = new System.Drawing.Size(844, 437);
+            this.studentTableData.TabIndex = 13;
+            this.studentTableData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentTableData_CellFormatting);
+            // 
+            // idCol
+            // 
+            this.idCol.DataPropertyName = "id";
+            this.idCol.HeaderText = "ID";
+            this.idCol.Name = "idCol";
+            this.idCol.ReadOnly = true;
+            // 
+            // firstNameCol
+            // 
+            this.firstNameCol.DataPropertyName = "first_name";
+            this.firstNameCol.HeaderText = "First name";
+            this.firstNameCol.Name = "firstNameCol";
+            this.firstNameCol.ReadOnly = true;
+            // 
+            // lastnameCol
+            // 
+            this.lastnameCol.DataPropertyName = "last_name";
+            this.lastnameCol.HeaderText = "Last name";
+            this.lastnameCol.Name = "lastnameCol";
+            this.lastnameCol.ReadOnly = true;
+            // 
+            // Birthdate
+            // 
+            this.Birthdate.DataPropertyName = "birthdate";
+            this.Birthdate.HeaderText = "Birthdate";
+            this.Birthdate.Name = "Birthdate";
+            this.Birthdate.ReadOnly = true;
+            // 
+            // genderCol
+            // 
+            this.genderCol.DataPropertyName = "gender";
+            this.genderCol.HeaderText = "Gender";
+            this.genderCol.Name = "genderCol";
+            this.genderCol.ReadOnly = true;
+            // 
+            // phoneCol
+            // 
+            this.phoneCol.DataPropertyName = "phone";
+            this.phoneCol.HeaderText = "Phone";
+            this.phoneCol.Name = "phoneCol";
+            this.phoneCol.ReadOnly = true;
+            // 
+            // addressCol
+            // 
+            this.addressCol.DataPropertyName = "address";
+            this.addressCol.HeaderText = "Address";
+            this.addressCol.Name = "addressCol";
+            this.addressCol.ReadOnly = true;
+            // 
+            // avatarImg
+            // 
+            this.avatarImg.DataPropertyName = "avatarImg";
+            this.avatarImg.HeaderText = "Avatar";
+            this.avatarImg.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.avatarImg.Name = "avatarImg";
+            this.avatarImg.ReadOnly = true;
+            this.avatarImg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.avatarImg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // avatarURLCol
+            // 
+            this.avatarURLCol.DataPropertyName = "avatar";
+            this.avatarURLCol.HeaderText = "AvatarURL";
+            this.avatarURLCol.Name = "avatarURLCol";
+            this.avatarURLCol.ReadOnly = true;
+            this.avatarURLCol.Visible = false;
             // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1096, 609);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(875, 581);
+            this.Controls.Add(this.studentTableData);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DashboardForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.DashboardForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label loginLabel;
@@ -235,10 +263,16 @@ namespace std_management
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem addStudentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editRemoveStudentToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.DataGridView studentTableData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Birthdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genderCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressCol;
+        private System.Windows.Forms.DataGridViewImageColumn avatarImg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn avatarURLCol;
     }
 }

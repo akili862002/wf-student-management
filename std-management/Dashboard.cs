@@ -43,7 +43,8 @@ namespace std_management
             SQLHandler sqlHandler = new SQLHandler();
             DataTable dt = new DataTable();
             sqlHandler.getAllStudentsAdapter().Fill(dt);
-            this.Invoke(new MethodInvoker(delegate {
+            this.Invoke(new MethodInvoker(delegate
+            {
                 this.studentTableData.DataSource = dt;
             }));
         }
@@ -60,12 +61,12 @@ namespace std_management
                 new Thread(() =>
                 {
 
-            //this.Invoke(new MethodInvoker(delegate {
+                    //this.Invoke(new MethodInvoker(delegate {
                     string avatarImg = this?.studentTableData?.Rows[e.RowIndex]?.Cells["avatarURLCol"]?.Value?.ToString();
                     if (avatarImg?.Length < 1) return;
                     Image img = Helper.GetImageFromUrl(avatarImg);
                     e.Value = img;
-            //}));
+                    //}));
                 }).Start();
             }
         }

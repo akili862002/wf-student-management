@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StudentManager
+namespace std_management
 {
     public class StudentEntity
     {

@@ -1,6 +1,6 @@
-﻿using StudentManager;
-using System;
+﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using static std_management.DashboardForm;
 
@@ -8,7 +8,7 @@ namespace std_management
 {
     public partial class AddStudentForm : Form
     {
-        public event UpdateDataHandler UpdateData;
+        public event OnClose OnClose;
         public AddStudentForm()
         {
             InitializeComponent();
@@ -40,6 +40,7 @@ namespace std_management
 
         private void closeDialog()
         {
+            this.OnClose();
             this.DialogResult = DialogResult.Cancel;
         }
 
@@ -64,9 +65,15 @@ namespace std_management
                 student.setGender(StudentEntity.GenderType.Famale);
             SQLHandler sqlHandler = new SQLHandler();
 
-            sqlHandler.createStudentSQL(student);
-            this.closeDialog();
-            UpdateData();
+            Thread thr = new Thread(() =>
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                sqlHandler.createStudentSQL(student);
+                Cursor.Current = Cursors.Default;
+                this.closeDialog();
+            });
+
+            thr.Start();
         }
     }
 }

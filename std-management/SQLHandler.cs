@@ -1,18 +1,31 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
-namespace StudentManager
+namespace std_management
 {
     class SQLHandler
     {
-        public string sqlConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\tranv\\OneDrive\\Documents\\Dung_files\\source\\repos\\StudentManager\\StudentManager\\Database1.mdf;Integrated Security=True";
+        public string sqlConnectionString = "Server=MAY-27\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
+
+
+        public void testConnection()
+        {
+            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            connection.Open();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                MessageBox.Show("Connected!");
+            }
+            connection.Close();
+        }
 
         public SqlDataAdapter getAllStudentsAdapter()
         {
             SqlDataAdapter adapter;
             SqlConnection connection = new SqlConnection(this.sqlConnectionString);
             connection.Open();
-            adapter = new SqlDataAdapter("SELECT TOP 10 * FROM Students ORDER BY id DESC", connection);
+            adapter = new SqlDataAdapter("SELECT * FROM Students ORDER BY id DESC", connection);
             connection.Close();
             return adapter;
         }

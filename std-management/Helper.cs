@@ -1,22 +1,34 @@
 ﻿using System.Drawing;
+using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
-namespace StudentManager
+namespace std_management
 {
     internal class Helper
     {
         public static Image GetImageFromUrl(string url)
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
-
-            using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
+            try
             {
-                using (System.IO.Stream stream = httpWebReponse.GetResponseStream())
+
+                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
+
+                using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
                 {
-                    Image img = Image.FromStream(stream);
-                    return img;
+                    using (Stream stream = httpWebReponse.GetResponseStream())
+                    {
+                        Image img = Image.FromStream(stream);
+                        return img;
+                    }
                 }
             }
+            catch
+            {
+
+            }
+
+            return null;
         }
 
     }

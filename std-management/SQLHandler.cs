@@ -6,7 +6,7 @@ namespace std_management
 {
     class SQLHandler
     {
-        public string sqlConnectionString = "Server=MAY-27\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
+        public string sqlConnectionString = "Server=MAY-27;Database=students_db;Trusted_Connection=True;";
 
 
         public void testConnection()
@@ -20,12 +20,16 @@ namespace std_management
             connection.Close();
         }
 
-        public SqlDataAdapter getAllStudentsAdapter()
+        public SqlDataAdapter getAllStudentsAdapter(string searchText = "")
         {
             SqlDataAdapter adapter;
             SqlConnection connection = new SqlConnection(this.sqlConnectionString);
             connection.Open();
-            adapter = new SqlDataAdapter("SELECT * FROM Students ORDER BY id DESC", connection);
+            string query = "SELECT * FROM Students ";
+            if (!string.IsNullOrEmpty(searchText))
+                query += $"WHERE (first_name + ' ' + last_name) LIKE '%{searchText}%' ";
+            query += "ORDER BY id DESC";
+            adapter = new SqlDataAdapter(query, connection);
             connection.Close();
             return adapter;
         }

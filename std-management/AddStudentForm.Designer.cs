@@ -29,6 +29,7 @@ namespace std_management
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.firstnameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.loginLabel = new System.Windows.Forms.Label();
@@ -49,8 +50,18 @@ namespace std_management
             this.cancelButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.avatarPicture = new System.Windows.Forms.PictureBox();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProviderFullName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPhone = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderAddress = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFullName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAddress)).BeginInit();
             this.SuspendLayout();
             // 
             // firstnameLabel
@@ -72,6 +83,7 @@ namespace std_management
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(180, 26);
             this.firstNameTextBox.TabIndex = 2;
+            this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validating);
             // 
             // loginLabel
             // 
@@ -105,6 +117,7 @@ namespace std_management
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(188, 26);
             this.lastNameTextBox.TabIndex = 7;
+            this.lastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastNameTextBox_Validating);
             // 
             // phoneLabel
             // 
@@ -127,6 +140,7 @@ namespace std_management
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(372, 26);
             this.phoneTextBox.TabIndex = 9;
+            this.phoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.phoneTextBox_Validating);
             // 
             // birthdateLabel
             // 
@@ -161,6 +175,7 @@ namespace std_management
             this.addressTextbox.Name = "addressTextbox";
             this.addressTextbox.Size = new System.Drawing.Size(372, 76);
             this.addressTextbox.TabIndex = 13;
+            this.addressTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.addressTextbox_Validating);
             // 
             // genderLabel
             // 
@@ -176,9 +191,10 @@ namespace std_management
             // maleRadio
             // 
             this.maleRadio.AutoSize = true;
+            this.maleRadio.Checked = true;
             this.maleRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maleRadio.Location = new System.Drawing.Point(17, 369);
-            this.maleRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maleRadio.Margin = new System.Windows.Forms.Padding(2);
             this.maleRadio.Name = "maleRadio";
             this.maleRadio.Size = new System.Drawing.Size(51, 19);
             this.maleRadio.TabIndex = 17;
@@ -191,11 +207,10 @@ namespace std_management
             this.famaleRadio.AutoSize = true;
             this.famaleRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.famaleRadio.Location = new System.Drawing.Point(80, 369);
-            this.famaleRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.famaleRadio.Margin = new System.Windows.Forms.Padding(2);
             this.famaleRadio.Name = "famaleRadio";
             this.famaleRadio.Size = new System.Drawing.Size(63, 19);
             this.famaleRadio.TabIndex = 18;
-            this.famaleRadio.TabStop = true;
             this.famaleRadio.Text = "Famale";
             this.famaleRadio.UseVisualStyleBackColor = true;
             // 
@@ -206,7 +221,7 @@ namespace std_management
             this.birthdateDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdateDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.birthdateDatePicker.Location = new System.Drawing.Point(14, 145);
-            this.birthdateDatePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.birthdateDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.birthdateDatePicker.Name = "birthdateDatePicker";
             this.birthdateDatePicker.Size = new System.Drawing.Size(371, 20);
             this.birthdateDatePicker.TabIndex = 19;
@@ -276,7 +291,7 @@ namespace std_management
             this.tableLayoutPanel1.Controls.Add(this.cancelButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.createButton, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(160, 631);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -287,19 +302,35 @@ namespace std_management
             // 
             this.avatarPicture.Image = global::std_management.Properties.Resources.graduated;
             this.avatarPicture.Location = new System.Drawing.Point(17, 426);
-            this.avatarPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.avatarPicture.Margin = new System.Windows.Forms.Padding(2);
             this.avatarPicture.Name = "avatarPicture";
             this.avatarPicture.Size = new System.Drawing.Size(120, 130);
             this.avatarPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatarPicture.TabIndex = 20;
             this.avatarPicture.TabStop = false;
             // 
+            // errorProviderFullName
+            // 
+            this.errorProviderFullName.ContainerControl = this;
+            // 
+            // errorProviderLastName
+            // 
+            this.errorProviderLastName.ContainerControl = this;
+            // 
+            // errorProviderPhone
+            // 
+            this.errorProviderPhone.ContainerControl = this;
+            // 
+            // errorProviderAddress
+            // 
+            this.errorProviderAddress.ContainerControl = this;
+            // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(394, 691);
+            this.ClientSize = new System.Drawing.Size(394, 694);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.uploadAvatarButton);
             this.Controls.Add(this.avatarLabel);
@@ -318,7 +349,7 @@ namespace std_management
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.firstnameLabel);
             this.Controls.Add(this.firstNameTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(410, 730);
             this.Name = "AddStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -326,6 +357,11 @@ namespace std_management
             this.Load += new System.EventHandler(this.AddStudentForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFullName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAddress)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +389,10 @@ namespace std_management
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private System.Windows.Forms.ErrorProvider errorProviderFullName;
+        private System.Windows.Forms.ErrorProvider errorProviderLastName;
+        private System.Windows.Forms.ErrorProvider errorProviderPhone;
+        private System.Windows.Forms.ErrorProvider errorProviderAddress;
     }
 }

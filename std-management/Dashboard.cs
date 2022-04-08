@@ -14,35 +14,25 @@ namespace std_management
         public DashboardForm()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
             using (AddStudentForm addStudentForm = new AddStudentForm())
             {
                 // addStudentForm.ShowDialog();
             }
 
         }
-        private void addStudentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (AddStudentForm addStudentForm = new AddStudentForm())
-            {
-                addStudentForm.OnClose += () =>
-                {
-                    this.LoadDataForStudentTable();
-                };
-
-                addStudentForm.ShowDialog();
-            }
-        }
+      
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             this.LoadDataForStudentTable();
         }
 
-        private void LoadDataForStudentTable()
+        private void LoadDataForStudentTable(string searchText = "")
         {
             SQLHandler sqlHandler = new SQLHandler();
             DataTable dt = new DataTable();
-            sqlHandler.getAllStudentsAdapter().Fill(dt);
+            sqlHandler.getAllStudentsAdapter(searchText).Fill(dt);
             this.Invoke(new MethodInvoker(delegate
             {
                 this.studentTableData.DataSource = dt;
@@ -60,16 +50,52 @@ namespace std_management
             {
                 new Thread(() =>
                 {
-
-                    //this.Invoke(new MethodInvoker(delegate {
                     string avatarImg = this?.studentTableData?.Rows[e.RowIndex]?.Cells["avatarURLCol"]?.Value?.ToString();
                     if (avatarImg?.Length < 1) return;
                     Image img = Helper.GetImageFromUrl(avatarImg);
                     e.Value = img;
-                    //}));
                 }).Start();
             }
         }
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            this.LoadDataForStudentTable(searchTextBox.Text);
+        }
+
+        private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.LoadDataForStudentTable(searchTextBox.Text);
+                searchTextBox.Text = "";
+                return;
+            }
+        }
+        private void addStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AddStudentForm addStudentForm = new AddStudentForm())
+            {
+                addStudentForm.OnClose += () =>
+                {
+                    this.LoadDataForStudentTable();
+                };
+
+                addStudentForm.ShowDialog();
+            }
+        }
+
+        private void editRemoveStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (EditStudentForm editStudentForm = new EditStudentForm())
+            {
+                editStudentForm.OnClose += () =>
+                {
+                    this.LoadDataForStudentTable();
+                };
+
+                editStudentForm.ShowDialog();
+            }
+        }
     }
 }

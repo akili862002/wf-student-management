@@ -61,6 +61,7 @@ namespace std_management
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(187, 26);
             this.searchTextBox.TabIndex = 2;
+            this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
             // 
             // searchButton
             // 
@@ -76,6 +77,7 @@ namespace std_management
             this.searchButton.TabIndex = 9;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // loginLabel
             // 
@@ -123,6 +125,7 @@ namespace std_management
             this.editRemoveStudentToolStripMenuItem.Name = "editRemoveStudentToolStripMenuItem";
             this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.editRemoveStudentToolStripMenuItem.Text = "Edit/Remove student";
+            this.editRemoveStudentToolStripMenuItem.Click += new System.EventHandler(this.editRemoveStudentToolStripMenuItem_Click);
             // 
             // refreshButton
             // 

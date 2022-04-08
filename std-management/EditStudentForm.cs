@@ -1,21 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.Text.RegularExpressions;
+using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static std_management.DashboardForm;
 
 namespace std_management
 {
-    public partial class AddStudentForm : Form
+    public partial class EditStudentForm : Form
     {
         public event OnClose OnClose;
-        public AddStudentForm()
+        public EditStudentForm()
         {
             InitializeComponent();
         }
 
-        private void AddStudentForm_Load(object sender, EventArgs e)
+        private void EditStudentForm_Load(object sender, EventArgs e)
         {
             birthdateDatePicker.Format = DateTimePickerFormat.Custom;
             birthdateDatePicker.CustomFormat = "MM/dd/yyyy";
@@ -50,7 +55,7 @@ namespace std_management
             closeDialog();
         }
 
-        private void createButton_Click(object sender, EventArgs e)
+        private void upateButton_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
@@ -113,7 +118,6 @@ namespace std_management
         }
 
 
-
         #endregion
 
         private void phoneTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -150,5 +154,7 @@ namespace std_management
             e.Cancel = false;
             errorProviderAddress.SetError(addressTextbox, "");
         }
+
+        
     }
 }

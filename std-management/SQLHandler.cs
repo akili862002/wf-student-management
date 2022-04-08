@@ -37,6 +37,38 @@ namespace std_management
             return false;
         }
 
+        public void register(string username, string password, string email)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            connection.Open();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                try
+                {
+                    command.CommandText = "insert into users (email, username, password) values (@email, @username, @password)";
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
+
+                    Console.WriteLine(command.CommandText);
+
+                    var stdId = command.ExecuteScalar();
+                    Console.WriteLine("New Student", stdId);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+            connection.Close();
+        }
+
 
         public void testConnection()
         {

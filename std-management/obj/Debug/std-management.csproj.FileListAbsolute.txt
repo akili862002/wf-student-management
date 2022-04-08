@@ -29,3 +29,5 @@ C:\Users\Administrator\Source\Repos\akili862002\wf-student-management\std-manage
 C:\Users\Administrator\Source\Repos\akili862002\wf-student-management\std-management\obj\Debug\std-management.exe
 C:\Users\Administrator\Source\Repos\akili862002\wf-student-management\std-management\obj\Debug\std-management.pdb
 C:\Users\Administrator\Source\Repos\akili862002\wf-student-management\std-management\obj\Debug\std_management.EditStudentForm.resources
+C:\Users\Administrator\source\repos\akili862002\wf-student-management\std-management\obj\Debug\std_management.LoadingForm.resources
+C:\Users\Administrator\source\repos\akili862002\wf-student-management\std-management\obj\Debug\std_management.RegisterForm.resources

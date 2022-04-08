@@ -39,15 +39,16 @@ namespace std_management
             this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshButton = new System.Windows.Forms.Button();
             this.studentTableData = new System.Windows.Forms.DataGridView();
-            this.idCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastnameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birthdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birth_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avatarImg = new System.Windows.Forms.DataGridViewImageColumn();
             this.avatarURLCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentTableLoadingProgress = new System.Windows.Forms.ProgressBar();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).BeginInit();
             this.SuspendLayout();
@@ -152,69 +153,69 @@ namespace std_management
             this.studentTableData.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.studentTableData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentTableData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idCol,
-            this.firstNameCol,
-            this.lastnameCol,
-            this.Birthdate,
-            this.genderCol,
-            this.phoneCol,
-            this.addressCol,
+            this.id,
+            this.first_name,
+            this.last_name,
+            this.birth_date,
+            this.gender,
+            this.phone,
+            this.address,
             this.avatarImg,
             this.avatarURLCol});
             this.studentTableData.Location = new System.Drawing.Point(17, 132);
             this.studentTableData.Name = "studentTableData";
-            this.studentTableData.Size = new System.Drawing.Size(844, 437);
+            this.studentTableData.Size = new System.Drawing.Size(844, 461);
             this.studentTableData.TabIndex = 13;
             this.studentTableData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentTableData_CellFormatting);
             // 
-            // idCol
+            // id
             // 
-            this.idCol.DataPropertyName = "id";
-            this.idCol.HeaderText = "ID";
-            this.idCol.Name = "idCol";
-            this.idCol.ReadOnly = true;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
-            // firstNameCol
+            // first_name
             // 
-            this.firstNameCol.DataPropertyName = "first_name";
-            this.firstNameCol.HeaderText = "First name";
-            this.firstNameCol.Name = "firstNameCol";
-            this.firstNameCol.ReadOnly = true;
+            this.first_name.DataPropertyName = "first_name";
+            this.first_name.HeaderText = "First name";
+            this.first_name.Name = "first_name";
+            this.first_name.ReadOnly = true;
             // 
-            // lastnameCol
+            // last_name
             // 
-            this.lastnameCol.DataPropertyName = "last_name";
-            this.lastnameCol.HeaderText = "Last name";
-            this.lastnameCol.Name = "lastnameCol";
-            this.lastnameCol.ReadOnly = true;
+            this.last_name.DataPropertyName = "last_name";
+            this.last_name.HeaderText = "Last name";
+            this.last_name.Name = "last_name";
+            this.last_name.ReadOnly = true;
             // 
-            // Birthdate
+            // birth_date
             // 
-            this.Birthdate.DataPropertyName = "birthdate";
-            this.Birthdate.HeaderText = "Birthdate";
-            this.Birthdate.Name = "Birthdate";
-            this.Birthdate.ReadOnly = true;
+            this.birth_date.DataPropertyName = "birthdate";
+            this.birth_date.HeaderText = "Birthdate";
+            this.birth_date.Name = "birth_date";
+            this.birth_date.ReadOnly = true;
             // 
-            // genderCol
+            // gender
             // 
-            this.genderCol.DataPropertyName = "gender";
-            this.genderCol.HeaderText = "Gender";
-            this.genderCol.Name = "genderCol";
-            this.genderCol.ReadOnly = true;
+            this.gender.DataPropertyName = "gender";
+            this.gender.HeaderText = "Gender";
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
             // 
-            // phoneCol
+            // phone
             // 
-            this.phoneCol.DataPropertyName = "phone";
-            this.phoneCol.HeaderText = "Phone";
-            this.phoneCol.Name = "phoneCol";
-            this.phoneCol.ReadOnly = true;
+            this.phone.DataPropertyName = "phone";
+            this.phone.HeaderText = "Phone";
+            this.phone.Name = "phone";
+            this.phone.ReadOnly = true;
             // 
-            // addressCol
+            // address
             // 
-            this.addressCol.DataPropertyName = "address";
-            this.addressCol.HeaderText = "Address";
-            this.addressCol.Name = "addressCol";
-            this.addressCol.ReadOnly = true;
+            this.address.DataPropertyName = "address";
+            this.address.HeaderText = "Address";
+            this.address.Name = "address";
+            this.address.ReadOnly = true;
             // 
             // avatarImg
             // 
@@ -234,12 +235,21 @@ namespace std_management
             this.avatarURLCol.ReadOnly = true;
             this.avatarURLCol.Visible = false;
             // 
+            // studentTableLoadingProgress
+            // 
+            this.studentTableLoadingProgress.Location = new System.Drawing.Point(733, 603);
+            this.studentTableLoadingProgress.Name = "studentTableLoadingProgress";
+            this.studentTableLoadingProgress.Size = new System.Drawing.Size(128, 20);
+            this.studentTableLoadingProgress.Step = 1;
+            this.studentTableLoadingProgress.TabIndex = 14;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(875, 581);
+            this.ClientSize = new System.Drawing.Size(875, 635);
+            this.Controls.Add(this.studentTableLoadingProgress);
             this.Controls.Add(this.studentTableData);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.toolStrip1);
@@ -268,14 +278,15 @@ namespace std_management
         private System.Windows.Forms.ToolStripMenuItem editRemoveStudentToolStripMenuItem;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.DataGridView studentTableData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Birthdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genderCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birth_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewImageColumn avatarImg;
         private System.Windows.Forms.DataGridViewTextBoxColumn avatarURLCol;
+        private System.Windows.Forms.ProgressBar studentTableLoadingProgress;
     }
 }

@@ -15,8 +15,10 @@ namespace std_management
     public partial class EditStudentForm : Form
     {
         public event OnClose OnClose;
-        public EditStudentForm()
+        public StudentEntity student; 
+        public EditStudentForm(StudentEntity student)
         {
+            this.student = student;
             InitializeComponent();
         }
 
@@ -24,6 +26,17 @@ namespace std_management
         {
             birthdateDatePicker.Format = DateTimePickerFormat.Custom;
             birthdateDatePicker.CustomFormat = "MM/dd/yyyy";
+
+            // Init components data
+            this.firstNameTextBox.Text = student.first_name;
+            this.lastNameTextBox.Text = student.last_name;
+            this.birthdateDatePicker.Value = DateTime.Parse(student.birthdate);
+            this.maleRadio.Checked = student.gender == StudentEntity.GenderType.Male.ToString();
+            this.famaleRadio.Checked = student.gender == StudentEntity.GenderType.Famale.ToString();
+            this.phoneTextBox.Text = student.phone;
+            this.addressTextbox.Text = student.address;
+            if (student.avatar.Length > 0)
+                this.avatarPicture.Image = Helper.GetImageFromUrl(student.avatar);
         }
 
         private void uploadAvatarButton_Click(object sender, EventArgs e)
@@ -62,26 +75,29 @@ namespace std_management
                 return;
             }
 
-            StudentEntity student = new StudentEntity();
-            student
-               .setFirstName(this.firstNameTextBox.Text)
-               .setLastName(this.lastNameTextBox.Text)
-               .setBirthdate(this.birthdateDatePicker.Value)
-               .setPhone(this.phoneTextBox.Text)
-               .setAddress(this.addressTextbox.Text)
-               .setAvatar("https://cdn-icons-png.flaticon.com/128/149/149071.png");
-            if (this.maleRadio.Checked)
-                student.setGender(StudentEntity.GenderType.Male);
-            if (this.famaleRadio.Checked)
-                student.setGender(StudentEntity.GenderType.Famale);
-            SQLHandler sqlHandler = new SQLHandler();
 
             Thread thr = new Thread(() =>
             {
+
+                int stdId = this.student.id;
+                StudentEntity student = new StudentEntity();
+                student
+                   .setFirstName(this.firstNameTextBox.Text)
+                   .setLastName(this.lastNameTextBox.Text)
+                   .setBirthdate(this.birthdateDatePicker.Value)
+                   .setPhone(this.phoneTextBox.Text)
+                   .setAddress(this.addressTextbox.Text)
+                   .setAvatar("https://cdn-icons-png.flaticon.com/128/149/149071.png");
+                if (this.maleRadio.Checked)
+                    student.setGender(StudentEntity.GenderType.Male);
+                if (this.famaleRadio.Checked)
+                    student.setGender(StudentEntity.GenderType.Famale);
+                SQLHandler sqlHandler = new SQLHandler();
+
                 Cursor.Current = Cursors.WaitCursor;
-                sqlHandler.createStudentSQL(student);
+                sqlHandler.updateStudentSQL(stdId ,student);
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show("Add student successfully!", "Success");
+                MessageBox.Show("Update student successfully!", "Update success");
                 this.closeDialog();
             });
 
@@ -157,8 +173,9 @@ namespace std_management
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+
             SQLHandler sqlHandler = new SQLHandler();
-            sqlHandler.deleteStudentByIdSQL();
+            sqlHandler.deleteStudentByIdSQL(student.id);
         }
     }
 }

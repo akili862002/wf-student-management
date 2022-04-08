@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Threading;
@@ -11,17 +12,13 @@ namespace std_management
     {
         public delegate void UpdateDataHandler();
         public delegate void OnClose();
+
         public DashboardForm()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
-            using (AddStudentForm addStudentForm = new AddStudentForm())
-            {
-                // addStudentForm.ShowDialog();
-            }
-
         }
-      
+
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
@@ -30,13 +27,18 @@ namespace std_management
 
         private void LoadDataForStudentTable(string searchText = "")
         {
-            SQLHandler sqlHandler = new SQLHandler();
-            DataTable dt = new DataTable();
-            sqlHandler.getAllStudentsAdapter(searchText).Fill(dt);
-            this.Invoke(new MethodInvoker(delegate
+            new Thread(() =>
             {
-                this.studentTableData.DataSource = dt;
-            }));
+                this.studentTableLoadingProgress.Value = 20;
+                SQLHandler sqlHandler = new SQLHandler();
+                DataTable dt = new DataTable();
+                sqlHandler.getAllStudentsAdapter(searchText).Fill(dt);
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    this.studentTableData.DataSource = dt;
+                }));
+                this.studentTableLoadingProgress.Value = 100;
+            }).Start();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -87,7 +89,24 @@ namespace std_management
 
         private void editRemoveStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (EditStudentForm editStudentForm = new EditStudentForm())
+
+            int currentIndex = this.studentTableData.CurrentCell.RowIndex;
+            if (currentIndex < 0) return;
+
+            DataGridViewRow row = this.studentTableData.Rows[currentIndex];
+            StudentEntity student = new StudentEntity();
+            student
+            .setId(Int32.Parse(row.Cells["id"].Value.ToString()))
+            .setFirstName(row.Cells["first_name"].Value.ToString())
+            .setLastName(row.Cells["last_name"].Value.ToString())
+            .setBirthdate(DateTime.Parse(row.Cells["birth_date"].Value.ToString()))
+            .setPhone(row.Cells["phone"].Value.ToString())
+            .setGender(row.Cells["gender"].Value.ToString() == "Male" ? StudentEntity.GenderType.Male : StudentEntity.GenderType.Famale)
+            .setAddress(row.Cells["address"].Value.ToString())
+            .setAvatar(row.Cells["avatarURLCol"].Value.ToString());
+
+
+            using (EditStudentForm editStudentForm = new EditStudentForm(student))
             {
                 editStudentForm.OnClose += () =>
                 {

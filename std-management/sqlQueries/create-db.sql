@@ -4,6 +4,14 @@ GO
 
 USE students_db
 
+CREATE TABLE users (
+	username VARCHAR(100) NOT NULL PRIMARY KEY,
+	password VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL
+)
+
+insert into users (username, password, email) values ('admin123', 'admin123', 'admin123@gmail.com')
+
 CREATE TABLE students (
 	id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	first_name VARCHAR(50),

@@ -22,7 +22,9 @@ namespace std_management
         {
             string username = this.usernameTextbox.Text;
             string password = this.passwordTextBox.Text;
-            if (username !="surtin" || password != "surtin")
+            SQLHandler sqlHanlder = new SQLHandler();
+
+            if (!sqlHanlder.login(username, password))
             {
                 MessageBox.Show("Username or password is not correct!", "Login error");
                 return;

@@ -155,6 +155,10 @@ namespace std_management
             errorProviderAddress.SetError(addressTextbox, "");
         }
 
-        
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            SQLHandler sqlHandler = new SQLHandler();
+            sqlHandler.deleteStudentByIdSQL();
+        }
     }
 }

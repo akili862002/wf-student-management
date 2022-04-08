@@ -92,6 +92,7 @@ namespace std_management
             this.deleteButton.TabIndex = 24;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // upateButton
             // 

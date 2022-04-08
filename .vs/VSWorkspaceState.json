@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\std-management"
   ],
-  "SelectedNode": "\\std-management.sln",
+  "SelectedNode": "\\std-management\\Dashboard.cs",
   "PreviewInSolutionExplorer": false
 }

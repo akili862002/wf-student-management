@@ -240,7 +240,7 @@ namespace std_management
             // 
             this.lastnameLabel.AutoSize = true;
             this.lastnameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastnameLabel.Location = new System.Drawing.Point(180, 78);
+            this.lastnameLabel.Location = new System.Drawing.Point(245, 78);
             this.lastnameLabel.Name = "lastnameLabel";
             this.lastnameLabel.Size = new System.Drawing.Size(88, 23);
             this.lastnameLabel.TabIndex = 30;
@@ -251,10 +251,10 @@ namespace std_management
             this.lastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lastNameTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(184, 105);
+            this.lastNameTextBox.Location = new System.Drawing.Point(249, 105);
             this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(267, 30);
+            this.lastNameTextBox.Size = new System.Drawing.Size(202, 30);
             this.lastNameTextBox.TabIndex = 29;
             this.lastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastNameTextBox_Validating);
             // 
@@ -284,7 +284,7 @@ namespace std_management
             this.firstNameTextBox.Location = new System.Drawing.Point(15, 105);
             this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(163, 30);
+            this.firstNameTextBox.Size = new System.Drawing.Size(228, 30);
             this.firstNameTextBox.TabIndex = 26;
             this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validating);
             // 

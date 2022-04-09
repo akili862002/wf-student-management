@@ -40,8 +40,9 @@ namespace std_management
             this.label2 = new System.Windows.Forms.Label();
             this.registerLabel = new System.Windows.Forms.Label();
             this.dividerLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.registerTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,6 +145,7 @@ namespace std_management
             this.registerLabel.Size = new System.Drawing.Size(110, 23);
             this.registerLabel.TabIndex = 10;
             this.registerLabel.Text = "Register now";
+            this.registerLabel.Click += new System.EventHandler(this.registerLabel_Click);
             // 
             // dividerLabel
             // 
@@ -156,6 +158,10 @@ namespace std_management
             this.dividerLabel.Size = new System.Drawing.Size(356, 1);
             this.dividerLabel.TabIndex = 11;
             // 
+            // registerTooltip
+            // 
+            this.registerTooltip.ToolTipTitle = "Register";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::std_management.Properties.Resources.casle;
@@ -167,9 +173,16 @@ namespace std_management
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // registerTooltip
+            // label3
             // 
-            this.registerTooltip.ToolTipTitle = "Register";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label3.Location = new System.Drawing.Point(12, 430);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(165, 19);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Created by Dung Nguyen";
             // 
             // LoginForm
             // 
@@ -177,6 +190,7 @@ namespace std_management
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(779, 459);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dividerLabel);
             this.Controls.Add(this.registerLabel);
             this.Controls.Add(this.label2);
@@ -213,6 +227,7 @@ namespace std_management
         private System.Windows.Forms.Label dividerLabel;
         private System.Windows.Forms.Label registerLabel;
         private System.Windows.Forms.ToolTip registerTooltip;
+        private System.Windows.Forms.Label label3;
     }
 }
 

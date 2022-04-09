@@ -49,6 +49,7 @@ namespace std_management
             this.avatarImg = new System.Windows.Forms.DataGridViewImageColumn();
             this.avatarURLCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentTableLoadingProgress = new System.Windows.Forms.ProgressBar();
+            this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).BeginInit();
             this.SuspendLayout();
@@ -57,10 +58,10 @@ namespace std_management
             // 
             this.searchTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(17, 88);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.searchTextBox.Location = new System.Drawing.Point(23, 108);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(187, 26);
+            this.searchTextBox.Size = new System.Drawing.Size(248, 30);
             this.searchTextBox.TabIndex = 2;
             this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
             // 
@@ -70,11 +71,11 @@ namespace std_management
             this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(214, 86);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.searchButton.Location = new System.Drawing.Point(285, 106);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchButton.Name = "searchButton";
             this.searchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.searchButton.Size = new System.Drawing.Size(57, 30);
+            this.searchButton.Size = new System.Drawing.Size(76, 37);
             this.searchButton.TabIndex = 9;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
@@ -84,10 +85,9 @@ namespace std_management
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(11, 38);
-            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.loginLabel.Location = new System.Drawing.Point(15, 47);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(260, 32);
+            this.loginLabel.Size = new System.Drawing.Size(322, 41);
             this.loginLabel.TabIndex = 10;
             this.loginLabel.Text = "Student management";
             // 
@@ -98,7 +98,7 @@ namespace std_management
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(875, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1167, 27);
             this.toolStrip1.TabIndex = 11;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -107,24 +107,25 @@ namespace std_management
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addStudentsToolStripMenuItem,
-            this.editRemoveStudentToolStripMenuItem});
+            this.editRemoveStudentToolStripMenuItem,
+            this.statisticToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(47, 22);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(58, 24);
             this.toolStripDropDownButton1.Text = "Tools";
             // 
             // addStudentsToolStripMenuItem
             // 
             this.addStudentsToolStripMenuItem.Name = "addStudentsToolStripMenuItem";
-            this.addStudentsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.addStudentsToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.addStudentsToolStripMenuItem.Text = "Add student";
             this.addStudentsToolStripMenuItem.Click += new System.EventHandler(this.addStudentsToolStripMenuItem_Click);
             // 
             // editRemoveStudentToolStripMenuItem
             // 
             this.editRemoveStudentToolStripMenuItem.Name = "editRemoveStudentToolStripMenuItem";
-            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.editRemoveStudentToolStripMenuItem.Text = "Edit/Remove student";
             this.editRemoveStudentToolStripMenuItem.Click += new System.EventHandler(this.editRemoveStudentToolStripMenuItem_Click);
             // 
@@ -135,11 +136,11 @@ namespace std_management
             this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.refreshButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshButton.Location = new System.Drawing.Point(775, 86);
-            this.refreshButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.refreshButton.Location = new System.Drawing.Point(1033, 106);
+            this.refreshButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.refreshButton.Size = new System.Drawing.Size(86, 30);
+            this.refreshButton.Size = new System.Drawing.Size(115, 37);
             this.refreshButton.TabIndex = 12;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = false;
@@ -162,9 +163,11 @@ namespace std_management
             this.address,
             this.avatarImg,
             this.avatarURLCol});
-            this.studentTableData.Location = new System.Drawing.Point(17, 132);
+            this.studentTableData.Location = new System.Drawing.Point(23, 162);
+            this.studentTableData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.studentTableData.Name = "studentTableData";
-            this.studentTableData.Size = new System.Drawing.Size(844, 461);
+            this.studentTableData.RowHeadersWidth = 51;
+            this.studentTableData.Size = new System.Drawing.Size(1125, 567);
             this.studentTableData.TabIndex = 13;
             this.studentTableData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentTableData_CellFormatting);
             // 
@@ -172,83 +175,109 @@ namespace std_management
             // 
             this.id.DataPropertyName = "id";
             this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.Width = 125;
             // 
             // first_name
             // 
             this.first_name.DataPropertyName = "first_name";
             this.first_name.HeaderText = "First name";
+            this.first_name.MinimumWidth = 6;
             this.first_name.Name = "first_name";
             this.first_name.ReadOnly = true;
+            this.first_name.Width = 125;
             // 
             // last_name
             // 
             this.last_name.DataPropertyName = "last_name";
             this.last_name.HeaderText = "Last name";
+            this.last_name.MinimumWidth = 6;
             this.last_name.Name = "last_name";
             this.last_name.ReadOnly = true;
+            this.last_name.Width = 125;
             // 
             // birth_date
             // 
             this.birth_date.DataPropertyName = "birthdate";
             this.birth_date.HeaderText = "Birthdate";
+            this.birth_date.MinimumWidth = 6;
             this.birth_date.Name = "birth_date";
             this.birth_date.ReadOnly = true;
+            this.birth_date.Width = 125;
             // 
             // gender
             // 
             this.gender.DataPropertyName = "gender";
             this.gender.HeaderText = "Gender";
+            this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
+            this.gender.Width = 125;
             // 
             // phone
             // 
             this.phone.DataPropertyName = "phone";
             this.phone.HeaderText = "Phone";
+            this.phone.MinimumWidth = 6;
             this.phone.Name = "phone";
             this.phone.ReadOnly = true;
+            this.phone.Width = 125;
             // 
             // address
             // 
             this.address.DataPropertyName = "address";
             this.address.HeaderText = "Address";
+            this.address.MinimumWidth = 6;
             this.address.Name = "address";
             this.address.ReadOnly = true;
+            this.address.Width = 125;
             // 
             // avatarImg
             // 
             this.avatarImg.DataPropertyName = "avatarImg";
             this.avatarImg.HeaderText = "Avatar";
             this.avatarImg.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.avatarImg.MinimumWidth = 6;
             this.avatarImg.Name = "avatarImg";
             this.avatarImg.ReadOnly = true;
             this.avatarImg.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.avatarImg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.avatarImg.Width = 125;
             // 
             // avatarURLCol
             // 
             this.avatarURLCol.DataPropertyName = "avatar";
             this.avatarURLCol.HeaderText = "AvatarURL";
+            this.avatarURLCol.MinimumWidth = 6;
             this.avatarURLCol.Name = "avatarURLCol";
             this.avatarURLCol.ReadOnly = true;
             this.avatarURLCol.Visible = false;
+            this.avatarURLCol.Width = 125;
             // 
             // studentTableLoadingProgress
             // 
-            this.studentTableLoadingProgress.Location = new System.Drawing.Point(733, 603);
+            this.studentTableLoadingProgress.Location = new System.Drawing.Point(977, 742);
+            this.studentTableLoadingProgress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.studentTableLoadingProgress.Name = "studentTableLoadingProgress";
-            this.studentTableLoadingProgress.Size = new System.Drawing.Size(128, 20);
+            this.studentTableLoadingProgress.Size = new System.Drawing.Size(171, 25);
             this.studentTableLoadingProgress.Step = 1;
             this.studentTableLoadingProgress.TabIndex = 14;
             // 
+            // statisticToolStripMenuItem
+            // 
+            this.statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
+            this.statisticToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.statisticToolStripMenuItem.Text = "Statistic";
+            this.statisticToolStripMenuItem.Click += new System.EventHandler(this.statisticToolStripMenuItem_Click);
+            // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(875, 635);
+            this.ClientSize = new System.Drawing.Size(1167, 782);
             this.Controls.Add(this.studentTableLoadingProgress);
             this.Controls.Add(this.studentTableData);
             this.Controls.Add(this.refreshButton);
@@ -256,6 +285,7 @@ namespace std_management
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -288,5 +318,6 @@ namespace std_management
         private System.Windows.Forms.DataGridViewImageColumn avatarImg;
         private System.Windows.Forms.DataGridViewTextBoxColumn avatarURLCol;
         private System.Windows.Forms.ProgressBar studentTableLoadingProgress;
+        private System.Windows.Forms.ToolStripMenuItem statisticToolStripMenuItem;
     }
 }

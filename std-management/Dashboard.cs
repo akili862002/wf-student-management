@@ -116,5 +116,13 @@ namespace std_management
                 editStudentForm.ShowDialog();
             }
         }
+
+        private void statisticToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (StatisticForm statisticForm = new StatisticForm())
+            {
+                statisticForm.ShowDialog();
+            }
+        }
     }
 }

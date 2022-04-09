@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\std-management"
   ],
-  "SelectedNode": "\\std-management.sln",
+  "SelectedNode": "\\std-management\\SQLHandler.cs",
   "PreviewInSolutionExplorer": false
 }

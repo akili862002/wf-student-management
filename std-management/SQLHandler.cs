@@ -6,7 +6,8 @@ namespace std_management
 {
     class SQLHandler
     {
-        public string sqlConnectionString = "Server=MAY-28\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
+        //public string sqlConnectionString = "Server=MAY-28\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
+        public string sqlConnectionString = "Server=LAPTOP-O95Q52JL\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
 
         public bool login(string username, string password)
         {
@@ -21,6 +22,34 @@ namespace std_management
                     command.CommandText = "SELECT * FROM users WHERE username = @username AND password = @password";
                     command.Parameters.Add("@username", username);
                     command.Parameters.Add("@password", password);
+                    SqlDataReader dr = command.ExecuteReader();
+                    return dr.HasRows;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+            connection.Close();
+            return false;
+        }
+
+        public bool checkExistUsername(string username)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            connection.Open();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                try
+                {
+                    command.CommandText = "SELECT * FROM users WHERE username = @username";
+                    command.Parameters.Add("@username", username);
                     SqlDataReader dr = command.ExecuteReader();
                     return dr.HasRows;
                 }
@@ -54,8 +83,7 @@ namespace std_management
 
                     Console.WriteLine(command.CommandText);
 
-                    var stdId = command.ExecuteScalar();
-                    Console.WriteLine("New Student", stdId);
+                    command.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
@@ -181,6 +209,37 @@ namespace std_management
             {
                 command.CommandText = String.Format($"DELETE FROM Students WHERE id = {id}");
                 command.ExecuteNonQuery();
+            }
+            connection.Close();
+            Cursor.Current = Cursors.Default;
+        }
+
+        public int countTotalStudents()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            connection.Open();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) FROM students";
+                int totalCount = (Int32)command.ExecuteScalar();
+                return totalCount;
+            }
+            connection.Close();
+            Cursor.Current = Cursors.Default;
+        }
+        public int countTotalStudentsByGender(bool isMale)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            connection.Open();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                string gender = isMale ? "Male" : "Female";
+                command.CommandText = $"SELECT COUNT(*) FROM students WHERE gender = '{gender}'";
+
+                int totalCount = (Int32)command.ExecuteScalar();
+                return totalCount;
             }
             connection.Close();
             Cursor.Current = Cursors.Default;

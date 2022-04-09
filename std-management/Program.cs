@@ -17,7 +17,6 @@ namespace std_management
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //  Application.Run(new LoginForm());
-            /**
              using (LoginForm loginForm = new LoginForm())
              {
                  if (loginForm.ShowDialog() == DialogResult.OK)
@@ -25,8 +24,6 @@ namespace std_management
                      Application.Run(new DashboardForm());
                  }
              }
-            **/
-            Application.Run(new RegisterForm());
         }
     }
 }

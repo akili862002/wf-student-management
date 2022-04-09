@@ -32,5 +32,16 @@ namespace std_management
 
             this.DialogResult = DialogResult.OK;
         }
+
+        private void registerLabel_Click(object sender, EventArgs e)
+        {
+            using (RegisterForm registerForm = new RegisterForm())
+            {
+                if (registerForm.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
     }
 }

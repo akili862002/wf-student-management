@@ -134,7 +134,6 @@ namespace std_management
         }
 
 
-        #endregion
 
         private void phoneTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -171,11 +170,17 @@ namespace std_management
             errorProviderAddress.SetError(addressTextbox, "");
         }
 
+        #endregion
+
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
-            SQLHandler sqlHandler = new SQLHandler();
-            sqlHandler.deleteStudentByIdSQL(student.id);
+            new Thread(() =>
+            {
+                SQLHandler sqlHandler = new SQLHandler();
+                sqlHandler.deleteStudentByIdSQL(student.id);
+                MessageBox.Show("Delete student successfully!", "Success!");
+                this.closeDialog();
+            }).Start();
         }
     }
 }

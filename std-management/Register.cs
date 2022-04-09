@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace std_management
 {
     public partial class RegisterForm : Form
     {
+        bool isValidUsername = false;
         public RegisterForm()
         {
             InitializeComponent();
@@ -82,7 +78,7 @@ namespace std_management
 
         private void confirmPasswordTextBox_Validating(object sender, CancelEventArgs e)
         {
-            if (passwordTextBox.Text != confirmPasswordTextBox.Text)
+            if (!string.IsNullOrEmpty(confirmPasswordTextBox.Text) && passwordTextBox.Text != confirmPasswordTextBox.Text)
             {
                 e.Cancel = true;
                 confirmPasswordTextBox.Focus();
@@ -93,13 +89,43 @@ namespace std_management
             errorProviderConfirmPassword.SetError(confirmPasswordTextBox, "");
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void registerButton_Click(object sender, EventArgs e)
         {
-            if (!ValidateChildren(ValidationConstraints.Enabled))
+            this.validateUsername();
+            if (!ValidateChildren(ValidationConstraints.Enabled) || !this.isValidUsername)
             {
                 return;
             }
+            new Thread(() =>
+            {
+                SQLHandler sqlHandler = new SQLHandler();
+                string username = usernameTextbox.Text;
+                string password = passwordTextBox.Text;
+                string email = emailTextBox.Text;
+                sqlHandler.register(username, password, email);
+                MessageBox.Show("Register successfully!\nYour account was created. Please login", "Register success");
+                this.DialogResult = DialogResult.OK;
+            }).Start();
+        }
 
+        private bool validateUsername ()
+        {
+            SQLHandler sqlHanlder = new SQLHandler();
+            if (sqlHanlder.checkExistUsername(usernameTextbox.Text))
+            {
+                this.isValidUsername = false;
+                usernameTextbox.Focus();
+                errorProviderUsername.SetError(usernameTextbox, $"Username was used!\nPlease try another one!");
+                return false;
+            }
+            this.isValidUsername = true;
+            errorProviderUsername.SetError(confirmPasswordTextBox, "");
+            return true;
+        }
+
+        private void usernameTextbox_MouseLeave(object sender, EventArgs e)
+        {
+            this.validateUsername();
         }
     }
 }

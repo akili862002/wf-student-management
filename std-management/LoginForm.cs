@@ -43,5 +43,10 @@ namespace std_management
                 }
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

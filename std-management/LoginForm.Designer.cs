@@ -54,7 +54,7 @@ namespace std_management
             this.usernameTextbox.Location = new System.Drawing.Point(337, 176);
             this.usernameTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usernameTextbox.Name = "usernameTextbox";
-            this.usernameTextbox.Size = new System.Drawing.Size(415, 30);
+            this.usernameTextbox.Size = new System.Drawing.Size(347, 30);
             this.usernameTextbox.TabIndex = 0;
             // 
             // usernameLabel
@@ -86,7 +86,7 @@ namespace std_management
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(415, 30);
+            this.passwordTextBox.Size = new System.Drawing.Size(347, 30);
             this.passwordTextBox.TabIndex = 2;
             // 
             // loginLabel
@@ -119,7 +119,7 @@ namespace std_management
             this.loginButton.Location = new System.Drawing.Point(335, 283);
             this.loginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(417, 39);
+            this.loginButton.Size = new System.Drawing.Size(349, 39);
             this.loginButton.TabIndex = 8;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -129,18 +129,19 @@ namespace std_management
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(385, 378);
+            this.label2.Location = new System.Drawing.Point(364, 377);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 20);
             this.label2.TabIndex = 9;
             this.label2.Text = "Don\'t have any account?";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // registerLabel
             // 
             this.registerLabel.AutoSize = true;
             this.registerLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registerLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerLabel.Location = new System.Drawing.Point(567, 374);
+            this.registerLabel.Location = new System.Drawing.Point(540, 374);
             this.registerLabel.Name = "registerLabel";
             this.registerLabel.Size = new System.Drawing.Size(110, 23);
             this.registerLabel.TabIndex = 10;
@@ -155,7 +156,7 @@ namespace std_management
             this.dividerLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.dividerLabel.Location = new System.Drawing.Point(368, 357);
             this.dividerLabel.Name = "dividerLabel";
-            this.dividerLabel.Size = new System.Drawing.Size(356, 1);
+            this.dividerLabel.Size = new System.Drawing.Size(288, 1);
             this.dividerLabel.TabIndex = 11;
             // 
             // registerTooltip
@@ -189,7 +190,7 @@ namespace std_management
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(779, 459);
+            this.ClientSize = new System.Drawing.Size(711, 459);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dividerLabel);
             this.Controls.Add(this.registerLabel);

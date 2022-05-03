@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace std_management
 {
-    public partial class LoadingForm : Form
+    public partial class PrintCourseForm : Form
     {
-        public LoadingForm()
+        public PrintCourseForm()
         {
             InitializeComponent();
         }

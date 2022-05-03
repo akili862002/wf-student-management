@@ -124,5 +124,49 @@ namespace std_management
                 statisticForm.ShowDialog();
             }
         }
+
+        private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AddNewCourseForm addNewCourseForm = new AddNewCourseForm())
+            {
+                addNewCourseForm.ShowDialog();
+            }
+        }
+
+        private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (DeleteCourseForm deleteCourseForm = new DeleteCourseForm())
+            {
+                deleteCourseForm.ShowDialog();
+            }
+        }
+
+        private void editCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (EditCourseForm editCourseForm = new EditCourseForm())
+            {
+                editCourseForm.ShowDialog();
+            }
+        }
+
+        private void manageCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ManagerCourseForm managerCourseForm = new ManagerCourseForm())
+            {
+                managerCourseForm.OnClose += () =>
+                {
+                    this.LoadDataForStudentTable();
+                };
+                managerCourseForm.ShowDialog();
+            }
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (PrintCourseForm printCourseForm = new PrintCourseForm())
+            {
+                printCourseForm.ShowDialog();
+            }
+        }
     }
 }

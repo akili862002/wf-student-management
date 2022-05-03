@@ -1,5 +1,5 @@
 
-CREATE DATABASE students
+CREATE DATABASE students_db
 GO
 
 USE students_db

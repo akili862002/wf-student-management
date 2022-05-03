@@ -38,6 +38,12 @@ namespace std_management
             this.addStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshButton = new System.Windows.Forms.Button();
             this.studentTableData = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +56,12 @@ namespace std_management
             this.avatarImg = new System.Windows.Forms.DataGridViewImageColumn();
             this.avatarURLCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentTableLoadingProgress = new System.Windows.Forms.ProgressBar();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.addCourseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.managerScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avgScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).BeginInit();
             this.SuspendLayout();
@@ -58,10 +70,10 @@ namespace std_management
             // 
             this.searchTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(23, 108);
+            this.searchTextBox.Location = new System.Drawing.Point(20, 110);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(248, 30);
+            this.searchTextBox.Size = new System.Drawing.Size(218, 30);
             this.searchTextBox.TabIndex = 2;
             this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
             // 
@@ -71,11 +83,11 @@ namespace std_management
             this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(285, 106);
+            this.searchButton.Location = new System.Drawing.Point(249, 108);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchButton.Name = "searchButton";
             this.searchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.searchButton.Size = new System.Drawing.Size(76, 37);
+            this.searchButton.Size = new System.Drawing.Size(66, 32);
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
@@ -85,7 +97,7 @@ namespace std_management
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(15, 47);
+            this.loginLabel.Location = new System.Drawing.Point(13, 42);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(322, 41);
             this.loginLabel.TabIndex = 1;
@@ -95,10 +107,12 @@ namespace std_management
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripDropDownButton2,
+            this.toolStripDropDownButton3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1098, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1095, 27);
             this.toolStrip1.TabIndex = 11;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -136,6 +150,56 @@ namespace std_management
             this.statisticToolStripMenuItem.Text = "Statistic";
             this.statisticToolStripMenuItem.Click += new System.EventHandler(this.statisticToolStripMenuItem_Click);
             // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCourseToolStripMenuItem,
+            this.removeCourseToolStripMenuItem,
+            this.editCourseToolStripMenuItem,
+            this.manageCourseToolStripMenuItem,
+            this.printToolStripMenuItem});
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(74, 24);
+            this.toolStripDropDownButton2.Text = "Courses";
+            // 
+            // addCourseToolStripMenuItem
+            // 
+            this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
+            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addCourseToolStripMenuItem.Text = "Add course";
+            this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
+            // 
+            // removeCourseToolStripMenuItem
+            // 
+            this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeCourseToolStripMenuItem.Text = "Remove course";
+            this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
+            // 
+            // editCourseToolStripMenuItem
+            // 
+            this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
+            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.editCourseToolStripMenuItem.Text = "Edit course";
+            this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
+            // 
+            // manageCourseToolStripMenuItem
+            // 
+            this.manageCourseToolStripMenuItem.Name = "manageCourseToolStripMenuItem";
+            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.manageCourseToolStripMenuItem.Text = "Manage course";
+            this.manageCourseToolStripMenuItem.Click += new System.EventHandler(this.manageCourseToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
             // refreshButton
             // 
             this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -143,11 +207,11 @@ namespace std_management
             this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.refreshButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshButton.Location = new System.Drawing.Point(964, 106);
+            this.refreshButton.Location = new System.Drawing.Point(977, 108);
             this.refreshButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.refreshButton.Size = new System.Drawing.Size(115, 37);
+            this.refreshButton.Size = new System.Drawing.Size(101, 30);
             this.refreshButton.TabIndex = 5;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = false;
@@ -170,11 +234,11 @@ namespace std_management
             this.address,
             this.avatarImg,
             this.avatarURLCol});
-            this.studentTableData.Location = new System.Drawing.Point(23, 162);
+            this.studentTableData.Location = new System.Drawing.Point(20, 158);
             this.studentTableData.Margin = new System.Windows.Forms.Padding(4);
             this.studentTableData.Name = "studentTableData";
             this.studentTableData.RowHeadersWidth = 51;
-            this.studentTableData.Size = new System.Drawing.Size(1056, 567);
+            this.studentTableData.Size = new System.Drawing.Size(1058, 372);
             this.studentTableData.TabIndex = 13;
             this.studentTableData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentTableData_CellFormatting);
             // 
@@ -265,19 +329,65 @@ namespace std_management
             // 
             // studentTableLoadingProgress
             // 
-            this.studentTableLoadingProgress.Location = new System.Drawing.Point(908, 744);
+            this.studentTableLoadingProgress.Location = new System.Drawing.Point(794, 538);
             this.studentTableLoadingProgress.Margin = new System.Windows.Forms.Padding(4);
             this.studentTableLoadingProgress.Name = "studentTableLoadingProgress";
-            this.studentTableLoadingProgress.Size = new System.Drawing.Size(171, 25);
+            this.studentTableLoadingProgress.Size = new System.Drawing.Size(150, 27);
             this.studentTableLoadingProgress.Step = 1;
             this.studentTableLoadingProgress.TabIndex = 14;
             // 
+            // toolStripDropDownButton3
+            // 
+            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCourseToolStripMenuItem1,
+            this.removeScoreToolStripMenuItem,
+            this.managerScoreToolStripMenuItem,
+            this.avgScoreToolStripMenuItem,
+            this.printResultToolStripMenuItem});
+            this.toolStripDropDownButton3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(60, 24);
+            this.toolStripDropDownButton3.Text = "Score";
+            // 
+            // addCourseToolStripMenuItem1
+            // 
+            this.addCourseToolStripMenuItem1.Name = "addCourseToolStripMenuItem1";
+            this.addCourseToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.addCourseToolStripMenuItem1.Text = "Add score";
+            // 
+            // removeScoreToolStripMenuItem
+            // 
+            this.removeScoreToolStripMenuItem.Name = "removeScoreToolStripMenuItem";
+            this.removeScoreToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeScoreToolStripMenuItem.Text = "Remove score";
+            // 
+            // managerScoreToolStripMenuItem
+            // 
+            this.managerScoreToolStripMenuItem.Name = "managerScoreToolStripMenuItem";
+            this.managerScoreToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.managerScoreToolStripMenuItem.Text = "Manager score";
+            // 
+            // avgScoreToolStripMenuItem
+            // 
+            this.avgScoreToolStripMenuItem.Name = "avgScoreToolStripMenuItem";
+            this.avgScoreToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.avgScoreToolStripMenuItem.Text = "Avg score";
+            // 
+            // printResultToolStripMenuItem
+            // 
+            this.printResultToolStripMenuItem.Name = "printResultToolStripMenuItem";
+            this.printResultToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.printResultToolStripMenuItem.Text = "Print result";
+            // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1098, 782);
+            this.ClientSize = new System.Drawing.Size(1095, 578);
             this.Controls.Add(this.studentTableLoadingProgress);
             this.Controls.Add(this.studentTableData);
             this.Controls.Add(this.refreshButton);
@@ -285,6 +395,7 @@ namespace std_management
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
+            this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -319,5 +430,17 @@ namespace std_management
         private System.Windows.Forms.DataGridViewTextBoxColumn avatarURLCol;
         private System.Windows.Forms.ProgressBar studentTableLoadingProgress;
         private System.Windows.Forms.ToolStripMenuItem statisticToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripMenuItem addCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
+        private System.Windows.Forms.ToolStripMenuItem addCourseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem removeScoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem managerScoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem avgScoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printResultToolStripMenuItem;
     }
 }

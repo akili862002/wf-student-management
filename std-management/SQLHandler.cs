@@ -7,7 +7,7 @@ namespace std_management
     class SQLHandler
     {
         //public string sqlConnectionString = "Server=MAY-28\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
-        public string sqlConnectionString = "Server=LAPTOP-O95Q52JL\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
+        public string sqlConnectionString = "Server=COMPUTER;Database=students_db;Trusted_Connection=True;";
 
         public bool login(string username, string password)
         {

@@ -67,11 +67,11 @@
     <Compile Include="AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="ListStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="ListStudentForm.Designer.cs">
+      <DependentUpon>ListStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DeleteCourseForm.cs">
       <SubType>Form</SubType>
@@ -93,17 +93,35 @@
     </Compile>
     <Compile Include="Enitity.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagerCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManagerCourseForm.Designer.cs">
       <DependentUpon>ManagerCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageScoreForm.Designer.cs">
+      <DependentUpon>ManageScoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintCourseForm.cs">
       <SubType>Form</SubType>
@@ -119,7 +137,25 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemoveScoreFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveScoreFrom.Designer.cs">
+      <DependentUpon>RemoveScoreFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLHandler.cs" />
+    <Compile Include="StaticScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaticScoreForm.Designer.cs">
+      <DependentUpon>StaticScoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,8 +169,8 @@
     <EmbeddedResource Include="AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="ListStudentForm.resx">
+      <DependentUpon>ListStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteCourseForm.resx">
       <DependentUpon>DeleteCourseForm.cs</DependentUpon>
@@ -145,11 +181,20 @@
     <EmbeddedResource Include="EditStudentForm.resx">
       <DependentUpon>EditStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagerCourseForm.resx">
       <DependentUpon>ManagerCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageScoreForm.resx">
+      <DependentUpon>ManageScoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintCourseForm.resx">
       <DependentUpon>PrintCourseForm.cs</DependentUpon>
@@ -166,6 +211,15 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveScoreFrom.resx">
+      <DependentUpon>RemoveScoreFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaticScoreForm.resx">
+      <DependentUpon>StaticScoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticForm.resx">
       <DependentUpon>StatisticForm.cs</DependentUpon>
@@ -190,6 +244,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\graduated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\avatar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

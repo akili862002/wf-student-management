@@ -29,7 +29,6 @@ namespace std_management
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.loginButton = new System.Windows.Forms.Button();
             this.subtitleLabel = new System.Windows.Forms.Label();
             this.registerLabel = new System.Windows.Forms.Label();
@@ -41,16 +40,12 @@ namespace std_management
             this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.emailErrorLabel = new System.Windows.Forms.Label();
+            this.usernameErrorLabel = new System.Windows.Forms.Label();
+            this.passwordErorrLabel = new System.Windows.Forms.Label();
+            this.confirmPasswordErrorLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.errorProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderUsername = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderPassword = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderConfirmPassword = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsername)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // loginButton
@@ -59,10 +54,10 @@ namespace std_management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.loginButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(311, 367);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.loginButton.Location = new System.Drawing.Point(236, 359);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(344, 39);
+            this.loginButton.Size = new System.Drawing.Size(258, 32);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Register";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -73,9 +68,10 @@ namespace std_management
             this.subtitleLabel.AutoSize = true;
             this.subtitleLabel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subtitleLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.subtitleLabel.Location = new System.Drawing.Point(312, 59);
+            this.subtitleLabel.Location = new System.Drawing.Point(234, 48);
+            this.subtitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(123, 19);
+            this.subtitleLabel.Size = new System.Drawing.Size(104, 13);
             this.subtitleLabel.TabIndex = 18;
             this.subtitleLabel.Text = "Welcome, new guy";
             // 
@@ -83,9 +79,10 @@ namespace std_management
             // 
             this.registerLabel.AutoSize = true;
             this.registerLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerLabel.Location = new System.Drawing.Point(307, 20);
+            this.registerLabel.Location = new System.Drawing.Point(230, 16);
+            this.registerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.registerLabel.Name = "registerLabel";
-            this.registerLabel.Size = new System.Drawing.Size(134, 41);
+            this.registerLabel.Size = new System.Drawing.Size(108, 32);
             this.registerLabel.TabIndex = 17;
             this.registerLabel.Text = "Register";
             // 
@@ -93,9 +90,10 @@ namespace std_management
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(308, 213);
+            this.label1.Location = new System.Drawing.Point(232, 206);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 23);
+            this.label1.Size = new System.Drawing.Size(68, 19);
             this.label1.TabIndex = 15;
             this.label1.Text = "Password";
             // 
@@ -104,11 +102,11 @@ namespace std_management
             this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(312, 240);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.passwordTextBox.Location = new System.Drawing.Point(235, 228);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(341, 30);
+            this.passwordTextBox.Size = new System.Drawing.Size(257, 26);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
             // 
@@ -116,9 +114,10 @@ namespace std_management
             // 
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.Location = new System.Drawing.Point(308, 151);
+            this.usernameLabel.Location = new System.Drawing.Point(230, 140);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(87, 23);
+            this.usernameLabel.Size = new System.Drawing.Size(71, 19);
             this.usernameLabel.TabIndex = 13;
             this.usernameLabel.Text = "Username";
             // 
@@ -127,21 +126,23 @@ namespace std_management
             this.usernameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.usernameTextbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextbox.Location = new System.Drawing.Point(312, 177);
-            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.usernameTextbox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.usernameTextbox.Location = new System.Drawing.Point(233, 161);
+            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.usernameTextbox.Name = "usernameTextbox";
-            this.usernameTextbox.Size = new System.Drawing.Size(341, 30);
+            this.usernameTextbox.Size = new System.Drawing.Size(257, 26);
             this.usernameTextbox.TabIndex = 2;
-            this.usernameTextbox.MouseLeave += new System.EventHandler(this.usernameTextbox_MouseLeave);
+            this.usernameTextbox.Leave += new System.EventHandler(this.usernameTextbox_Leave);
             this.usernameTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.usernameTextbox_Validating);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(307, 282);
+            this.label2.Location = new System.Drawing.Point(230, 278);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 23);
+            this.label2.Size = new System.Drawing.Size(123, 19);
             this.label2.TabIndex = 21;
             this.label2.Text = "Confirm Password";
             // 
@@ -150,11 +151,11 @@ namespace std_management
             this.confirmPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.confirmPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmPasswordTextBox.Location = new System.Drawing.Point(311, 309);
-            this.confirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(233, 300);
+            this.confirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             this.confirmPasswordTextBox.PasswordChar = '*';
-            this.confirmPasswordTextBox.Size = new System.Drawing.Size(341, 30);
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(257, 26);
             this.confirmPasswordTextBox.TabIndex = 4;
             this.confirmPasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.confirmPasswordTextBox_Validating);
             // 
@@ -162,9 +163,10 @@ namespace std_management
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(308, 90);
+            this.label3.Location = new System.Drawing.Point(231, 73);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 23);
+            this.label3.Size = new System.Drawing.Size(43, 19);
             this.label3.TabIndex = 23;
             this.label3.Text = "Email";
             // 
@@ -173,46 +175,82 @@ namespace std_management
             this.emailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.Location = new System.Drawing.Point(311, 116);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.emailTextBox.Location = new System.Drawing.Point(233, 94);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(341, 30);
+            this.emailTextBox.Size = new System.Drawing.Size(257, 26);
             this.emailTextBox.TabIndex = 1;
             this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
+            // 
+            // emailErrorLabel
+            // 
+            this.emailErrorLabel.AutoSize = true;
+            this.emailErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.emailErrorLabel.Location = new System.Drawing.Point(232, 123);
+            this.emailErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.emailErrorLabel.Name = "emailErrorLabel";
+            this.emailErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.emailErrorLabel.TabIndex = 24;
+            this.emailErrorLabel.Text = "Error will be like this!";
+            // 
+            // usernameErrorLabel
+            // 
+            this.usernameErrorLabel.AutoSize = true;
+            this.usernameErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.usernameErrorLabel.Location = new System.Drawing.Point(233, 190);
+            this.usernameErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.usernameErrorLabel.Name = "usernameErrorLabel";
+            this.usernameErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.usernameErrorLabel.TabIndex = 25;
+            this.usernameErrorLabel.Text = "Error will be like this!";
+            // 
+            // passwordErorrLabel
+            // 
+            this.passwordErorrLabel.AutoSize = true;
+            this.passwordErorrLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordErorrLabel.ForeColor = System.Drawing.Color.Red;
+            this.passwordErorrLabel.Location = new System.Drawing.Point(234, 257);
+            this.passwordErorrLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.passwordErorrLabel.Name = "passwordErorrLabel";
+            this.passwordErorrLabel.Size = new System.Drawing.Size(115, 13);
+            this.passwordErorrLabel.TabIndex = 26;
+            this.passwordErorrLabel.Text = "Error will be like this!";
+            // 
+            // confirmPasswordErrorLabel
+            // 
+            this.confirmPasswordErrorLabel.AutoSize = true;
+            this.confirmPasswordErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPasswordErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.confirmPasswordErrorLabel.Location = new System.Drawing.Point(234, 329);
+            this.confirmPasswordErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.confirmPasswordErrorLabel.Name = "confirmPasswordErrorLabel";
+            this.confirmPasswordErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.confirmPasswordErrorLabel.TabIndex = 27;
+            this.confirmPasswordErrorLabel.Text = "Error will be like this!";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::std_management.Properties.Resources.casle;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 59);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 94);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(261, 305);
+            this.pictureBox1.Size = new System.Drawing.Size(196, 248);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // errorProviderEmail
-            // 
-            this.errorProviderEmail.ContainerControl = this;
-            // 
-            // errorProviderUsername
-            // 
-            this.errorProviderUsername.ContainerControl = this;
-            // 
-            // errorProviderPassword
-            // 
-            this.errorProviderPassword.ContainerControl = this;
-            // 
-            // errorProviderConfirmPassword
-            // 
-            this.errorProviderConfirmPassword.ContainerControl = this;
-            // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(672, 442);
+            this.ClientSize = new System.Drawing.Size(504, 428);
+            this.Controls.Add(this.confirmPasswordErrorLabel);
+            this.Controls.Add(this.passwordErorrLabel);
+            this.Controls.Add(this.usernameErrorLabel);
+            this.Controls.Add(this.emailErrorLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.label2);
@@ -225,15 +263,10 @@ namespace std_management
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.usernameTextbox);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsername)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirmPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,9 +285,9 @@ namespace std_management
         private System.Windows.Forms.TextBox confirmPasswordTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.ErrorProvider errorProviderEmail;
-        private System.Windows.Forms.ErrorProvider errorProviderUsername;
-        private System.Windows.Forms.ErrorProvider errorProviderPassword;
-        private System.Windows.Forms.ErrorProvider errorProviderConfirmPassword;
+        private System.Windows.Forms.Label confirmPasswordErrorLabel;
+        private System.Windows.Forms.Label passwordErorrLabel;
+        private System.Windows.Forms.Label usernameErrorLabel;
+        private System.Windows.Forms.Label emailErrorLabel;
     }
 }

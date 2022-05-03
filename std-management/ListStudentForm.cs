@@ -7,16 +7,16 @@ using System.Windows.Forms;
 
 namespace std_management
 {
-
-    public partial class DashboardForm : Form
+    public partial class ListStudentForm : Form
     {
         public delegate void UpdateDataHandler();
         public delegate void OnClose();
 
-        public DashboardForm()
+        public ListStudentForm()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            this.studentTableData.RowTemplate.Height = 80;
         }
 
 
@@ -50,13 +50,10 @@ namespace std_management
         {
             if (this.studentTableData.Columns[e.ColumnIndex].Name == "avatarImg")
             {
-                new Thread(() =>
-                {
-                    string avatarImg = this?.studentTableData?.Rows[e.RowIndex]?.Cells["avatarURLCol"]?.Value?.ToString();
-                    if (avatarImg?.Length < 1) return;
-                    Image img = Helper.GetImageFromUrl(avatarImg);
-                    e.Value = img;
-                }).Start();
+                string avatarImg = this?.studentTableData?.Rows[e.RowIndex]?.Cells["avatarURLCol"]?.Value?.ToString();
+                if (avatarImg?.Length < 1) return;
+                Image img = Helper.ConvertBase64ToImage(avatarImg);
+                e.Value = img;
             }
         }
 
@@ -166,6 +163,22 @@ namespace std_management
             using (PrintCourseForm printCourseForm = new PrintCourseForm())
             {
                 printCourseForm.ShowDialog();
+            }
+        }
+
+        private void avgScoreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (ResultForm resultForm = new ResultForm())
+            {
+                resultForm.ShowDialog();
+            }
+        }
+
+        private void staticResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (StaticScoreForm staticScoreForm = new StaticScoreForm())
+            {
+                staticScoreForm.ShowDialog();
             }
         }
     }

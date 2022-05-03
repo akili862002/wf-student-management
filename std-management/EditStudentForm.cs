@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static std_management.DashboardForm;
+using static std_management.ListStudentForm;
 
 namespace std_management
 {
     public partial class EditStudentForm : Form
     {
         public event OnClose OnClose;
-        public StudentEntity student; 
+        public bool isChangeImage = false;
+        public StudentEntity student;
         public EditStudentForm(StudentEntity student)
         {
             this.student = student;
@@ -36,7 +37,7 @@ namespace std_management
             this.phoneTextBox.Text = student.phone;
             this.addressTextbox.Text = student.address;
             if (student.avatar.Length > 0)
-                this.avatarPicture.Image = Helper.GetImageFromUrl(student.avatar);
+                this.avatarPicture.Image = Helper.ConvertBase64ToImage(student.avatar);
         }
 
         private void uploadAvatarButton_Click(object sender, EventArgs e)
@@ -54,6 +55,7 @@ namespace std_management
                     return;
                 }
                 this.avatarPicture.Image = img;
+                this.isChangeImage = true;
             }
         }
 
@@ -75,33 +77,32 @@ namespace std_management
                 return;
             }
 
+            int stdId = this.student.id;
+            StudentEntity student = new StudentEntity();
+            student
+               .setFirstName(this.firstNameTextBox.Text)
+               .setLastName(this.lastNameTextBox.Text)
+               .setBirthdate(this.birthdateDatePicker.Value)
+               .setPhone(this.phoneTextBox.Text)
+               .setAddress(this.addressTextbox.Text)
+               .setAvatar(Helper.ConvertImageToBase64(this.avatarPicture.Image));
 
-            Thread thr = new Thread(() =>
+            if (this.isChangeImage)
             {
+                student.setAvatar(student.avatar);
+            }
 
-                int stdId = this.student.id;
-                StudentEntity student = new StudentEntity();
-                student
-                   .setFirstName(this.firstNameTextBox.Text)
-                   .setLastName(this.lastNameTextBox.Text)
-                   .setBirthdate(this.birthdateDatePicker.Value)
-                   .setPhone(this.phoneTextBox.Text)
-                   .setAddress(this.addressTextbox.Text)
-                   .setAvatar("https://cdn-icons-png.flaticon.com/128/149/149071.png");
-                if (this.maleRadio.Checked)
-                    student.setGender(StudentEntity.GenderType.Male);
-                if (this.famaleRadio.Checked)
-                    student.setGender(StudentEntity.GenderType.Famale);
-                SQLHandler sqlHandler = new SQLHandler();
+            if (this.maleRadio.Checked)
+                student.setGender(StudentEntity.GenderType.Male);
+            if (this.famaleRadio.Checked)
+                student.setGender(StudentEntity.GenderType.Famale);
+            SQLHandler sqlHandler = new SQLHandler();
 
-                Cursor.Current = Cursors.WaitCursor;
-                sqlHandler.updateStudentSQL(stdId ,student);
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show("Update student successfully!", "Update success");
-                this.closeDialog();
-            });
-
-            thr.Start();
+            Cursor.Current = Cursors.WaitCursor;
+            sqlHandler.updateStudentSQL(stdId, student);
+            Cursor.Current = Cursors.Default;
+            MessageBox.Show("Update student successfully!", "Update success");
+            this.closeDialog();
         }
 
         #region Validations

@@ -8,85 +8,76 @@ namespace std_management
 {
     public partial class RegisterForm : Form
     {
-        bool isValidUsername = false;
+        bool isValidUsername = true;
+
         public RegisterForm()
         {
             InitializeComponent();
+            this.emailErrorLabel.Hide();
+            this.usernameErrorLabel.Hide();
+            this.passwordErorrLabel.Hide();
+            this.confirmPasswordErrorLabel.Hide();
         }
+
 
         private void emailTextBox_Validating(object sender, CancelEventArgs e)
         {
+            TextBoxValidation validation = new TextBoxValidation(e, this.emailTextBox, this.emailErrorLabel);
+
             if (string.IsNullOrEmpty(emailTextBox.Text))
             {
-                e.Cancel = true;
-                emailTextBox.Focus();
-                errorProviderEmail.SetError(emailTextBox, "This field is required!");
+                validation.error("This field is required!");
                 return;
             }
-            Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase); ///Object initialization for Regex 
-            if (reg.IsMatch(this.emailTextBox.Text) == false)
+            if (Validation.IsEmail(this.emailTextBox.Text) == false)
             {
-                e.Cancel = true;
-                emailTextBox.Focus();
-                errorProviderEmail.SetError(emailTextBox, "Email is not valid!");
+                validation.error("Error is not valid!");
                 return;
             }
-
-            e.Cancel = false;
-            errorProviderEmail.SetError(emailTextBox, "");
+            validation.normal();
         }
 
         private void usernameTextbox_Validating(object sender, CancelEventArgs e)
         {
+            TextBoxValidation validation = new TextBoxValidation(e, this.usernameTextbox, this.usernameErrorLabel);
             if (string.IsNullOrEmpty(usernameTextbox.Text))
             {
-                e.Cancel = true;
-                usernameTextbox.Focus();
-                errorProviderUsername.SetError(usernameTextbox, "This field is required!");
+                validation.error("Username is required!");
                 return;
             }
             if (usernameTextbox.Text.Length < 6)
             {
-                e.Cancel = true;
-                usernameTextbox.Focus();
-                errorProviderUsername.SetError(usernameTextbox, "Too short!");
+                validation.error("Too short!");
                 return;
             }
-            e.Cancel = false;
-            errorProviderUsername.SetError(usernameTextbox, "");
+            validation.normal();
         }
 
         private void passwordTextBox_Validating(object sender, CancelEventArgs e)
         {
+            TextBoxValidation validation = new TextBoxValidation(e, this.passwordTextBox, this.passwordErorrLabel);
             if (string.IsNullOrEmpty(passwordTextBox.Text))
             {
-                e.Cancel = true;
-                passwordTextBox.Focus();
-                errorProviderPassword.SetError(passwordTextBox, "This field is required!");
+                validation.error("Password is required!");
                 return;
             }
             if (passwordTextBox.Text.Length < 6)
             {
-                e.Cancel = true;
-                passwordTextBox.Focus();
-                errorProviderPassword.SetError(passwordTextBox, "Too short!");
+                validation.error("Too short!");
                 return;
             }
-            e.Cancel = false;
-            errorProviderPassword.SetError(passwordTextBox, "");
+            validation.normal();
         }
 
         private void confirmPasswordTextBox_Validating(object sender, CancelEventArgs e)
         {
+            TextBoxValidation validation = new TextBoxValidation(e, this.confirmPasswordTextBox, this.confirmPasswordErrorLabel);
             if (!string.IsNullOrEmpty(confirmPasswordTextBox.Text) && passwordTextBox.Text != confirmPasswordTextBox.Text)
             {
-                e.Cancel = true;
-                confirmPasswordTextBox.Focus();
-                errorProviderConfirmPassword.SetError(confirmPasswordTextBox, "Password is not match!");
+                validation.error("Password is not match!");
                 return;
             }
-            e.Cancel = false;
-            errorProviderConfirmPassword.SetError(confirmPasswordTextBox, "");
+            validation.normal();
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -108,22 +99,24 @@ namespace std_management
             }).Start();
         }
 
-        private bool validateUsername ()
+        private bool validateUsername()
         {
             SQLHandler sqlHanlder = new SQLHandler();
+            TextBoxValidation validation = new TextBoxValidation(null, this.usernameTextbox, this.usernameErrorLabel);
+
             if (sqlHanlder.checkExistUsername(usernameTextbox.Text))
             {
                 this.isValidUsername = false;
-                usernameTextbox.Focus();
-                errorProviderUsername.SetError(usernameTextbox, $"Username was used!\nPlease try another one!");
+                validation.error("Username was used!, Please try another one!");
                 return false;
             }
+
             this.isValidUsername = true;
-            errorProviderUsername.SetError(confirmPasswordTextBox, "");
+            validation.normal();
             return true;
         }
 
-        private void usernameTextbox_MouseLeave(object sender, EventArgs e)
+        private void usernameTextbox_Leave(object sender, EventArgs e)
         {
             this.validateUsername();
         }

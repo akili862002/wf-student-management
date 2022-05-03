@@ -62,6 +62,10 @@ namespace std_management
             this.avatar = avatar;
             return this;
         }
+        public StudentEntity build()
+        {
+            return this;
+        }
     }
 
 }

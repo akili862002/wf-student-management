@@ -16,18 +16,21 @@ namespace std_management
         {
             InitializeComponent();
             registerTooltip.SetToolTip(registerLabel, "Click to register");
+            this.usernameErrorLabel.Hide();
+            this.passwordErrorLabel.Hide();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            if (ValidateChildren(ValidationConstraints.Enabled) == false) return;
+
             string username = this.usernameTextbox.Text;
             string password = this.passwordTextBox.Text;
             SQLHandler sqlHanlder = new SQLHandler();
 
             if (!sqlHanlder.login(username, password))
             {
-                MessageBox.Show("Username or password is not correct!", "Login error");
-                return;
+                MessageBox.Show("Username or password is not correct!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
 
             this.DialogResult = DialogResult.OK;
@@ -37,16 +40,43 @@ namespace std_management
         {
             using (RegisterForm registerForm = new RegisterForm())
             {
-                if (registerForm.ShowDialog() == DialogResult.OK)
-                {
-
-                }
+                registerForm.ShowDialog();
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void passwordTextBox_Validating(object sender, CancelEventArgs e)
         {
+            TextBoxValidation vali = new TextBoxValidation(e, this.passwordTextBox, this.passwordErrorLabel);
+            if (String.IsNullOrEmpty(this.passwordTextBox.Text))
+            {
+                vali.error("Password is required!");
+                return;
+            }
 
+            if ((this.passwordTextBox.Text.Length < 6))
+            {
+                vali.error("Too short!");
+                return;
+            }
+
+            vali.normal();
+        }
+
+        private void usernameTextbox_Validating(object sender, CancelEventArgs e)
+        {
+            TextBoxValidation vali = new TextBoxValidation(e, this.usernameTextbox, this.usernameErrorLabel);
+            string text = this.usernameTextbox.Text;
+            if (String.IsNullOrEmpty(text))
+            {
+                vali.error("Username is required!");
+                return;
+            }
+            if ((text.Length < 6))
+            {
+                vali.error("Too short!");
+                return;
+            }
+            vali.normal();
         }
     }
 }

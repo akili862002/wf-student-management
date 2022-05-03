@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using static std_management.DashboardForm;
+using static std_management.ListStudentForm;
 
 namespace std_management
 {
@@ -64,7 +64,7 @@ namespace std_management
                .setBirthdate(this.birthdateDatePicker.Value)
                .setPhone(this.phoneTextBox.Text)
                .setAddress(this.addressTextbox.Text)
-               .setAvatar("https://cdn-icons-png.flaticon.com/128/149/149071.png");
+               .setAvatar(Helper.ConvertImageToBase64(this.avatarPicture.Image));
             if (this.maleRadio.Checked)
                 student.setGender(StudentEntity.GenderType.Male);
             if (this.famaleRadio.Checked)

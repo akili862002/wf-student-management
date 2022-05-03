@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static std_management.ListStudentForm;
 
 namespace std_management
 {
-    public partial class ManagerCourseForm : Form
+    public partial class ResultForm : Form
     {
-        public event OnClose OnClose;
-        public ManagerCourseForm()
+        public ResultForm()
         {
             InitializeComponent();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

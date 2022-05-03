@@ -6,14 +6,14 @@ namespace std_management
 {
     class SQLHandler
     {
-        //public string sqlConnectionString = "Server=MAY-28\\SQLEXPRESS;Database=students_db;Trusted_Connection=True;";
-        public string sqlConnectionString = "Server=COMPUTER;Database=students_db;Trusted_Connection=True;";
+        public static string dbServerName = "DESKTOP-7TB6IV3";
+        public static string sqlConnectionString = $"Server={dbServerName};Database=students_db;Trusted_Connection=True;";
 
         public bool login(string username, string password)
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -42,7 +42,7 @@ namespace std_management
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -70,7 +70,7 @@ namespace std_management
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -100,7 +100,7 @@ namespace std_management
 
         public void testConnection()
         {
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -114,7 +114,7 @@ namespace std_management
             Cursor.Current = Cursors.WaitCursor;
 
             SqlDataAdapter adapter;
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             string query = "SELECT * FROM Students ";
             if (!string.IsNullOrEmpty(searchText))
@@ -131,7 +131,7 @@ namespace std_management
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -166,8 +166,7 @@ namespace std_management
         public void updateStudentSQL(int id, StudentEntity student)
         {
             Cursor.Current = Cursors.WaitCursor;
-
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -175,8 +174,8 @@ namespace std_management
                 {
                     command.CommandText =
                        "UPDATE students " +
-                       "SET (first_name, last_name, birthdate, gender, phone, address, avatar) values (@first_name, @last_name, @birthdate, @gender, @phone, @address, @avatar) " +
-                       $"WHERE id = {id} ";
+                       "SET first_name = @first_name, last_name = @last_name, birthdate = @birthdate, gender = @gender, phone = @phone, address = @address, avatar = @avatar " +
+                       "WHERE id = @id ";
 
                     command.Parameters.AddWithValue("@first_name", student.first_name);
                     command.Parameters.AddWithValue("@last_name", student.last_name);
@@ -185,12 +184,13 @@ namespace std_management
                     command.Parameters.AddWithValue("@phone", student.phone);
                     command.Parameters.AddWithValue("@address", student.address);
                     command.Parameters.AddWithValue("@avatar", student.avatar);
+                    command.Parameters.AddWithValue("@id", id);
 
                     command.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    throw ex;
                 }
                 finally
                 {
@@ -203,7 +203,7 @@ namespace std_management
         public void deleteStudentByIdSQL(int id)
         {
             Cursor.Current = Cursors.WaitCursor;
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -217,7 +217,7 @@ namespace std_management
         public int countTotalStudents()
         {
             Cursor.Current = Cursors.WaitCursor;
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -231,7 +231,7 @@ namespace std_management
         public int countTotalStudentsByGender(bool isMale)
         {
             Cursor.Current = Cursors.WaitCursor;
-            SqlConnection connection = new SqlConnection(this.sqlConnectionString);
+            SqlConnection connection = new SqlConnection(sqlConnectionString);
             connection.Open();
             using (SqlCommand command = connection.CreateCommand())
             {

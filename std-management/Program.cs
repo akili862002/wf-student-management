@@ -21,7 +21,7 @@ namespace std_management
              {
                  if (loginForm.ShowDialog() == DialogResult.OK)
                  {
-                     Application.Run(new DashboardForm());
+                     Application.Run(new MainForm());
                  }
              }
         }

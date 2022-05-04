@@ -16,14 +16,14 @@ namespace std_management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //  Application.Run(new LoginForm());
-             using (LoginForm loginForm = new LoginForm())
-             {
-                 if (loginForm.ShowDialog() == DialogResult.OK)
-                 {
-                     Application.Run(new MainForm());
-                 }
-             }
+            Application.Run(new MainForm());
+            //using (LoginForm loginForm = new LoginForm())
+            //{
+            //    if (loginForm.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Application.Run(new MainForm());
+            //    }
+            //}
         }
     }
 }

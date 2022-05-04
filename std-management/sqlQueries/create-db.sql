@@ -1,8 +1,11 @@
 
-CREATE DATABASE students_db
-GO
 
 USE students_db
+
+DROP TABLE users
+DROP TABLE students
+DROP TABLE course
+DROP TABLE score
 
 CREATE TABLE users (
 	username VARCHAR(100) NOT NULL PRIMARY KEY,
@@ -13,20 +16,15 @@ CREATE TABLE users (
 insert into users (username, password, email) values ('admin123', 'admin123', 'admin123@gmail.com')
 
 CREATE TABLE students (
-	id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	code VARCHAR(10) NOT NULL PRIMARY KEY,
 	first_name VARCHAR(50),
-	 last_name VARCHAR(50), 
-	 birthdate DATE,
-	 gender VARCHAR(20) NOT NULL,
-		phone VARCHAR (15),  
-		address VARCHAR(255), 
-		avatar VARCHAR(400)
+	last_name VARCHAR(50), 
+	birthdate DATE,
+	gender VARCHAR(20) NOT NULL,
+	phone VARCHAR (15),  
+	address VARCHAR(255), 
+	avatar VARCHAR(MAX)
 )
-
-insert into students (first_name, last_name, birthdate, gender, phone, address, avatar) values ('Randall', 'Titcombe', '1/14/2002', 'Male', '3311736335', '86 Dunning Circle', '');
-insert into students (first_name, last_name, birthdate, gender, phone, address, avatar) values ('Emmalynn', 'Burgett', '11/14/2001', 'Female', '2697816055', '27 Stone Corner Way', '');
-insert into students (first_name, last_name, birthdate, gender, phone, address, avatar) values ('Ariella', 'Gridon', '9/30/1999', 'Female', '6711083075', '1356 Holy Cross Hill', '');
-
 
 CREATE TABLE course (
 	id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,

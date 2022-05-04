@@ -89,11 +89,11 @@ namespace std_management
             }
             new Thread(() =>
             {
-                SQLHandler sqlHandler = new SQLHandler();
+                Database.Auth dbAuth = new Database.Auth();
                 string username = usernameTextbox.Text;
                 string password = passwordTextBox.Text;
                 string email = emailTextBox.Text;
-                sqlHandler.register(username, password, email);
+                dbAuth.register(username, password, email);
                 MessageBox.Show("Register successfully!\nYour account was created. Please login", "Register success");
                 this.DialogResult = DialogResult.OK;
             }).Start();
@@ -101,10 +101,10 @@ namespace std_management
 
         private bool validateUsername()
         {
-            SQLHandler sqlHanlder = new SQLHandler();
+            Database.Auth dbAuth = new Database.Auth();
             TextBoxValidation validation = new TextBoxValidation(null, this.usernameTextbox, this.usernameErrorLabel);
 
-            if (sqlHanlder.checkExistUsername(usernameTextbox.Text))
+            if (dbAuth.checkExistUsername(usernameTextbox.Text))
             {
                 this.isValidUsername = false;
                 validation.error("Username was used!, Please try another one!");

@@ -19,7 +19,7 @@ namespace std_management
 
         private void StatisticForm_Load(object sender, EventArgs e)
         {
-            SQLHandler sqlHanlder = new SQLHandler();
+            Database sqlHanlder = new Database();
             totalStudentsLabel.Text = sqlHanlder.countTotalStudents().ToString();
             totalBoysLabel.Text = sqlHanlder.countTotalStudentsByGender(true).ToString();
             totalGirlsLabel.Text = sqlHanlder.countTotalStudentsByGender(false).ToString();

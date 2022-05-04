@@ -34,7 +34,9 @@ namespace std_management
             this.loginLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
             this.studentTableData = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentTableLoadingProgress = new System.Windows.Forms.ProgressBar();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birth_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +45,6 @@ namespace std_management
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avatarImg = new System.Windows.Forms.DataGridViewImageColumn();
             this.avatarURLCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentTableLoadingProgress = new System.Windows.Forms.ProgressBar();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,13 +104,14 @@ namespace std_management
             // 
             // studentTableData
             // 
+            this.studentTableData.AllowUserToAddRows = false;
             this.studentTableData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.studentTableData.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.studentTableData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentTableData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
+            this.code,
             this.first_name,
             this.last_name,
             this.birth_date,
@@ -125,16 +126,39 @@ namespace std_management
             this.studentTableData.RowHeadersWidth = 51;
             this.studentTableData.Size = new System.Drawing.Size(890, 364);
             this.studentTableData.TabIndex = 13;
+            this.studentTableData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentTableData_CellDoubleClick);
             this.studentTableData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentTableData_CellFormatting);
             // 
-            // id
+            // studentTableLoadingProgress
             // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
+            this.studentTableLoadingProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.studentTableLoadingProgress.Location = new System.Drawing.Point(760, 490);
+            this.studentTableLoadingProgress.Margin = new System.Windows.Forms.Padding(4);
+            this.studentTableLoadingProgress.Name = "studentTableLoadingProgress";
+            this.studentTableLoadingProgress.Size = new System.Drawing.Size(150, 27);
+            this.studentTableLoadingProgress.Step = 1;
+            this.studentTableLoadingProgress.TabIndex = 14;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "avatarImg";
+            this.dataGridViewImageColumn1.HeaderText = "Avatar";
+            this.dataGridViewImageColumn1.Image = global::std_management.Properties.Resources.avatar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // code
+            // 
+            this.code.DataPropertyName = "code";
+            this.code.HeaderText = "Code";
+            this.code.MinimumWidth = 6;
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
             // 
             // first_name
             // 
@@ -210,29 +234,6 @@ namespace std_management
             this.avatarURLCol.Visible = false;
             this.avatarURLCol.Width = 125;
             // 
-            // studentTableLoadingProgress
-            // 
-            this.studentTableLoadingProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.studentTableLoadingProgress.Location = new System.Drawing.Point(760, 490);
-            this.studentTableLoadingProgress.Margin = new System.Windows.Forms.Padding(4);
-            this.studentTableLoadingProgress.Name = "studentTableLoadingProgress";
-            this.studentTableLoadingProgress.Size = new System.Drawing.Size(150, 27);
-            this.studentTableLoadingProgress.Step = 1;
-            this.studentTableLoadingProgress.TabIndex = 14;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "avatarImg";
-            this.dataGridViewImageColumn1.HeaderText = "Avatar";
-            this.dataGridViewImageColumn1.Image = global::std_management.Properties.Resources.avatar;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 125;
-            // 
             // ListStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -264,7 +265,8 @@ namespace std_management
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.DataGridView studentTableData;
         private System.Windows.Forms.ProgressBar studentTableLoadingProgress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn birth_date;
@@ -273,6 +275,5 @@ namespace std_management
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewImageColumn avatarImg;
         private System.Windows.Forms.DataGridViewTextBoxColumn avatarURLCol;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

@@ -54,6 +54,8 @@ namespace std_management
             this.errorProviderAddress = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPhone = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.stdCodeTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFullName)).BeginInit();
@@ -70,12 +72,12 @@ namespace std_management
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.deleteButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.upateButton, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(152, 770);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(115, 661);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 53);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(225, 43);
             this.tableLayoutPanel1.TabIndex = 43;
             // 
             // deleteButton
@@ -85,10 +87,10 @@ namespace std_management
             this.deleteButton.BackColor = System.Drawing.Color.IndianRed;
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(3, 4);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.deleteButton.Location = new System.Drawing.Point(2, 3);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(144, 45);
+            this.deleteButton.Size = new System.Drawing.Size(108, 37);
             this.deleteButton.TabIndex = 24;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -100,10 +102,10 @@ namespace std_management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.upateButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.upateButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upateButton.Location = new System.Drawing.Point(153, 4);
-            this.upateButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.upateButton.Location = new System.Drawing.Point(114, 3);
+            this.upateButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.upateButton.Name = "upateButton";
-            this.upateButton.Size = new System.Drawing.Size(144, 45);
+            this.upateButton.Size = new System.Drawing.Size(109, 37);
             this.upateButton.TabIndex = 23;
             this.upateButton.Text = "Update";
             this.upateButton.UseVisualStyleBackColor = false;
@@ -113,10 +115,10 @@ namespace std_management
             // 
             this.uploadAvatarButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.uploadAvatarButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadAvatarButton.Location = new System.Drawing.Point(19, 688);
-            this.uploadAvatarButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uploadAvatarButton.Location = new System.Drawing.Point(15, 594);
+            this.uploadAvatarButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.uploadAvatarButton.Name = "uploadAvatarButton";
-            this.uploadAvatarButton.Size = new System.Drawing.Size(160, 34);
+            this.uploadAvatarButton.Size = new System.Drawing.Size(120, 28);
             this.uploadAvatarButton.TabIndex = 42;
             this.uploadAvatarButton.Text = "Upload";
             this.uploadAvatarButton.UseVisualStyleBackColor = false;
@@ -126,9 +128,10 @@ namespace std_management
             // 
             this.avatarLabel.AutoSize = true;
             this.avatarLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.avatarLabel.Location = new System.Drawing.Point(15, 496);
+            this.avatarLabel.Location = new System.Drawing.Point(12, 438);
+            this.avatarLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.avatarLabel.Name = "avatarLabel";
-            this.avatarLabel.Size = new System.Drawing.Size(60, 23);
+            this.avatarLabel.Size = new System.Drawing.Size(49, 19);
             this.avatarLabel.TabIndex = 41;
             this.avatarLabel.Text = "Avatar";
             // 
@@ -138,10 +141,10 @@ namespace std_management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.birthdateDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdateDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.birthdateDatePicker.Location = new System.Drawing.Point(15, 176);
-            this.birthdateDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.birthdateDatePicker.Location = new System.Drawing.Point(12, 178);
+            this.birthdateDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.birthdateDatePicker.Name = "birthdateDatePicker";
-            this.birthdateDatePicker.Size = new System.Drawing.Size(436, 22);
+            this.birthdateDatePicker.Size = new System.Drawing.Size(328, 20);
             this.birthdateDatePicker.TabIndex = 39;
             this.birthdateDatePicker.Value = new System.DateTime(2002, 1, 1, 0, 0, 0, 0);
             // 
@@ -149,10 +152,10 @@ namespace std_management
             // 
             this.famaleRadio.AutoSize = true;
             this.famaleRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.famaleRadio.Location = new System.Drawing.Point(103, 452);
-            this.famaleRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.famaleRadio.Location = new System.Drawing.Point(78, 402);
+            this.famaleRadio.Margin = new System.Windows.Forms.Padding(2);
             this.famaleRadio.Name = "famaleRadio";
-            this.famaleRadio.Size = new System.Drawing.Size(77, 24);
+            this.famaleRadio.Size = new System.Drawing.Size(63, 19);
             this.famaleRadio.TabIndex = 38;
             this.famaleRadio.Text = "Famale";
             this.famaleRadio.UseVisualStyleBackColor = true;
@@ -162,10 +165,10 @@ namespace std_management
             this.maleRadio.AutoSize = true;
             this.maleRadio.Checked = true;
             this.maleRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maleRadio.Location = new System.Drawing.Point(19, 452);
-            this.maleRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.maleRadio.Location = new System.Drawing.Point(15, 402);
+            this.maleRadio.Margin = new System.Windows.Forms.Padding(2);
             this.maleRadio.Name = "maleRadio";
-            this.maleRadio.Size = new System.Drawing.Size(63, 24);
+            this.maleRadio.Size = new System.Drawing.Size(51, 19);
             this.maleRadio.TabIndex = 37;
             this.maleRadio.TabStop = true;
             this.maleRadio.Text = "Male";
@@ -175,9 +178,10 @@ namespace std_management
             // 
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(11, 421);
+            this.genderLabel.Location = new System.Drawing.Point(9, 377);
+            this.genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(66, 23);
+            this.genderLabel.Size = new System.Drawing.Size(54, 19);
             this.genderLabel.TabIndex = 36;
             this.genderLabel.Text = "Gender";
             // 
@@ -185,9 +189,10 @@ namespace std_management
             // 
             this.addressLabel.AutoSize = true;
             this.addressLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressLabel.Location = new System.Drawing.Point(11, 288);
+            this.addressLabel.Location = new System.Drawing.Point(9, 269);
+            this.addressLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(70, 23);
+            this.addressLabel.Size = new System.Drawing.Size(58, 19);
             this.addressLabel.TabIndex = 35;
             this.addressLabel.Text = "Address";
             // 
@@ -196,11 +201,11 @@ namespace std_management
             this.addressTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addressTextbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTextbox.Location = new System.Drawing.Point(15, 315);
-            this.addressTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.addressTextbox.Location = new System.Drawing.Point(12, 291);
+            this.addressTextbox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addressTextbox.Multiline = true;
             this.addressTextbox.Name = "addressTextbox";
-            this.addressTextbox.Size = new System.Drawing.Size(437, 93);
+            this.addressTextbox.Size = new System.Drawing.Size(329, 76);
             this.addressTextbox.TabIndex = 34;
             this.addressTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.addressTextbox_Validating);
             // 
@@ -208,9 +213,10 @@ namespace std_management
             // 
             this.birthdateLabel.AutoSize = true;
             this.birthdateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdateLabel.Location = new System.Drawing.Point(11, 145);
+            this.birthdateLabel.Location = new System.Drawing.Point(9, 153);
+            this.birthdateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.birthdateLabel.Name = "birthdateLabel";
-            this.birthdateLabel.Size = new System.Drawing.Size(80, 23);
+            this.birthdateLabel.Size = new System.Drawing.Size(66, 19);
             this.birthdateLabel.TabIndex = 33;
             this.birthdateLabel.Text = "Birthdate";
             // 
@@ -218,9 +224,10 @@ namespace std_management
             // 
             this.phoneLabel.AutoSize = true;
             this.phoneLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneLabel.Location = new System.Drawing.Point(11, 215);
+            this.phoneLabel.Location = new System.Drawing.Point(9, 210);
+            this.phoneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(59, 23);
+            this.phoneLabel.Size = new System.Drawing.Size(48, 19);
             this.phoneLabel.TabIndex = 32;
             this.phoneLabel.Text = "Phone";
             // 
@@ -229,10 +236,10 @@ namespace std_management
             this.phoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneTextBox.Location = new System.Drawing.Point(15, 242);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.phoneTextBox.Location = new System.Drawing.Point(12, 232);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(437, 30);
+            this.phoneTextBox.Size = new System.Drawing.Size(329, 26);
             this.phoneTextBox.TabIndex = 31;
             this.phoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.phoneTextBox_Validating);
             // 
@@ -240,9 +247,10 @@ namespace std_management
             // 
             this.lastnameLabel.AutoSize = true;
             this.lastnameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastnameLabel.Location = new System.Drawing.Point(245, 78);
+            this.lastnameLabel.Location = new System.Drawing.Point(185, 98);
+            this.lastnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lastnameLabel.Name = "lastnameLabel";
-            this.lastnameLabel.Size = new System.Drawing.Size(88, 23);
+            this.lastnameLabel.Size = new System.Drawing.Size(72, 19);
             this.lastnameLabel.TabIndex = 30;
             this.lastnameLabel.Text = "Last name";
             // 
@@ -251,10 +259,10 @@ namespace std_management
             this.lastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lastNameTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(249, 105);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lastNameTextBox.Location = new System.Drawing.Point(188, 120);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(202, 30);
+            this.lastNameTextBox.Size = new System.Drawing.Size(152, 26);
             this.lastNameTextBox.TabIndex = 29;
             this.lastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastNameTextBox_Validating);
             // 
@@ -262,9 +270,10 @@ namespace std_management
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(8, 6);
+            this.loginLabel.Location = new System.Drawing.Point(6, 5);
+            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(190, 41);
+            this.loginLabel.Size = new System.Drawing.Size(153, 32);
             this.loginLabel.TabIndex = 28;
             this.loginLabel.Text = "Edit student";
             // 
@@ -272,29 +281,30 @@ namespace std_management
             // 
             this.firstnameLabel.AutoSize = true;
             this.firstnameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstnameLabel.Location = new System.Drawing.Point(11, 78);
+            this.firstnameLabel.Location = new System.Drawing.Point(9, 98);
+            this.firstnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.firstnameLabel.Name = "firstnameLabel";
-            this.firstnameLabel.Size = new System.Drawing.Size(90, 23);
+            this.firstnameLabel.Size = new System.Drawing.Size(74, 19);
             this.firstnameLabel.TabIndex = 27;
             this.firstnameLabel.Text = "First name";
             // 
             // firstNameTextBox
             // 
             this.firstNameTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(15, 105);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.firstNameTextBox.Location = new System.Drawing.Point(12, 120);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(228, 30);
+            this.firstNameTextBox.Size = new System.Drawing.Size(172, 26);
             this.firstNameTextBox.TabIndex = 26;
             this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validating);
             // 
             // avatarPicture
             // 
             this.avatarPicture.Image = global::std_management.Properties.Resources.graduated;
-            this.avatarPicture.Location = new System.Drawing.Point(19, 522);
-            this.avatarPicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.avatarPicture.Location = new System.Drawing.Point(15, 459);
+            this.avatarPicture.Margin = new System.Windows.Forms.Padding(2);
             this.avatarPicture.Name = "avatarPicture";
-            this.avatarPicture.Size = new System.Drawing.Size(160, 160);
+            this.avatarPicture.Size = new System.Drawing.Size(120, 130);
             this.avatarPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatarPicture.TabIndex = 40;
             this.avatarPicture.TabStop = false;
@@ -315,12 +325,34 @@ namespace std_management
             // 
             this.errorProviderLastName.ContainerControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 19);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Student code";
+            // 
+            // stdCodeTextBox
+            // 
+            this.stdCodeTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stdCodeTextBox.Location = new System.Drawing.Point(12, 69);
+            this.stdCodeTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.stdCodeTextBox.Name = "stdCodeTextBox";
+            this.stdCodeTextBox.Size = new System.Drawing.Size(328, 26);
+            this.stdCodeTextBox.TabIndex = 44;
+            // 
             // EditStudentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(467, 837);
+            this.ClientSize = new System.Drawing.Size(350, 704);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.stdCodeTextBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.uploadAvatarButton);
             this.Controls.Add(this.avatarLabel);
@@ -339,7 +371,6 @@ namespace std_management
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.firstnameLabel);
             this.Controls.Add(this.firstNameTextBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditStudentForm";
@@ -381,5 +412,7 @@ namespace std_management
         private System.Windows.Forms.ErrorProvider errorProviderAddress;
         private System.Windows.Forms.ErrorProvider errorProviderPhone;
         private System.Windows.Forms.ErrorProvider errorProviderLastName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox stdCodeTextBox;
     }
 }

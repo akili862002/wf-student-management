@@ -10,7 +10,7 @@ namespace std_management
     {
         public static bool IsPhoneNumber(string number)
         {
-            return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
+            return number.Length > 8;
         }
         public static bool IsEmail(string email)
         {
@@ -18,6 +18,38 @@ namespace std_management
             return reg.IsMatch(email);
         }
     }
+
+    class ValidateKeyPress
+    {
+        KeyPressEventArgs e;
+        object sender;
+
+        public ValidateKeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.e = e;
+            this.sender = sender;
+        }
+
+        public void justAllowNumber()
+        {
+            if (!char.IsControl(this.e.KeyChar) && !char.IsDigit(this.e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public void justAllowAlphabet()
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+    }
+
     class TextBoxValidation
     {
         CancelEventArgs e;

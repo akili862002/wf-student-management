@@ -10,7 +10,7 @@ namespace std_management
             Famale
         }
 
-        public int id;
+        public string code;
         public string first_name;
         public string last_name;
         public string birthdate;
@@ -19,9 +19,9 @@ namespace std_management
         public string address;
         public string avatar;
 
-        public StudentEntity setId(int id)
+        public StudentEntity setCode(string code)
         {
-            this.id = id;
+            this.code = code;
             return this;
         }
 

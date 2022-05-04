@@ -26,9 +26,10 @@ namespace std_management
 
             string username = this.usernameTextbox.Text;
             string password = this.passwordTextBox.Text;
-            SQLHandler sqlHanlder = new SQLHandler();
+            Database sqlHanlder = new Database();
+            Database.Auth dbAuth = new Database.Auth();
 
-            if (!sqlHanlder.login(username, password))
+            if (!dbAuth.login(username, password))
             {
                 MessageBox.Show("Username or password is not correct!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }

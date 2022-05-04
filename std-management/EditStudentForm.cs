@@ -77,9 +77,11 @@ namespace std_management
                 return;
             }
 
-            int stdId = this.student.id;
+            string code = this.stdCodeTextBox.Text;
+
             StudentEntity student = new StudentEntity();
             student
+                .setCode(code)
                .setFirstName(this.firstNameTextBox.Text)
                .setLastName(this.lastNameTextBox.Text)
                .setBirthdate(this.birthdateDatePicker.Value)
@@ -96,10 +98,10 @@ namespace std_management
                 student.setGender(StudentEntity.GenderType.Male);
             if (this.famaleRadio.Checked)
                 student.setGender(StudentEntity.GenderType.Famale);
-            SQLHandler sqlHandler = new SQLHandler();
+            Database sqlHandler = new Database();
 
             Cursor.Current = Cursors.WaitCursor;
-            sqlHandler.updateStudentSQL(stdId, student);
+            sqlHandler.updateStudentSQL(code, student);
             Cursor.Current = Cursors.Default;
             MessageBox.Show("Update student successfully!", "Update success");
             this.closeDialog();
@@ -177,8 +179,8 @@ namespace std_management
         {
             new Thread(() =>
             {
-                SQLHandler sqlHandler = new SQLHandler();
-                sqlHandler.deleteStudentByIdSQL(student.id);
+                Database sqlHandler = new Database();
+                sqlHandler.deleteStudentByIdSQL(student.code);
                 MessageBox.Show("Delete student successfully!", "Success!");
                 this.closeDialog();
             }).Start();

@@ -149,7 +149,7 @@
     <Compile Include="ResultForm.Designer.cs">
       <DependentUpon>ResultForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SQLHandler.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="StaticScoreForm.cs">
       <SubType>Form</SubType>
     </Compile>

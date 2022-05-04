@@ -32,6 +32,7 @@ namespace std_management
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,6 @@ namespace std_management
             this.avgScoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.staticResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginLabel = new System.Windows.Forms.Label();
-            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@ namespace std_management
             this.toolStripDropDownButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(464, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(474, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -82,6 +82,13 @@ namespace std_management
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(66, 22);
             this.toolStripDropDownButton1.Text = "Students";
+            // 
+            // studentListToolStripMenuItem
+            // 
+            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.studentListToolStripMenuItem.Text = "Student List";
+            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
             // 
             // addStudentsToolStripMenuItem
             // 
@@ -241,22 +248,16 @@ namespace std_management
             this.loginLabel.TabIndex = 13;
             this.loginLabel.Text = "Hello there, welcome back!";
             // 
-            // studentListToolStripMenuItem
-            // 
-            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
-            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.studentListToolStripMenuItem.Text = "Student List";
-            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(464, 250);
+            this.ClientSize = new System.Drawing.Size(474, 241);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainForm";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

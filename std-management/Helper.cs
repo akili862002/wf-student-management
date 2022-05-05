@@ -10,11 +10,11 @@ namespace std_management
     {
         public static string ConvertImageToBase64(Image file)
         {
+            if (file == null) return "";
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 try
                 {
-
                     file.Save(memoryStream, file.RawFormat);
                     byte[] imageBytes = memoryStream.ToArray();
                     return Convert.ToBase64String(imageBytes);

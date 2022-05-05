@@ -34,8 +34,8 @@ namespace std_management
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +52,8 @@ namespace std_management
             this.avgScoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.staticResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginLabel = new System.Windows.Forms.Label();
+            this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +78,9 @@ namespace std_management
             this.studentListToolStripMenuItem,
             this.addStudentsToolStripMenuItem,
             this.editRemoveStudentToolStripMenuItem,
-            this.statisticToolStripMenuItem});
+            this.statisticToolStripMenuItem,
+            this.manageStudentToolStripMenuItem,
+            this.printToolStripMenuItem1});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -97,19 +101,19 @@ namespace std_management
             this.addStudentsToolStripMenuItem.Text = "Add student";
             this.addStudentsToolStripMenuItem.Click += new System.EventHandler(this.addStudentsToolStripMenuItem_Click);
             // 
-            // editRemoveStudentToolStripMenuItem
-            // 
-            this.editRemoveStudentToolStripMenuItem.Name = "editRemoveStudentToolStripMenuItem";
-            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.editRemoveStudentToolStripMenuItem.Text = "Edit/Remove student";
-            this.editRemoveStudentToolStripMenuItem.Click += new System.EventHandler(this.editRemoveStudentToolStripMenuItem_Click);
-            // 
             // statisticToolStripMenuItem
             // 
             this.statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
             this.statisticToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.statisticToolStripMenuItem.Text = "Statistic";
             this.statisticToolStripMenuItem.Click += new System.EventHandler(this.statisticToolStripMenuItem_Click);
+            // 
+            // manageStudentToolStripMenuItem
+            // 
+            this.manageStudentToolStripMenuItem.Name = "manageStudentToolStripMenuItem";
+            this.manageStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.manageStudentToolStripMenuItem.Text = "Manage Student";
+            this.manageStudentToolStripMenuItem.Click += new System.EventHandler(this.manageStudentToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -129,35 +133,35 @@ namespace std_management
             // addCourseToolStripMenuItem
             // 
             this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
-            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addCourseToolStripMenuItem.Text = "Add course";
             this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
             // 
             // removeCourseToolStripMenuItem
             // 
             this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
-            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeCourseToolStripMenuItem.Text = "Remove course";
             this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
             // editCourseToolStripMenuItem
             // 
             this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
-            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCourseToolStripMenuItem.Text = "Edit course";
             this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
             // 
             // manageCourseToolStripMenuItem
             // 
             this.manageCourseToolStripMenuItem.Name = "manageCourseToolStripMenuItem";
-            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageCourseToolStripMenuItem.Text = "Manage course";
             this.manageCourseToolStripMenuItem.Click += new System.EventHandler(this.manageCourseToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
@@ -248,6 +252,20 @@ namespace std_management
             this.loginLabel.TabIndex = 13;
             this.loginLabel.Text = "Hello there, welcome back!";
             // 
+            // editRemoveStudentToolStripMenuItem
+            // 
+            this.editRemoveStudentToolStripMenuItem.Name = "editRemoveStudentToolStripMenuItem";
+            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.editRemoveStudentToolStripMenuItem.Text = "Edit/Remove student";
+            this.editRemoveStudentToolStripMenuItem.Click += new System.EventHandler(this.editRemoveStudentToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem1
+            // 
+            this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
+            this.printToolStripMenuItem1.Text = "Print";
+            this.printToolStripMenuItem1.Click += new System.EventHandler(this.printToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,7 +275,7 @@ namespace std_management
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -271,7 +289,6 @@ namespace std_management
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem addStudentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editRemoveStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statisticToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem addCourseToolStripMenuItem;
@@ -290,5 +307,8 @@ namespace std_management
         private System.Windows.Forms.ToolStripMenuItem staticResultToolStripMenuItem;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.ToolStripMenuItem studentListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageStudentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editRemoveStudentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem1;
     }
 }

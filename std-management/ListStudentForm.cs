@@ -89,7 +89,7 @@ namespace std_management
             .setAddress(row.Cells["address"].Value.ToString())
             .setAvatar(row.Cells["avatarURLCol"].Value.ToString());
 
-            using (EditStudentForm editStudentForm = new EditStudentForm(student))
+            using (StudentForm editStudentForm = new StudentForm(student))
             {
                 editStudentForm.OnClose += () =>
                 {

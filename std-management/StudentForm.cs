@@ -7,12 +7,28 @@ using static std_management.ListStudentForm;
 
 namespace std_management
 {
-    public partial class AddStudentForm : Form
+    public partial class StudentForm : Form
     {
+
+        public event OnClose OnClose;
+        public bool isChangeImage = false;
+        public StudentEntity student = null;
+        bool isEdit = false;
+
         bool isValidStudentCode = false;
-        public AddStudentForm()
+        public StudentForm(StudentEntity student = null)
         {
             InitializeComponent();
+            if (student != null)
+            {
+                this.student = student;
+                this.isEdit = true;
+                this.titleLabel.Text = "Edit student";
+                this.submitButton.Text = "Update";
+            } else
+            {
+                this.deleteButton.Hide();
+            }
         }
 
         private void AddStudentForm_Load(object sender, EventArgs e)
@@ -24,6 +40,25 @@ namespace std_management
             this.lastNameErrorLabel.Hide();
             this.phoneErrorLabel.Hide();
             this.addressErrorLabel.Hide();
+
+            if (this.isEdit)
+            {
+                this.stdCodeTextBox.Text = student.code;
+                this.firstNameTextBox.Text = student.first_name;
+                this.lastNameTextBox.Text = student.last_name;
+                this.birthdateDatePicker.Value = DateTime.Parse(student.birthdate);
+                this.maleRadio.Checked = student.gender == StudentEntity.GenderType.Male.ToString();
+                this.famaleRadio.Checked = student.gender == StudentEntity.GenderType.Famale.ToString();
+                this.phoneTextBox.Text = student.phone;
+                this.addressTextbox.Text = student.address;
+                if (student.avatar.Length > 0)
+                    this.avatarPicture.Image = Helper.ConvertBase64ToImage(student.avatar);
+            }
+        }
+        private void closeDialog()
+        {
+            this.OnClose?.Invoke();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void uploadAvatarButton_Click(object sender, EventArgs e)
@@ -49,13 +84,12 @@ namespace std_management
             if (!ValidateChildren(ValidationConstraints.Enabled))
                 return;
 
-
             Thread thr = new Thread(() =>
             {
                 try
                 {
-                    StudentEntity student = new StudentEntity();
-                    student
+                    StudentEntity newStudent = new StudentEntity();
+                    newStudent
                        .setCode(this.stdCodeTextBox.Text)
                        .setFirstName(this.firstNameTextBox.Text)
                        .setLastName(this.lastNameTextBox.Text)
@@ -65,15 +99,23 @@ namespace std_management
                        .setAvatar(Helper.ConvertImageToBase64(this.avatarPicture.Image));
 
                     if (this.maleRadio.Checked)
-                        student.setGender(StudentEntity.GenderType.Male);
+                        newStudent.setGender(StudentEntity.GenderType.Male);
                     if (this.famaleRadio.Checked)
-                        student.setGender(StudentEntity.GenderType.Famale);
+                        newStudent.setGender(StudentEntity.GenderType.Famale);
                     Database sqlHandler = new Database();
                     Cursor.Current = Cursors.WaitCursor;
-                    sqlHandler.createStudentSQL(student);
+
+                    if (this.isEdit)
+                    {
+                        sqlHandler.updateStudentSQL(this.student.code, newStudent);
+                    } else 
+                    { 
+                        sqlHandler.createStudentSQL(newStudent);
+                    }
+
                     Cursor.Current = Cursors.Default;
                     MessageBox.Show("Add student successfully!", "Success");
-                    this.DialogResult = DialogResult.OK;
+                    this.closeDialog();
                 }
                 catch (Exception ex)
                 {
@@ -167,7 +209,11 @@ namespace std_management
             TextBoxValidation vali = new TextBoxValidation(null, this.stdCodeTextBox, this.stdCodeErrorLabel);
             Database db = new Database();
 
-            if (db.checkExistStudentCode(newCode))
+            if (this.isEdit && newCode == this.student.code)
+            {
+                // pass
+            }
+            else if (db.checkExistStudentCode(newCode))
             {
                 vali.error("Student code was existed!, Please try another one");
                 this.isValidStudentCode = false;
@@ -176,6 +222,22 @@ namespace std_management
 
             this.isValidStudentCode = true;
             vali.normal();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            new Thread(() =>
+            {
+                Database sqlHandler = new Database();
+                sqlHandler.deleteStudentByIdSQL(student.code);
+                MessageBox.Show("Delete student successfully!", "Success!");
+                this.closeDialog();
+            }).Start();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.closeDialog();
         }
     }
 }

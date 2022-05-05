@@ -98,8 +98,6 @@ namespace std_management
                 }
                 connection.Close();
             }
-
-
         }
 
         public bool checkExistStudentCode(string code)
@@ -197,10 +195,10 @@ namespace std_management
                 {
                     command.CommandText =
                        "UPDATE students " +
-                       "SET code = @new_code, first_name = @first_name, last_name = @last_name, birthdate = @birthdate, gender = @gender, phone = @phone, address = @address, avatar = @avatar " +
-                       "WHERE code = @code ";
+                       "SET code = @code, first_name = @first_name, last_name = @last_name, birthdate = @birthdate, gender = @gender, phone = @phone, address = @address, avatar = @avatar " +
+                       $"WHERE code = {code} ";
 
-                    command.Parameters.AddWithValue("@new_node", student.code);
+                    command.Parameters.AddWithValue("@code", student.code);
                     command.Parameters.AddWithValue("@first_name", student.first_name);
                     command.Parameters.AddWithValue("@last_name", student.last_name);
                     command.Parameters.AddWithValue("@birthdate", student.birthdate);
@@ -208,7 +206,6 @@ namespace std_management
                     command.Parameters.AddWithValue("@phone", student.phone);
                     command.Parameters.AddWithValue("@address", student.address);
                     command.Parameters.AddWithValue("@avatar", student.avatar);
-                    command.Parameters.AddWithValue("@code", code);
 
                     command.ExecuteNonQuery();
                 }

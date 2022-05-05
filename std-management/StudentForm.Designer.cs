@@ -1,7 +1,7 @@
 ﻿
 namespace std_management
 {
-    partial class AddStudentForm
+    partial class StudentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,9 @@ namespace std_management
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.firstnameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.loginLabel = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.lastnameLabel = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.phoneLabel = new System.Windows.Forms.Label();
@@ -46,15 +45,10 @@ namespace std_management
             this.birthdateDatePicker = new System.Windows.Forms.DateTimePicker();
             this.avatarLabel = new System.Windows.Forms.Label();
             this.uploadAvatarButton = new System.Windows.Forms.Button();
-            this.createButton = new System.Windows.Forms.Button();
+            this.submitButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.avatarPicture = new System.Windows.Forms.PictureBox();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.errorProviderFullName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderLastName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderPhone = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderAddress = new System.Windows.Forms.ErrorProvider(this.components);
             this.stdCodeErrorLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.stdCodeTextBox = new System.Windows.Forms.TextBox();
@@ -62,13 +56,9 @@ namespace std_management
             this.lastNameErrorLabel = new System.Windows.Forms.Label();
             this.phoneErrorLabel = new System.Windows.Forms.Label();
             this.addressErrorLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFullName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLastName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhone)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAddress)).BeginInit();
             this.SuspendLayout();
             // 
             // firstnameLabel
@@ -93,16 +83,16 @@ namespace std_management
             this.firstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameTextBox_KeyPress);
             this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validating);
             // 
-            // loginLabel
+            // titleLabel
             // 
-            this.loginLabel.AutoSize = true;
-            this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(9, 11);
-            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(236, 32);
-            this.loginLabel.TabIndex = 6;
-            this.loginLabel.Text = "Create new student";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(9, 11);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(236, 32);
+            this.titleLabel.TabIndex = 6;
+            this.titleLabel.Text = "Create new student";
             // 
             // lastnameLabel
             // 
@@ -241,18 +231,18 @@ namespace std_management
             // 
             this.avatarLabel.AutoSize = true;
             this.avatarLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.avatarLabel.Location = new System.Drawing.Point(14, 60);
+            this.avatarLabel.Location = new System.Drawing.Point(7, 61);
             this.avatarLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.avatarLabel.Name = "avatarLabel";
-            this.avatarLabel.Size = new System.Drawing.Size(49, 19);
+            this.avatarLabel.Size = new System.Drawing.Size(53, 19);
             this.avatarLabel.TabIndex = 21;
-            this.avatarLabel.Text = "Avatar";
+            this.avatarLabel.Text = "Picture";
             // 
             // uploadAvatarButton
             // 
             this.uploadAvatarButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.uploadAvatarButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadAvatarButton.Location = new System.Drawing.Point(18, 237);
+            this.uploadAvatarButton.Location = new System.Drawing.Point(11, 238);
             this.uploadAvatarButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.uploadAvatarButton.Name = "uploadAvatarButton";
             this.uploadAvatarButton.Size = new System.Drawing.Size(150, 28);
@@ -261,20 +251,20 @@ namespace std_management
             this.uploadAvatarButton.UseVisualStyleBackColor = false;
             this.uploadAvatarButton.Click += new System.EventHandler(this.uploadAvatarButton_Click);
             // 
-            // createButton
+            // submitButton
             // 
-            this.createButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.createButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.createButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createButton.Location = new System.Drawing.Point(114, 3);
-            this.createButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(109, 37);
-            this.createButton.TabIndex = 23;
-            this.createButton.Text = "Create";
-            this.createButton.UseVisualStyleBackColor = false;
-            this.createButton.Click += new System.EventHandler(this.createButton_Click);
+            this.submitButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.submitButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(114, 3);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(109, 37);
+            this.submitButton.TabIndex = 23;
+            this.submitButton.Text = "Create";
+            this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // cancelButton
             // 
@@ -290,6 +280,7 @@ namespace std_management
             this.cancelButton.TabIndex = 24;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -298,7 +289,7 @@ namespace std_management
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.cancelButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.createButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.submitButton, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(274, 505);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -310,29 +301,13 @@ namespace std_management
             // avatarPicture
             // 
             this.avatarPicture.Image = global::std_management.Properties.Resources.graduated;
-            this.avatarPicture.Location = new System.Drawing.Point(18, 82);
+            this.avatarPicture.Location = new System.Drawing.Point(11, 83);
             this.avatarPicture.Margin = new System.Windows.Forms.Padding(2);
             this.avatarPicture.Name = "avatarPicture";
             this.avatarPicture.Size = new System.Drawing.Size(150, 150);
             this.avatarPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatarPicture.TabIndex = 20;
             this.avatarPicture.TabStop = false;
-            // 
-            // errorProviderFullName
-            // 
-            this.errorProviderFullName.ContainerControl = this;
-            // 
-            // errorProviderLastName
-            // 
-            this.errorProviderLastName.ContainerControl = this;
-            // 
-            // errorProviderPhone
-            // 
-            this.errorProviderPhone.ContainerControl = this;
-            // 
-            // errorProviderAddress
-            // 
-            this.errorProviderAddress.ContainerControl = this;
             // 
             // stdCodeErrorLabel
             // 
@@ -418,12 +393,28 @@ namespace std_management
             this.addressErrorLabel.TabIndex = 32;
             this.addressErrorLabel.Text = "Error will be like this!";
             // 
-            // AddStudentForm
+            // deleteButton
+            // 
+            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteButton.BackColor = System.Drawing.Color.IndianRed;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.ForeColor = System.Drawing.Color.White;
+            this.deleteButton.Location = new System.Drawing.Point(11, 511);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(108, 37);
+            this.deleteButton.TabIndex = 33;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(508, 559);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addressErrorLabel);
             this.Controls.Add(this.phoneErrorLabel);
             this.Controls.Add(this.lastNameErrorLabel);
@@ -446,21 +437,16 @@ namespace std_management
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.lastnameLabel);
             this.Controls.Add(this.lastNameTextBox);
-            this.Controls.Add(this.loginLabel);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.firstnameLabel);
             this.Controls.Add(this.firstNameTextBox);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AddStudentForm";
+            this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Student";
             this.Load += new System.EventHandler(this.AddStudentForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFullName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLastName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhone)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAddress)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,7 +456,7 @@ namespace std_management
 
         private System.Windows.Forms.Label firstnameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.Label loginLabel;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label lastnameLabel;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label phoneLabel;
@@ -485,14 +471,9 @@ namespace std_management
         private System.Windows.Forms.PictureBox avatarPicture;
         private System.Windows.Forms.Label avatarLabel;
         private System.Windows.Forms.Button uploadAvatarButton;
-        private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.BindingSource studentBindingSource;
-        private System.Windows.Forms.ErrorProvider errorProviderFullName;
-        private System.Windows.Forms.ErrorProvider errorProviderLastName;
-        private System.Windows.Forms.ErrorProvider errorProviderPhone;
-        private System.Windows.Forms.ErrorProvider errorProviderAddress;
         private System.Windows.Forms.Label lastNameErrorLabel;
         private System.Windows.Forms.Label firstNameErrorLabel;
         private System.Windows.Forms.Label stdCodeErrorLabel;
@@ -500,5 +481,6 @@ namespace std_management
         private System.Windows.Forms.TextBox stdCodeTextBox;
         private System.Windows.Forms.Label addressErrorLabel;
         private System.Windows.Forms.Label phoneErrorLabel;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

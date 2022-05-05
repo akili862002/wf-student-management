@@ -22,7 +22,7 @@ namespace std_management
 
         private void addStudentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             using (AddStudentForm addStudentForm = new AddStudentForm())
+             using (StudentForm addStudentForm = new StudentForm())
             {
                 addStudentForm.ShowDialog();
             }
@@ -132,6 +132,22 @@ namespace std_management
             using (ListStudentForm listStudentForm = new ListStudentForm())
             {
                 listStudentForm.ShowDialog();
+            }
+        }
+
+        private void manageStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ManageStudentForm manageStudentForm = new ManageStudentForm())
+            {
+                manageStudentForm.ShowDialog();
+            }
+        }
+
+        private void printToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (PrintStudentsForm printStudentForm = new PrintStudentsForm())
+            {
+                printStudentForm.ShowDialog();
             }
         }
     }

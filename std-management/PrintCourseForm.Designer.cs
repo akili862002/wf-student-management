@@ -29,15 +29,14 @@ namespace std_management
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintCourseForm));
             this.loginLabel = new System.Windows.Forms.Label();
-            this.studentTableData = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).BeginInit();
+            this.courseTableData = new System.Windows.Forms.DataGridView();
+            this.toFileButton = new System.Windows.Forms.Button();
+            this.printButton = new System.Windows.Forms.Button();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTableData)).BeginInit();
             this.SuspendLayout();
             // 
             // loginLabel
@@ -47,105 +46,83 @@ namespace std_management
             this.loginLabel.Location = new System.Drawing.Point(9, 7);
             this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(199, 41);
+            this.loginLabel.Size = new System.Drawing.Size(165, 32);
             this.loginLabel.TabIndex = 2;
             this.loginLabel.Text = "Print courses";
             // 
-            // studentTableData
+            // courseTableData
             // 
-            this.studentTableData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.courseTableData.AllowUserToAddRows = false;
+            this.courseTableData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.studentTableData.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.studentTableData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.studentTableData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.label,
-            this.last_name,
-            this.description});
-            this.studentTableData.Location = new System.Drawing.Point(12, 51);
-            this.studentTableData.Name = "studentTableData";
-            this.studentTableData.RowHeadersWidth = 51;
-            this.studentTableData.Size = new System.Drawing.Size(729, 343);
-            this.studentTableData.TabIndex = 14;
+            this.courseTableData.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.courseTableData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.courseTableData.Location = new System.Drawing.Point(12, 51);
+            this.courseTableData.Name = "courseTableData";
+            this.courseTableData.RowHeadersWidth = 51;
+            this.courseTableData.Size = new System.Drawing.Size(556, 343);
+            this.courseTableData.TabIndex = 14;
             // 
-            // id
+            // toFileButton
             // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 125;
+            this.toFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.toFileButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toFileButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toFileButton.Location = new System.Drawing.Point(12, 401);
+            this.toFileButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.toFileButton.Name = "toFileButton";
+            this.toFileButton.Size = new System.Drawing.Size(100, 38);
+            this.toFileButton.TabIndex = 42;
+            this.toFileButton.Text = "To File";
+            this.toFileButton.UseVisualStyleBackColor = false;
+            this.toFileButton.Click += new System.EventHandler(this.toFileButton_Click);
             // 
-            // label
+            // printButton
             // 
-            this.label.DataPropertyName = "label";
-            this.label.HeaderText = "Label";
-            this.label.MinimumWidth = 6;
-            this.label.Name = "label";
-            this.label.ReadOnly = true;
-            this.label.Width = 125;
+            this.printButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.printButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.printButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printButton.Location = new System.Drawing.Point(118, 401);
+            this.printButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(100, 38);
+            this.printButton.TabIndex = 43;
+            this.printButton.Text = "Print";
+            this.printButton.UseVisualStyleBackColor = false;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
-            // last_name
+            // printPreviewDialog
             // 
-            this.last_name.DataPropertyName = "last_name";
-            this.last_name.HeaderText = "Period";
-            this.last_name.MinimumWidth = 6;
-            this.last_name.Name = "last_name";
-            this.last_name.ReadOnly = true;
-            this.last_name.Width = 125;
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
             // 
-            // description
+            // printDocument
             // 
-            this.description.HeaderText = "Description";
-            this.description.MinimumWidth = 6;
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.Width = 300;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 401);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 38);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "To File";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(118, 401);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 38);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Print";
-            this.button2.UseVisualStyleBackColor = false;
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
             // 
             // PrintCourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(748, 452);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.studentTableData);
+            this.ClientSize = new System.Drawing.Size(575, 452);
+            this.Controls.Add(this.printButton);
+            this.Controls.Add(this.toFileButton);
+            this.Controls.Add(this.courseTableData);
             this.Controls.Add(this.loginLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "PrintCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PrintCourse";
-            ((System.ComponentModel.ISupportInitialize)(this.studentTableData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTableData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,12 +131,10 @@ namespace std_management
         #endregion
 
         private System.Windows.Forms.Label loginLabel;
-        private System.Windows.Forms.DataGridView studentTableData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn label;
-        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView courseTableData;
+        private System.Windows.Forms.Button toFileButton;
+        private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
     }
 }

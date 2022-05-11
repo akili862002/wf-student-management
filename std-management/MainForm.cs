@@ -22,7 +22,7 @@ namespace std_management
 
         private void addStudentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             using (StudentForm addStudentForm = new StudentForm())
+            using (StudentForm addStudentForm = new StudentForm())
             {
                 addStudentForm.ShowDialog();
             }
@@ -54,7 +54,10 @@ namespace std_management
 
         private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // using ()
+            using (DeleteCourseForm deleteCourse = new DeleteCourseForm())
+            {
+                deleteCourse.ShowDialog();
+            }
         }
 
         private void editCourseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +86,10 @@ namespace std_management
 
         private void addScoreToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            using (AddScoreForm addScoreForm = new AddScoreForm())
+            {
+                addScoreForm.ShowDialog();
+            }
         }
 
         private void removeScoreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,12 +110,18 @@ namespace std_management
 
         private void avgScoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // using ()
+            using (AverageScoreByCourseForm avgScoreByCourseForm = new AverageScoreByCourseForm())
+            {
+                avgScoreByCourseForm.ShowDialog();
+            }
         }
 
         private void printResultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // using  
+            using (PrintScoreForm printScoreForm = new PrintScoreForm())
+            {
+                printScoreForm.ShowDialog();
+            }  
         }
 
         private void avgScoreToolStripMenuItem1_Click(object sender, EventArgs e)

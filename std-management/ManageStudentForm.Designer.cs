@@ -417,7 +417,7 @@
             // studentTableLoadingProgress
             // 
             this.studentTableLoadingProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.studentTableLoadingProgress.Location = new System.Drawing.Point(1165, 530);
+            this.studentTableLoadingProgress.Location = new System.Drawing.Point(1239, 530);
             this.studentTableLoadingProgress.Margin = new System.Windows.Forms.Padding(4);
             this.studentTableLoadingProgress.Name = "studentTableLoadingProgress";
             this.studentTableLoadingProgress.Size = new System.Drawing.Size(116, 30);
@@ -446,7 +446,7 @@
             this.studentTableData.Margin = new System.Windows.Forms.Padding(4);
             this.studentTableData.Name = "studentTableData";
             this.studentTableData.RowHeadersWidth = 51;
-            this.studentTableData.Size = new System.Drawing.Size(831, 431);
+            this.studentTableData.Size = new System.Drawing.Size(905, 431);
             this.studentTableData.TabIndex = 64;
             this.studentTableData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentTableData_CellDoubleClick);
             this.studentTableData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentTableData_CellFormatting);
@@ -540,7 +540,7 @@
             this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.refreshButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshButton.Location = new System.Drawing.Point(1080, 530);
+            this.refreshButton.Location = new System.Drawing.Point(1154, 530);
             this.refreshButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -561,11 +561,12 @@
             // 
             // searchButton
             // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(1217, 40);
+            this.searchButton.Location = new System.Drawing.Point(1280, 40);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchButton.Name = "searchButton";
             this.searchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -576,9 +577,10 @@
             // 
             // searchTextBox
             // 
+            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(1027, 43);
+            this.searchTextBox.Location = new System.Drawing.Point(1090, 43);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(184, 26);
@@ -602,7 +604,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1294, 571);
+            this.ClientSize = new System.Drawing.Size(1368, 571);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.studentTableLoadingProgress);
             this.Controls.Add(this.studentTableData);

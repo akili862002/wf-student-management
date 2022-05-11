@@ -29,69 +29,89 @@ namespace std_management
         /// </summary>
         private void InitializeComponent()
         {
+            this.courseIdErrorLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.courseIdTextbox = new System.Windows.Forms.TextBox();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.loginLabel = new System.Windows.Forms.Label();
-            this.firstnameLabel = new System.Windows.Forms.Label();
-            this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.upateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // courseIdErrorLabel
+            // 
+            this.courseIdErrorLabel.AutoSize = true;
+            this.courseIdErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseIdErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.courseIdErrorLabel.Location = new System.Drawing.Point(11, 104);
+            this.courseIdErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.courseIdErrorLabel.Name = "courseIdErrorLabel";
+            this.courseIdErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.courseIdErrorLabel.TabIndex = 46;
+            this.courseIdErrorLabel.Text = "Error will be like this!";
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.Location = new System.Drawing.Point(8, 54);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(68, 19);
+            this.usernameLabel.TabIndex = 45;
+            this.usernameLabel.Text = "Course id";
+            // 
+            // courseIdTextbox
+            // 
+            this.courseIdTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.courseIdTextbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseIdTextbox.Location = new System.Drawing.Point(11, 75);
+            this.courseIdTextbox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.courseIdTextbox.Name = "courseIdTextbox";
+            this.courseIdTextbox.Size = new System.Drawing.Size(388, 26);
+            this.courseIdTextbox.TabIndex = 44;
+            this.courseIdTextbox.Leave += new System.EventHandler(this.courseIdTextbox_Leave);
+            this.courseIdTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.courseIdTextbox_Validating);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Location = new System.Drawing.Point(281, 135);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(117, 33);
+            this.deleteButton.TabIndex = 43;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // loginLabel
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(12, 9);
+            this.loginLabel.Location = new System.Drawing.Point(5, 12);
+            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(171, 32);
-            this.loginLabel.TabIndex = 33;
+            this.loginLabel.TabIndex = 42;
             this.loginLabel.Text = "Delete course";
-            // 
-            // firstnameLabel
-            // 
-            this.firstnameLabel.AutoSize = true;
-            this.firstnameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstnameLabel.Location = new System.Drawing.Point(14, 62);
-            this.firstnameLabel.Name = "firstnameLabel";
-            this.firstnameLabel.Size = new System.Drawing.Size(70, 19);
-            this.firstnameLabel.TabIndex = 32;
-            this.firstnameLabel.Text = "Course ID";
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.firstNameTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(18, 89);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(442, 26);
-            this.firstNameTextBox.TabIndex = 31;
-            // 
-            // upateButton
-            // 
-            this.upateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.upateButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.upateButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upateButton.Location = new System.Drawing.Point(304, 142);
-            this.upateButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.upateButton.Name = "upateButton";
-            this.upateButton.Size = new System.Drawing.Size(156, 31);
-            this.upateButton.TabIndex = 39;
-            this.upateButton.Text = "Create";
-            this.upateButton.UseVisualStyleBackColor = false;
             // 
             // DeleteCourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(472, 186);
-            this.Controls.Add(this.upateButton);
+            this.ClientSize = new System.Drawing.Size(410, 174);
+            this.Controls.Add(this.courseIdErrorLabel);
+            this.Controls.Add(this.usernameLabel);
+            this.Controls.Add(this.courseIdTextbox);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.loginLabel);
-            this.Controls.Add(this.firstnameLabel);
-            this.Controls.Add(this.firstNameTextBox);
             this.Name = "DeleteCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DeleteCourse";
+            this.Load += new System.EventHandler(this.DeleteCourse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,9 +119,10 @@ namespace std_management
 
         #endregion
 
+        private System.Windows.Forms.Label courseIdErrorLabel;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.TextBox courseIdTextbox;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Label loginLabel;
-        private System.Windows.Forms.Label firstnameLabel;
-        private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.Button upateButton;
     }
 }

@@ -7,7 +7,8 @@ namespace std_management
         public enum GenderType
         {
             Male,
-            Famale
+            Famale,
+            All
         }
 
         public string code;
@@ -68,4 +69,60 @@ namespace std_management
         }
     }
 
+    public class Course
+    {
+        public string id;
+        public string label;
+        public int preiod;
+        public string description;
+
+        public Course setId(string id)
+        {
+            this.id = id; return this;
+        }
+        public Course setLabel(string label)
+        {
+            this.label = label;
+            return this;
+        }
+        public Course setPreiod(int preiod)
+        {
+            this.preiod = preiod;
+            return this;
+        }
+        public Course setDescription(string description)
+        {
+            this.description = description;
+            return this;
+        }
+    }
+
+    public class Score
+    {
+        public string studentCode;
+        public string courseId;
+        public float studentScore;
+        public string description;
+
+        public Score setStudentCode(string studentCode)
+        {
+            this.studentCode = studentCode ;
+            return this;
+        }
+        public Score setCourseId(string courseId)
+        {
+            this.courseId = courseId ;
+            return this;
+        }
+        public Score setStudentScore(float studentScore)
+        {
+            this.studentScore = studentScore;
+            return this;
+        }
+        public Score setDescription(string desc)
+        {
+            this.description = desc;
+            return this;
+        }
+    }
 }

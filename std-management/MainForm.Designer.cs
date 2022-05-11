@@ -31,11 +31,14 @@ namespace std_management
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.loginLabel = new System.Windows.Forms.Label();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,9 +54,6 @@ namespace std_management
             this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
             this.avgScoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.staticResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginLabel = new System.Windows.Forms.Label();
-            this.editRemoveStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,16 @@ namespace std_management
             this.toolStrip1.Size = new System.Drawing.Size(474, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // loginLabel
+            // 
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginLabel.Location = new System.Drawing.Point(71, 96);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(324, 32);
+            this.loginLabel.TabIndex = 13;
+            this.loginLabel.Text = "Hello there, welcome back!";
             // 
             // toolStripDropDownButton1
             // 
@@ -101,6 +111,13 @@ namespace std_management
             this.addStudentsToolStripMenuItem.Text = "Add student";
             this.addStudentsToolStripMenuItem.Click += new System.EventHandler(this.addStudentsToolStripMenuItem_Click);
             // 
+            // editRemoveStudentToolStripMenuItem
+            // 
+            this.editRemoveStudentToolStripMenuItem.Name = "editRemoveStudentToolStripMenuItem";
+            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.editRemoveStudentToolStripMenuItem.Text = "Edit/Remove student";
+            this.editRemoveStudentToolStripMenuItem.Click += new System.EventHandler(this.editRemoveStudentToolStripMenuItem_Click);
+            // 
             // statisticToolStripMenuItem
             // 
             this.statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
@@ -114,6 +131,13 @@ namespace std_management
             this.manageStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.manageStudentToolStripMenuItem.Text = "Manage Student";
             this.manageStudentToolStripMenuItem.Click += new System.EventHandler(this.manageStudentToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem1
+            // 
+            this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
+            this.printToolStripMenuItem1.Text = "Print";
+            this.printToolStripMenuItem1.Click += new System.EventHandler(this.printToolStripMenuItem1_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -133,35 +157,35 @@ namespace std_management
             // addCourseToolStripMenuItem
             // 
             this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
-            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.addCourseToolStripMenuItem.Text = "Add course";
             this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
             // 
             // removeCourseToolStripMenuItem
             // 
             this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
-            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.removeCourseToolStripMenuItem.Text = "Remove course";
             this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
             // editCourseToolStripMenuItem
             // 
             this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
-            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.editCourseToolStripMenuItem.Text = "Edit course";
             this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
             // 
             // manageCourseToolStripMenuItem
             // 
             this.manageCourseToolStripMenuItem.Name = "manageCourseToolStripMenuItem";
-            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.manageCourseToolStripMenuItem.Text = "Manage course";
             this.manageCourseToolStripMenuItem.Click += new System.EventHandler(this.manageCourseToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
@@ -184,35 +208,35 @@ namespace std_management
             // addScoreToolStripMenuItem1
             // 
             this.addScoreToolStripMenuItem1.Name = "addScoreToolStripMenuItem1";
-            this.addScoreToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.addScoreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.addScoreToolStripMenuItem1.Text = "Add score";
             this.addScoreToolStripMenuItem1.Click += new System.EventHandler(this.addScoreToolStripMenuItem1_Click);
             // 
             // removeScoreToolStripMenuItem
             // 
             this.removeScoreToolStripMenuItem.Name = "removeScoreToolStripMenuItem";
-            this.removeScoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeScoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeScoreToolStripMenuItem.Text = "Remove score";
             this.removeScoreToolStripMenuItem.Click += new System.EventHandler(this.removeScoreToolStripMenuItem_Click);
             // 
             // managerScoreToolStripMenuItem
             // 
             this.managerScoreToolStripMenuItem.Name = "managerScoreToolStripMenuItem";
-            this.managerScoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.managerScoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.managerScoreToolStripMenuItem.Text = "Manager score";
             this.managerScoreToolStripMenuItem.Click += new System.EventHandler(this.managerScoreToolStripMenuItem_Click);
             // 
             // avgScoreToolStripMenuItem
             // 
             this.avgScoreToolStripMenuItem.Name = "avgScoreToolStripMenuItem";
-            this.avgScoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avgScoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.avgScoreToolStripMenuItem.Text = "Avg score";
             this.avgScoreToolStripMenuItem.Click += new System.EventHandler(this.avgScoreToolStripMenuItem_Click);
             // 
             // printResultToolStripMenuItem
             // 
             this.printResultToolStripMenuItem.Name = "printResultToolStripMenuItem";
-            this.printResultToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printResultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printResultToolStripMenuItem.Text = "Print result";
             this.printResultToolStripMenuItem.Click += new System.EventHandler(this.printResultToolStripMenuItem_Click);
             // 
@@ -231,40 +255,16 @@ namespace std_management
             // avgScoreToolStripMenuItem1
             // 
             this.avgScoreToolStripMenuItem1.Name = "avgScoreToolStripMenuItem1";
-            this.avgScoreToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.avgScoreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.avgScoreToolStripMenuItem1.Text = "Avg result by score";
             this.avgScoreToolStripMenuItem1.Click += new System.EventHandler(this.avgScoreToolStripMenuItem1_Click);
             // 
             // staticResultToolStripMenuItem
             // 
             this.staticResultToolStripMenuItem.Name = "staticResultToolStripMenuItem";
-            this.staticResultToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.staticResultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.staticResultToolStripMenuItem.Text = "Static result";
             this.staticResultToolStripMenuItem.Click += new System.EventHandler(this.staticResultToolStripMenuItem_Click);
-            // 
-            // loginLabel
-            // 
-            this.loginLabel.AutoSize = true;
-            this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(71, 96);
-            this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(324, 32);
-            this.loginLabel.TabIndex = 13;
-            this.loginLabel.Text = "Hello there, welcome back!";
-            // 
-            // editRemoveStudentToolStripMenuItem
-            // 
-            this.editRemoveStudentToolStripMenuItem.Name = "editRemoveStudentToolStripMenuItem";
-            this.editRemoveStudentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.editRemoveStudentToolStripMenuItem.Text = "Edit/Remove student";
-            this.editRemoveStudentToolStripMenuItem.Click += new System.EventHandler(this.editRemoveStudentToolStripMenuItem_Click);
-            // 
-            // printToolStripMenuItem1
-            // 
-            this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
-            this.printToolStripMenuItem1.Text = "Print";
-            this.printToolStripMenuItem1.Click += new System.EventHandler(this.printToolStripMenuItem1_Click);
             // 
             // MainForm
             // 

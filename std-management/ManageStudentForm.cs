@@ -83,6 +83,7 @@ namespace std_management
             birthdateDatePicker.CustomFormat = "MM/dd/yyyy";
             this.initValidationLabels();
         }
+
         private void closeDialog()
         {
             this.DialogResult = DialogResult.Cancel;
@@ -214,7 +215,7 @@ namespace std_management
                 Database sqlHandler = new Database();
                 sqlHandler.deleteStudentByIdSQL(student.code);
                 MessageBox.Show("Delete student successfully!", "Success!");
-                this.closeDialog();
+                this.LoadDataForStudentTable();
             }).Start();
         }
 
@@ -298,6 +299,7 @@ namespace std_management
                     else
                     {
                         sqlHandler.createStudentSQL(newStudent);
+                        this.initCreateMode();
                     }
 
                     Cursor.Current = Cursors.Default;

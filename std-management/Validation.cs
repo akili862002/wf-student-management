@@ -55,17 +55,74 @@ namespace std_management
         CancelEventArgs e;
         TextBox textBox;
         Label errorLabel;
-        public TextBoxValidation(CancelEventArgs e, TextBox textBox, Label errorLabel)
+        bool useFocus;
+        public TextBoxValidation(CancelEventArgs e, TextBox textBox, Label errorLabel, bool useFocus = true)
         {
             this.e = e;
             this.textBox = textBox;
+            this.errorLabel = errorLabel;
+            this.useFocus = useFocus;
+        }
+        public void error(string message)
+        {
+            if (this.e != null)
+                this.e.Cancel = true;
+            if (this.useFocus)
+                this.textBox.Focus();
+            this.errorLabel.Text = message;
+            this.errorLabel.Show();
+        }
+        public void normal()
+        {
+            if (this.e != null)
+                this.e.Cancel = false;
+            this.errorLabel.Text = "";
+            this.errorLabel.Hide();
+        }
+    }
+    class UpDownValidation
+    {
+        CancelEventArgs e;
+        NumericUpDown numUpDown;
+        Label errorLabel;
+        public UpDownValidation(CancelEventArgs e, NumericUpDown numUpDown, Label errorLabel)
+        {
+            this.e = e;
+            this.numUpDown = numUpDown;
             this.errorLabel = errorLabel;
         }
         public void error(string message)
         {
             if (this.e != null)
                 this.e.Cancel = true;
-            this.textBox.Focus();
+            this.numUpDown.Focus();
+            this.errorLabel.Text = message;
+            this.errorLabel.Show();
+        }
+        public void normal()
+        {
+            if (this.e != null)
+                this.e.Cancel = false;
+            this.errorLabel.Text = "";
+            this.errorLabel.Hide();
+        }
+    }
+    class ComboboxValidation
+    {
+        CancelEventArgs e;
+        ComboBox comboBox;
+        Label errorLabel;
+        public ComboboxValidation(CancelEventArgs e, ComboBox comboBox, Label errorLabel)
+        {
+            this.e = e;
+            this.comboBox = comboBox;
+            this.errorLabel = errorLabel;
+        }
+        public void error(string message)
+        {
+            if (this.e != null)
+                this.e.Cancel = true;
+            this.comboBox.Focus();
             this.errorLabel.Text = message;
             this.errorLabel.Show();
         }

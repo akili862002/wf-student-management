@@ -12,62 +12,31 @@ using System.Windows.Forms;
 
 namespace std_management
 {
-    public partial class ManageScoreForm : Form
+    public partial class AddScoreForm : Form
     {
         bool isValidStudentCode = false;
-        public ManageScoreForm()
+
+        public AddScoreForm()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
-        }
-        private void loadDetailScoresTabel()
-        {
-            new Thread(() =>
-            {
-                try
-                {
-                    Database.ScoreDB db = new Database.ScoreDB();
-                    DataTable dt = new DataTable();
-                    db.getAllDetailScoreAdapter().Fill(dt);
-                    this.Invoke(new MethodInvoker(delegate
-                    {
-                        this.scoreTable.DataSource = dt;
-                    }));
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }).Start();
-        }
-        private void loadAllStudentsTable()
-        {
-            new Thread(() =>
-            {
-                try
-                {
-                    Database db = new Database();
-                    DataTable dt = new DataTable();
-                    db.getAllStudentsWithSelectAdapter("code as [Student code], first_name as [First name], last_name as [Last name], birthdate").Fill(dt);
-                    this.Invoke(new MethodInvoker(delegate
-                    {
-                        this.scoreTable.DataSource = dt;
-                    }));
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }).Start();
-        }
-
-        private void ManageScoreForm_Load(object sender, EventArgs e)
-        {
             this.resetValidation();
-            this.loadDetailScoresTabel();
             this.loadDataForCourseCombobox();
+            this.loadListStudentsTable();
+        }
+
+        private void loadListStudentsTable()
+        {
+            new Thread(() =>
+            {
+                Database db = new Database();
+                DataTable dt = new DataTable();
+                db.getAllStudentsWithFormatSelectionAdapter("code as [Student code], first_name as [First name], last_name as [Last name]").Fill(dt);
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    this.listStudentTable.DataSource = dt;
+                }));
+            }).Start();
         }
 
         private void resetValidation()
@@ -150,15 +119,7 @@ namespace std_management
             vali.normal();
         }
 
-        private void showAvgScoreButton_Click(object sender, EventArgs e)
-        {
-            using (AverageScoreByCourseForm avgScoreForm = new AverageScoreByCourseForm())
-            {
-                avgScoreForm.ShowDialog();
-            }
-        }
-
-        private void addButton_Click(object sender, EventArgs e)
+        private void addScoreButton_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren(ValidationConstraints.Enabled) || !this.isValidStudentCode)
                 return;
@@ -184,9 +145,9 @@ namespace std_management
                 {
                     db.createScore(newScore);
                     MessageBox.Show("Create score successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.loadDetailScoresTabel();
+                    this.loadListStudentsTable();
                 }
-                this.loadDetailScoresTabel();
+
             }
             catch (Exception ex)
             {
@@ -194,47 +155,13 @@ namespace std_management
             }
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void listStudentTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int currentIndex = this.scoreTable.CurrentCell.RowIndex;
+            int currentIndex = this.listStudentTable.CurrentCell.RowIndex;
             if (currentIndex < 0) return;
 
-            DataGridViewRow row = this.scoreTable.Rows[currentIndex];
-            string student_code = row.Cells["Student code"].Value.ToString();
-            string course_id = row.Cells["Course id"].Value.ToString();
-
-            if (string.IsNullOrEmpty(student_code))
-            {
-                MessageBox.Show("Please select your row which you want to delete!");
-                return;
-            }
-
-            new Thread(() =>
-            {
-                try
-                {
-                    Database.ScoreDB db = new Database.ScoreDB();
-                    db.deleteScore(student_code, course_id);
-                    MessageBox.Show("Delete score item successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.loadDetailScoresTabel();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }).Start();
-        }
-
-        private void showStudentButton_Click(object sender, EventArgs e)
-        {
-            this.loadAllStudentsTable();
-            this.deleteButton.Hide();
-        }
-
-        private void showScoreButton_Click(object sender, EventArgs e)
-        {
-            this.loadDetailScoresTabel();
-            this.deleteButton.Show();
+            DataGridViewRow row = this.listStudentTable.Rows[currentIndex];
+            this.stdCodeTextbox.Text = row.Cells["Student code"].Value.ToString();
         }
     }
 }

@@ -44,6 +44,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,11 +62,41 @@
     <Compile Include="AddNewCourseForm.Designer.cs">
       <DependentUpon>AddNewCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddScoreForm.Designer.cs">
+      <DependentUpon>AddScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AverageScoreByCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AverageScoreByCourseForm.Designer.cs">
+      <DependentUpon>AverageScoreByCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteCourseForm.Designer.cs">
+      <DependentUpon>DeleteCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRForm.Designer.cs">
+      <DependentUpon>HRForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageStudentForm.Designer.cs">
       <DependentUpon>ManageStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintScoreForm.Designer.cs">
+      <DependentUpon>PrintScoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintStudentsForm.cs">
       <SubType>Form</SubType>
@@ -84,12 +115,6 @@
     </Compile>
     <Compile Include="ListStudentForm.Designer.cs">
       <DependentUpon>ListStudentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteCourseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteCourseForm.Designer.cs">
-      <DependentUpon>DeleteCourseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EditCourseForm.cs">
       <SubType>Form</SubType>
@@ -172,8 +197,23 @@
     <EmbeddedResource Include="AddNewCourseForm.resx">
       <DependentUpon>AddNewCourseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddScoreForm.resx">
+      <DependentUpon>AddScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AverageScoreByCourseForm.resx">
+      <DependentUpon>AverageScoreByCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteCourseForm.resx">
+      <DependentUpon>DeleteCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRForm.resx">
+      <DependentUpon>HRForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageStudentForm.resx">
       <DependentUpon>ManageStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintScoreForm.resx">
+      <DependentUpon>PrintScoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintStudentsForm.resx">
       <DependentUpon>PrintStudentsForm.cs</DependentUpon>
@@ -183,9 +223,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListStudentForm.resx">
       <DependentUpon>ListStudentForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeleteCourseForm.resx">
-      <DependentUpon>DeleteCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>

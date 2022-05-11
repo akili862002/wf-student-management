@@ -2,10 +2,10 @@
 
 USE students_db
 
+DROP TABLE score
 DROP TABLE users
 DROP TABLE students
 DROP TABLE course
-DROP TABLE score
 
 CREATE TABLE users (
 	username VARCHAR(100) NOT NULL PRIMARY KEY,
@@ -27,18 +27,20 @@ CREATE TABLE students (
 )
 
 CREATE TABLE course (
-	id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	id VARCHAR(20) NOT NULL PRIMARY KEY,
 	label VARCHAR(100),
-	hours_number INT,
+	preiod INT,
 	description VARCHAR(500)
 )
 
-insert into course (label, hours_number, description) values ('CSharp', 10, 'C# (C-Sharp) is a programming language developed by Microsoft that runs on the .NET Framework. C# is used to develop web apps, desktop apps, mobile apps, ...');
-insert into course (label, hours_number, description) values ('Java | Oracle', 10, 'About Java. Java + Alice Java + Greenfoot Oracle Academy for Educators Java Magazine');
+insert into course (id, label, preiod, description) values ('CS_12', 'CSharp', 10, 'C# (C-Sharp) is a programming language developed by Microsoft that runs on the .NET Framework. C# is used to develop web apps, desktop apps, mobile apps, ...');
+insert into course (id, label, preiod, description) values ('JAVA_08','Java | Oracle', 10, 'About Java. Java + Alice Java + Greenfoot Oracle Academy for Educators Java Magazine');
 
 CREATE TABLE score (
-	student_id INT,
-	course_id INT,
+	student_code VARCHAR(10) FOREIGN KEY REFERENCES students(code),
+	course_id VARCHAR(20) FOREIGN KEY REFERENCES course(id),
 	student_score FLOAT,
 	description TEXT,
+	PRIMARY KEY (student_code, course_id)
 )
+

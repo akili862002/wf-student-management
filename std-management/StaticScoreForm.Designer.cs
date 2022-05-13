@@ -39,9 +39,10 @@ namespace std_management
             // 
             this.staticByScoreLabel.AutoSize = true;
             this.staticByScoreLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staticByScoreLabel.Location = new System.Drawing.Point(12, 18);
+            this.staticByScoreLabel.Location = new System.Drawing.Point(18, 28);
+            this.staticByScoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.staticByScoreLabel.Name = "staticByScoreLabel";
-            this.staticByScoreLabel.Size = new System.Drawing.Size(180, 32);
+            this.staticByScoreLabel.Size = new System.Drawing.Size(262, 48);
             this.staticByScoreLabel.TabIndex = 2;
             this.staticByScoreLabel.Text = "Static by score";
             // 
@@ -49,9 +50,10 @@ namespace std_management
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(222, 18);
+            this.label1.Location = new System.Drawing.Point(405, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 32);
+            this.label1.Size = new System.Drawing.Size(269, 48);
             this.label1.TabIndex = 3;
             this.label1.Text = "Static by result";
             // 
@@ -63,16 +65,15 @@ namespace std_management
             this.byScoreListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.byScoreListBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.byScoreListBox.FormattingEnabled = true;
-            this.byScoreListBox.ItemHeight = 19;
+            this.byScoreListBox.ItemHeight = 28;
             this.byScoreListBox.Items.AddRange(new object[] {
             "Java: 8.22",
             "C#: 7.10",
             "Atifical Inteligent: 9.32",
             "Dotnet: 6.50"});
-            this.byScoreListBox.Location = new System.Drawing.Point(18, 64);
-            this.byScoreListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.byScoreListBox.Location = new System.Drawing.Point(27, 98);
             this.byScoreListBox.Name = "byScoreListBox";
-            this.byScoreListBox.Size = new System.Drawing.Size(194, 152);
+            this.byScoreListBox.Size = new System.Drawing.Size(333, 196);
             this.byScoreListBox.TabIndex = 44;
             // 
             // byResultListBox
@@ -83,29 +84,30 @@ namespace std_management
             this.byResultListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.byResultListBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.byResultListBox.FormattingEnabled = true;
-            this.byResultListBox.ItemHeight = 19;
+            this.byResultListBox.ItemHeight = 28;
             this.byResultListBox.Items.AddRange(new object[] {
             "Pass: 89%",
             "Fail: 11%"});
-            this.byResultListBox.Location = new System.Drawing.Point(228, 64);
-            this.byResultListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.byResultListBox.Location = new System.Drawing.Point(414, 98);
             this.byResultListBox.Name = "byResultListBox";
-            this.byResultListBox.Size = new System.Drawing.Size(194, 152);
+            this.byResultListBox.Size = new System.Drawing.Size(297, 196);
             this.byResultListBox.TabIndex = 45;
             // 
             // StaticScoreForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(454, 227);
+            this.ClientSize = new System.Drawing.Size(723, 350);
             this.Controls.Add(this.byResultListBox);
             this.Controls.Add(this.byScoreListBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.staticByScoreLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StaticScoreForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "StaticScoreForm";
+            this.Load += new System.EventHandler(this.StaticScoreForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

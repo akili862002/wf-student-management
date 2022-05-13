@@ -312,6 +312,19 @@ namespace std_management
                 return adapter;
             }
 
+            public SqlDataAdapter getAllAverageScoreByCourseOneLineAdapter()
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                SqlDataAdapter adapter;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                string query = "SELECT label + ': ' + STR(ROUND(AVG(student_score), 3),25, 2) as label FROM score, course WHERE score.course_id = course.id GROUP BY id, course.label";
+                adapter = new SqlDataAdapter(query, connection);
+                connection.Close();
+                Cursor.Current = Cursors.Default;
+                return adapter;
+            }
+
             public void deleteScore(string studentCode, string courseId)
             {
                 Cursor.Current = Cursors.WaitCursor;

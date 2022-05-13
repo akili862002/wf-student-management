@@ -35,6 +35,7 @@ namespace std_management
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printButton = new System.Windows.Forms.Button();
+            this.loginLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.scoreTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +47,11 @@ namespace std_management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scoreTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.scoreTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.scoreTable.Location = new System.Drawing.Point(12, 13);
+            this.scoreTable.Location = new System.Drawing.Point(12, 55);
             this.scoreTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.scoreTable.Name = "scoreTable";
             this.scoreTable.RowHeadersWidth = 100;
-            this.scoreTable.Size = new System.Drawing.Size(776, 387);
+            this.scoreTable.Size = new System.Drawing.Size(776, 345);
             this.scoreTable.TabIndex = 73;
             // 
             // toFileButton
@@ -94,12 +95,24 @@ namespace std_management
             this.printButton.UseVisualStyleBackColor = false;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
+            // loginLabel
+            // 
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginLabel.Location = new System.Drawing.Point(11, 9);
+            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(139, 32);
+            this.loginLabel.TabIndex = 76;
+            this.loginLabel.Text = "Print score";
+            // 
             // PrintScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.toFileButton);
             this.Controls.Add(this.scoreTable);
@@ -109,6 +122,7 @@ namespace std_management
             this.Load += new System.EventHandler(this.PrintScoreForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.scoreTable)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -119,5 +133,6 @@ namespace std_management
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Label loginLabel;
     }
 }

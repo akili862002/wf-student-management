@@ -21,5 +21,10 @@ namespace std_management
         {
 
         }
+
+        private void resultDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

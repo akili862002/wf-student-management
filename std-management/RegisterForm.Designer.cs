@@ -44,12 +44,12 @@ namespace std_management
             this.usernameErrorLabel = new System.Windows.Forms.Label();
             this.passwordErorrLabel = new System.Windows.Forms.Label();
             this.confirmPasswordErrorLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.firstNameErrorLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lastNameErrorLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lastnameTextBox = new System.Windows.Forms.TextBox();
             this.uploadAvatarButton = new System.Windows.Forms.Button();
             this.avatarPicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).BeginInit();
@@ -237,17 +237,17 @@ namespace std_management
             this.confirmPasswordErrorLabel.TabIndex = 27;
             this.confirmPasswordErrorLabel.Text = "Error will be like this!";
             // 
-            // label4
+            // firstNameErrorLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(180, 128);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 13);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Error will be like this!";
+            this.firstNameErrorLabel.AutoSize = true;
+            this.firstNameErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.firstNameErrorLabel.Location = new System.Drawing.Point(180, 128);
+            this.firstNameErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.firstNameErrorLabel.Name = "firstNameErrorLabel";
+            this.firstNameErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.firstNameErrorLabel.TabIndex = 30;
+            this.firstNameErrorLabel.Text = "Error will be like this!";
             // 
             // label5
             // 
@@ -268,18 +268,19 @@ namespace std_management
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(139, 26);
             this.firstNameTextBox.TabIndex = 28;
+            this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validation);
             // 
-            // label6
+            // lastNameErrorLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(323, 128);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 13);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Error will be like this!";
+            this.lastNameErrorLabel.AutoSize = true;
+            this.lastNameErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.lastNameErrorLabel.Location = new System.Drawing.Point(323, 128);
+            this.lastNameErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lastNameErrorLabel.Name = "lastNameErrorLabel";
+            this.lastNameErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.lastNameErrorLabel.TabIndex = 33;
+            this.lastNameErrorLabel.Text = "Error will be like this!";
             // 
             // label7
             // 
@@ -288,20 +289,21 @@ namespace std_management
             this.label7.Location = new System.Drawing.Point(322, 78);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 19);
+            this.label7.Size = new System.Drawing.Size(72, 19);
             this.label7.TabIndex = 32;
-            this.label7.Text = "First name";
+            this.label7.Text = "Last name";
             // 
-            // textBox1
+            // lastnameTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lastnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(324, 99);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 26);
-            this.textBox1.TabIndex = 31;
+            this.lastnameTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastnameTextBox.Location = new System.Drawing.Point(324, 99);
+            this.lastnameTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.lastnameTextBox.Name = "lastnameTextBox";
+            this.lastnameTextBox.Size = new System.Drawing.Size(120, 26);
+            this.lastnameTextBox.TabIndex = 31;
+            this.lastnameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastnameTextBox_Validation);
             // 
             // uploadAvatarButton
             // 
@@ -334,10 +336,10 @@ namespace std_management
             this.ClientSize = new System.Drawing.Size(455, 490);
             this.Controls.Add(this.uploadAvatarButton);
             this.Controls.Add(this.avatarPicture);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lastNameErrorLabel);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lastnameTextBox);
+            this.Controls.Add(this.firstNameErrorLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.confirmPasswordErrorLabel);
@@ -358,6 +360,7 @@ namespace std_management
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register";
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -380,12 +383,12 @@ namespace std_management
         private System.Windows.Forms.Label passwordErorrLabel;
         private System.Windows.Forms.Label usernameErrorLabel;
         private System.Windows.Forms.Label emailErrorLabel;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label firstNameErrorLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lastNameErrorLabel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox lastnameTextBox;
         private System.Windows.Forms.Button uploadAvatarButton;
         private System.Windows.Forms.PictureBox avatarPicture;
     }

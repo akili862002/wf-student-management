@@ -106,12 +106,12 @@ namespace std_management
 
         public Score setStudentCode(string studentCode)
         {
-            this.studentCode = studentCode ;
+            this.studentCode = studentCode;
             return this;
         }
         public Score setCourseId(string courseId)
         {
-            this.courseId = courseId ;
+            this.courseId = courseId;
             return this;
         }
         public Score setStudentScore(float studentScore)
@@ -122,6 +122,94 @@ namespace std_management
         public Score setDescription(string desc)
         {
             this.description = desc;
+            return this;
+        }
+    }
+
+    public class ContactEntity
+    {
+        public int id;
+        public string firstName;
+        public string lastName;
+        public string groupId;
+        public string phone;
+        public string email;
+        public string address;
+        public string pic;
+        public string userId;
+
+        public ContactEntity setId(int id)
+        {
+            this.id = id;
+            return this;
+        }
+
+        public ContactEntity setFirstName(string firstName)
+        {
+            this.firstName = firstName;
+            return this;
+        }
+        public ContactEntity setLastName(string lastName)
+        {
+            this.lastName = lastName;
+            return this;
+        }
+        public ContactEntity setGroupId(string groupId)
+        {
+            this.groupId = groupId;
+            return this;
+        }
+        public ContactEntity setPhone(string phone)
+        {
+            this.phone = phone;
+            return this;
+        }
+        public ContactEntity setEmail(string email)
+        {
+            this.email = email;
+            return this;
+        }
+
+        public ContactEntity setAddress(string address)
+        {
+            this.address = address;
+            return this;
+        }
+
+        public ContactEntity setPic(string pic)
+        {
+            this.pic = pic;
+            return this;
+        }
+
+        public ContactEntity setUserId(string userId)
+        {
+            this.userId = userId;
+            return this;
+        }
+    }
+
+    public class GroupEntity
+    {
+       public int id;
+       public string name;
+       public int createdBy; 
+
+        public GroupEntity setId(int id)
+        {
+            this.id = id;
+            return this;
+        } 
+
+        public GroupEntity setName(string name)
+        {
+            this.name = name;
+            return this;
+        }
+
+        public GroupEntity setCreatedBy(int createdBy)
+        {
+            this.createdBy = createdBy;
             return this;
         }
     }

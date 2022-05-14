@@ -12,6 +12,7 @@ namespace std_management
 {
     public partial class LoginForm : Form
     {
+        public bool isStudent = true;
         public LoginForm()
         {
             InitializeComponent();
@@ -34,7 +35,10 @@ namespace std_management
                 MessageBox.Show("Username or password is not correct!", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
 
+            this.isStudent = this.studentRadio.Checked;
             this.DialogResult = DialogResult.OK;
+
+            Globals.isAuth = true;
         }
 
         private void registerLabel_Click(object sender, EventArgs e)
@@ -78,6 +82,11 @@ namespace std_management
                 return;
             }
             vali.normal();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

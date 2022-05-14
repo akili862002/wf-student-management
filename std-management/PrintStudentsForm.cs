@@ -47,7 +47,7 @@ namespace std_management
             new Thread(() =>
             {
                 this.studentTableLoadingProgress.Value = 20;
-                Database sqlHandler = new Database();
+                Database.StudentDB sqlHandler = new Database.StudentDB();
                 DataTable dt = new DataTable();
 
                 StudentEntity.GenderType genderSelected = this.maleRadio.Checked ? StudentEntity.GenderType.Male : this.famaleRadio.Checked ? StudentEntity.GenderType.Famale : StudentEntity.GenderType.All;

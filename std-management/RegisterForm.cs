@@ -13,12 +13,18 @@ namespace std_management
         public RegisterForm()
         {
             InitializeComponent();
+            this.reserAllValidation();
+        }
+
+        private void reserAllValidation()
+        {
+            this.firstNameErrorLabel.Hide();
+            this.lastNameErrorLabel.Hide();
             this.emailErrorLabel.Hide();
             this.usernameErrorLabel.Hide();
             this.passwordErorrLabel.Hide();
             this.confirmPasswordErrorLabel.Hide();
         }
-
 
         private void emailTextBox_Validating(object sender, CancelEventArgs e)
         {
@@ -79,6 +85,27 @@ namespace std_management
             }
             validation.normal();
         }
+        private void firstNameTextBox_Validation(object sender, CancelEventArgs e)
+        {
+            TextBoxValidation validation = new TextBoxValidation(e, this.firstNameTextBox, this.firstNameErrorLabel);
+            if (string.IsNullOrEmpty(this.firstNameTextBox.Text))
+            {
+                validation.error("This field is required!");
+                return;
+            }
+            validation.normal();
+        }
+
+        private void lastnameTextBox_Validation(object sender, CancelEventArgs e)
+        {
+            TextBoxValidation validation = new TextBoxValidation(e, this.lastnameTextBox, this.lastNameErrorLabel);
+            if (string.IsNullOrEmpty(this.lastnameTextBox.Text))
+            {
+                validation.error("This field is required!");
+                return;
+            }
+            validation.normal();
+        }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
@@ -119,6 +146,11 @@ namespace std_management
         private void usernameTextbox_Leave(object sender, EventArgs e)
         {
             this.validateUsername();
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -25,7 +25,8 @@ namespace std_management
                 this.isEdit = true;
                 this.titleLabel.Text = "Edit student";
                 this.submitButton.Text = "Update";
-            } else
+            }
+            else
             {
                 this.deleteButton.Hide();
             }
@@ -102,14 +103,15 @@ namespace std_management
                         newStudent.setGender(StudentEntity.GenderType.Male);
                     if (this.famaleRadio.Checked)
                         newStudent.setGender(StudentEntity.GenderType.Famale);
-                    Database sqlHandler = new Database();
+                    Database.StudentDB sqlHandler = new Database.StudentDB();
                     Cursor.Current = Cursors.WaitCursor;
 
                     if (this.isEdit)
                     {
                         sqlHandler.updateStudentSQL(this.student.code, newStudent);
-                    } else 
-                    { 
+                    }
+                    else
+                    {
                         sqlHandler.createStudentSQL(newStudent);
                     }
 
@@ -124,6 +126,17 @@ namespace std_management
             });
 
             thr.Start();
+        }
+
+        private void stdCodeTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBoxValidation vali = new TextBoxValidation(e, this.stdCodeTextBox, this.stdCodeErrorLabel);
+            if (string.IsNullOrEmpty(stdCodeTextBox.Text))
+            {
+                vali.error("Student code is required!");
+                return;
+            }
+            vali.normal();
         }
 
         private void firstNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -207,7 +220,7 @@ namespace std_management
         {
             string newCode = this.stdCodeTextBox.Text;
             TextBoxValidation vali = new TextBoxValidation(null, this.stdCodeTextBox, this.stdCodeErrorLabel);
-            Database db = new Database();
+            Database.StudentDB db = new Database.StudentDB();
 
             if (this.isEdit && newCode == this.student.code)
             {
@@ -228,7 +241,7 @@ namespace std_management
         {
             new Thread(() =>
             {
-                Database sqlHandler = new Database();
+                Database.StudentDB sqlHandler = new Database.StudentDB();
                 sqlHandler.deleteStudentByIdSQL(student.code);
                 MessageBox.Show("Delete student successfully!", "Success!");
                 this.closeDialog();

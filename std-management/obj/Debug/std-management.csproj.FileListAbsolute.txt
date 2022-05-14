@@ -106,3 +106,4 @@ C:\Users\USUM Software\Source\Repos\akili862002\wf-student-management\std-manage
 C:\Users\USUM Software\Source\Repos\akili862002\wf-student-management\std-management\obj\Debug\std_management.AddScoreForm.resources
 C:\Users\USUM Software\Source\Repos\akili862002\wf-student-management\std-management\obj\Debug\std_management.AverageScoreByCourseForm.resources
 C:\Users\USUM Software\Source\Repos\akili862002\wf-student-management\std-management\obj\Debug\std_management.PrintScoreForm.resources
+C:\Users\USUM Software\Source\Repos\akili862002\wf-student-management\std-management\obj\Debug\std_management.ContactAction.resources

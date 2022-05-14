@@ -58,10 +58,10 @@ namespace std_management
             this.usernameTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.usernameTextbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextbox.Location = new System.Drawing.Point(253, 152);
-            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.usernameTextbox.Location = new System.Drawing.Point(380, 234);
+            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.usernameTextbox.Name = "usernameTextbox";
-            this.usernameTextbox.Size = new System.Drawing.Size(261, 26);
+            this.usernameTextbox.Size = new System.Drawing.Size(390, 35);
             this.usernameTextbox.TabIndex = 0;
             this.usernameTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.usernameTextbox_Validating);
             // 
@@ -69,10 +69,9 @@ namespace std_management
             // 
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.Location = new System.Drawing.Point(250, 131);
-            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.usernameLabel.Location = new System.Drawing.Point(375, 202);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(71, 19);
+            this.usernameLabel.Size = new System.Drawing.Size(109, 30);
             this.usernameLabel.TabIndex = 1;
             this.usernameLabel.Text = "Username";
             // 
@@ -80,10 +79,9 @@ namespace std_management
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(250, 194);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(375, 298);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 19);
+            this.label1.Size = new System.Drawing.Size(103, 30);
             this.label1.TabIndex = 3;
             this.label1.Text = "Password";
             // 
@@ -92,11 +90,11 @@ namespace std_management
             this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(253, 216);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.passwordTextBox.Location = new System.Drawing.Point(380, 332);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(261, 26);
+            this.passwordTextBox.Size = new System.Drawing.Size(390, 35);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
             // 
@@ -104,10 +102,9 @@ namespace std_management
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(247, 45);
-            this.loginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.loginLabel.Location = new System.Drawing.Point(370, 69);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(201, 32);
+            this.loginLabel.Size = new System.Drawing.Size(295, 48);
             this.loginLabel.TabIndex = 5;
             this.loginLabel.Text = "Welcome, there!";
             // 
@@ -116,10 +113,9 @@ namespace std_management
             this.subtitleLabel.AutoSize = true;
             this.subtitleLabel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subtitleLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.subtitleLabel.Location = new System.Drawing.Point(253, 78);
-            this.subtitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.subtitleLabel.Location = new System.Drawing.Point(380, 120);
             this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(218, 13);
+            this.subtitleLabel.Size = new System.Drawing.Size(289, 21);
             this.subtitleLabel.TabIndex = 7;
             this.subtitleLabel.Text = "Hi, please login to go to dashboard form";
             // 
@@ -129,10 +125,10 @@ namespace std_management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.loginButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(252, 265);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.loginButton.Location = new System.Drawing.Point(378, 408);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(262, 32);
+            this.loginButton.Size = new System.Drawing.Size(393, 49);
             this.loginButton.TabIndex = 8;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -142,10 +138,9 @@ namespace std_management
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(273, 332);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(410, 511);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 15);
+            this.label2.Size = new System.Drawing.Size(206, 25);
             this.label2.TabIndex = 9;
             this.label2.Text = "Don\'t have any account?";
             // 
@@ -154,10 +149,9 @@ namespace std_management
             this.registerLabel.AutoSize = true;
             this.registerLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registerLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerLabel.Location = new System.Drawing.Point(405, 330);
-            this.registerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.registerLabel.Location = new System.Drawing.Point(608, 508);
             this.registerLabel.Name = "registerLabel";
-            this.registerLabel.Size = new System.Drawing.Size(91, 19);
+            this.registerLabel.Size = new System.Drawing.Size(137, 30);
             this.registerLabel.TabIndex = 10;
             this.registerLabel.Text = "Register now";
             this.registerLabel.Click += new System.EventHandler(this.registerLabel_Click);
@@ -168,10 +162,9 @@ namespace std_management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dividerLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dividerLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dividerLabel.Location = new System.Drawing.Point(276, 316);
-            this.dividerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dividerLabel.Location = new System.Drawing.Point(414, 486);
             this.dividerLabel.Name = "dividerLabel";
-            this.dividerLabel.Size = new System.Drawing.Size(216, 1);
+            this.dividerLabel.Size = new System.Drawing.Size(324, 2);
             this.dividerLabel.TabIndex = 11;
             // 
             // registerTooltip
@@ -183,10 +176,9 @@ namespace std_management
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(9, 349);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(14, 537);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 13);
+            this.label3.Size = new System.Drawing.Size(183, 21);
             this.label3.TabIndex = 12;
             this.label3.Text = "Created by Dung Nguyen";
             // 
@@ -197,10 +189,10 @@ namespace std_management
             // pictureBox1
             // 
             this.pictureBox1.Image = global::std_management.Properties.Resources.casle;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 53);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(42, 82);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 248);
+            this.pictureBox1.Size = new System.Drawing.Size(294, 382);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -210,10 +202,9 @@ namespace std_management
             this.usernameErrorLabel.AutoSize = true;
             this.usernameErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.usernameErrorLabel.Location = new System.Drawing.Point(253, 181);
-            this.usernameErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.usernameErrorLabel.Location = new System.Drawing.Point(380, 278);
             this.usernameErrorLabel.Name = "usernameErrorLabel";
-            this.usernameErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.usernameErrorLabel.Size = new System.Drawing.Size(167, 23);
             this.usernameErrorLabel.TabIndex = 26;
             this.usernameErrorLabel.Text = "Error will be like this!";
             // 
@@ -222,10 +213,9 @@ namespace std_management
             this.passwordErrorLabel.AutoSize = true;
             this.passwordErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordErrorLabel.Location = new System.Drawing.Point(253, 245);
-            this.passwordErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.passwordErrorLabel.Location = new System.Drawing.Point(380, 377);
             this.passwordErrorLabel.Name = "passwordErrorLabel";
-            this.passwordErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.passwordErrorLabel.Size = new System.Drawing.Size(167, 23);
             this.passwordErrorLabel.TabIndex = 27;
             this.passwordErrorLabel.Text = "Error will be like this!";
             // 
@@ -234,11 +224,11 @@ namespace std_management
             this.studentRadio.AutoSize = true;
             this.studentRadio.Checked = true;
             this.studentRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentRadio.Location = new System.Drawing.Point(286, 106);
-            this.studentRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.studentRadio.Location = new System.Drawing.Point(429, 163);
             this.studentRadio.Name = "studentRadio";
-            this.studentRadio.Size = new System.Drawing.Size(66, 19);
+            this.studentRadio.Size = new System.Drawing.Size(98, 29);
             this.studentRadio.TabIndex = 44;
+            this.studentRadio.TabStop = true;
             this.studentRadio.Text = "Student";
             this.studentRadio.UseVisualStyleBackColor = true;
             // 
@@ -246,10 +236,9 @@ namespace std_management
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(252, 105);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(378, 162);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 19);
+            this.label4.Size = new System.Drawing.Size(43, 30);
             this.label4.TabIndex = 45;
             this.label4.Text = "I\'m";
             // 
@@ -257,20 +246,19 @@ namespace std_management
             // 
             this.hrRadio.AutoSize = true;
             this.hrRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hrRadio.Location = new System.Drawing.Point(356, 106);
-            this.hrRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.hrRadio.Location = new System.Drawing.Point(534, 163);
             this.hrRadio.Name = "hrRadio";
-            this.hrRadio.Size = new System.Drawing.Size(41, 19);
+            this.hrRadio.Size = new System.Drawing.Size(61, 29);
             this.hrRadio.TabIndex = 46;
             this.hrRadio.Text = "HR";
             this.hrRadio.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(535, 373);
+            this.ClientSize = new System.Drawing.Size(802, 574);
             this.Controls.Add(this.hrRadio);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.studentRadio);
@@ -288,11 +276,12 @@ namespace std_management
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.usernameTextbox);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.MinimumSize = new System.Drawing.Size(551, 410);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.MinimumSize = new System.Drawing.Size(816, 601);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login form";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

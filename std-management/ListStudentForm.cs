@@ -30,7 +30,7 @@ namespace std_management
             new Thread(() =>
             {
                 this.studentTableLoadingProgress.Value = 20;
-                Database sqlHandler = new Database();
+                Database.StudentDB sqlHandler = new Database.StudentDB();
                 DataTable dt = new DataTable();
                 sqlHandler.getAllStudentsAdapter(searchText).Fill(dt);
                 this.Invoke(new MethodInvoker(delegate

@@ -191,7 +191,7 @@ namespace std_management
         {
             string newCode = this.stdCodeTextBox.Text;
             TextBoxValidation vali = new TextBoxValidation(null, this.stdCodeTextBox, this.stdCodeErrorLabel);
-            Database db = new Database();
+            Database.StudentDB db = new Database.StudentDB();
 
             if (this.isEdit && newCode == this.student.code)
             {
@@ -212,7 +212,7 @@ namespace std_management
         {
             new Thread(() =>
             {
-                Database sqlHandler = new Database();
+                Database.StudentDB sqlHandler = new Database.StudentDB();
                 sqlHandler.deleteStudentByIdSQL(student.code);
                 MessageBox.Show("Delete student successfully!", "Success!");
                 this.LoadDataForStudentTable();
@@ -224,7 +224,7 @@ namespace std_management
             new Thread(() =>
             {
                 this.studentTableLoadingProgress.Value = 20;
-                Database sqlHandler = new Database();
+                Database.StudentDB sqlHandler = new Database.StudentDB();
                 DataTable dt = new DataTable();
                 sqlHandler.getAllStudentsAdapter(searchText).Fill(dt);
                 this.Invoke(new MethodInvoker(delegate
@@ -289,7 +289,7 @@ namespace std_management
                         newStudent.setGender(StudentEntity.GenderType.Male);
                     if (this.famaleRadio.Checked)
                         newStudent.setGender(StudentEntity.GenderType.Famale);
-                    Database sqlHandler = new Database();
+                    Database.StudentDB sqlHandler = new Database.StudentDB();
                     Cursor.Current = Cursors.WaitCursor;
 
                     if (this.isEdit)

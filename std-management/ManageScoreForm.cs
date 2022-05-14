@@ -47,7 +47,7 @@ namespace std_management
             {
                 try
                 {
-                    Database db = new Database();
+                    Database.StudentDB db = new Database.StudentDB();
                     DataTable dt = new DataTable();
                     db.getAllStudentsWithSelectAdapter("code as [Student code], first_name as [First name], last_name as [Last name], birthdate").Fill(dt);
                     this.Invoke(new MethodInvoker(delegate
@@ -137,7 +137,7 @@ namespace std_management
         {
             string newCode = this.stdCodeTextbox.Text;
             TextBoxValidation vali = new TextBoxValidation(null, this.stdCodeTextbox, this.stdCodeErrorLabel);
-            Database db = new Database();
+            Database.StudentDB db = new Database.StudentDB();
 
             if (!db.checkExistStudentCode(newCode))
             {

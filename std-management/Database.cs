@@ -318,7 +318,59 @@ namespace std_management
                 SqlDataAdapter adapter;
                 SqlConnection connection = new SqlConnection(sqlConnectionString);
                 connection.Open();
-                string query = "SELECT label + ': ' + STR(ROUND(AVG(student_score), 3),25, 2) as label FROM score, course WHERE score.course_id = course.id GROUP BY id, course.label";
+                string query = "SELECT label + ': ' + STR(ROUND(AVG(student_score), 3), 5, 2) as label FROM score, course WHERE score.course_id = course.id GROUP BY id, course.label";
+                adapter = new SqlDataAdapter(query, connection);
+                connection.Close();
+                Cursor.Current = Cursors.Default;
+                return adapter;
+            }
+
+            public SqlDataAdapter getAllScoreResultByStudentsAdapter(string stdCode, string firstName, string lastName, string searchText)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                SqlDataAdapter adapter;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                string filterQuery = "";
+
+                if (!string.IsNullOrEmpty(stdCode))
+                {
+                    filterQuery += $" AND student_code LIKE ''%{stdCode}%'' ";
+                }
+
+                if (!string.IsNullOrEmpty(firstName))
+                {
+                    filterQuery += $" AND first_name LIKE ''%{firstName}%'' ";
+                }
+
+                if (!string.IsNullOrEmpty(lastName))
+                {
+                    filterQuery += $" AND student_code + first_name + last_name LIKE ''%{searchText}%'' ";
+                }
+
+                string query = $@"
+DECLARE @cols AS NVARCHAR(MAX),
+@rounded_cols AS NVARCHAR(MAX),
+@query  AS NVARCHAR(MAX)
+
+select @cols = STUFF((SELECT ',' + QUOTENAME(id) from course FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)') ,1,1,'')
+select @rounded_cols = STUFF((SELECT ', ROUND(' + QUOTENAME(id) + ', 3) AS ' + QUOTENAME(label) from course FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)') ,1,1,'')
+
+set @query = N'SELECT student_code as [Student code], first_name as [First name], last_name as [Last name], ' + @rounded_cols + N', ROUND(avg_score, 2) as [Avg score], Result
+FROM (
+SELECT student_code, course_id, student_score, first_name, last_name
+FROM (score JOIN students ON score.student_code = students.code  JOIN course ON score.course_id = course.id)
+) a
+JOIN (
+SELECT student_code as std_code, AVG(student_score) avg_score, CASE WHEN  AVG(student_score) >= 5 THEN ''Pass'' ELSE ''Fail'' END AS result
+FROM (score JOIN students ON score.student_code = students.code JOIN course ON score.course_id = course.id) GROUP BY student_code, first_name, last_name
+) b
+ON (a.student_code = b.std_code)
+PIVOT 
+(AVG(student_score) FOR course_id IN (' + @cols + N')) as subjects
+WHERE 1 = 1 {filterQuery} '
+exec sp_executesql @query;
+                ";
                 adapter = new SqlDataAdapter(query, connection);
                 connection.Close();
                 Cursor.Current = Cursors.Default;
@@ -366,146 +418,139 @@ namespace std_management
                 connection.Close();
                 return false;
             }
-        }
 
-        public bool checkExistStudentCode(string code)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            using (SqlCommand command = connection.CreateCommand())
+            public int countPassStudents()
             {
-                try
+                Cursor.Current = Cursors.WaitCursor;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT code FROM students WHERE code = @code";
-                    command.Parameters.AddWithValue("@code", code);
-                    SqlDataReader dr = command.ExecuteReader();
-                    return dr.HasRows;
+                    command.CommandText = @"
+                        SELECT COUNT(*)
+                        FROM (
+                            SELECT student_code as std_code, AVG(student_score) avg_score, COUNT(student_code) as total
+                            FROM (score JOIN students ON score.student_code = students.code JOIN course ON score.course_id = course.id) GROUP BY student_code, first_name, last_name
+                        ) a
+                        WHERE a.avg_score >= 5
+                    ";
+                    int totalCount = (Int32)command.ExecuteScalar();
+                    return totalCount;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    Cursor.Current = Cursors.Default;
-                }
-            }
-            connection.Close();
-            return false;
-        }
-        public void testConnection()
-        {
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            using (SqlCommand command = connection.CreateCommand())
-            {
-                MessageBox.Show("Connected!");
-            }
-            connection.Close();
-        }
-        public SqlDataAdapter getAllStudentsAdapter(
-            string searchText = "",
-            StudentEntity.GenderType gender = StudentEntity.GenderType.All,
-            DateTime? fromDate = null,
-            DateTime? toDate = null)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            SqlDataAdapter adapter;
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            string query = "SELECT * FROM Students WHERE 1 = 1";
-            if (!string.IsNullOrEmpty(searchText))
-                query += $" AND (first_name + ' ' + last_name) LIKE '%{searchText}%' ";
-
-            if (gender.ToString() != StudentEntity.GenderType.All.ToString())
-                query += $" AND gender = '{gender.ToString()}'";
-
-            if (fromDate != null && toDate != null)
-                query += $" AND birthdate BETWEEN '{fromDate.ToString()}' AND '{toDate.ToString()}'";
-
-
-            query += " ORDER BY code DESC";
-            adapter = new SqlDataAdapter(query, connection);
-            connection.Close();
-
-            Cursor.Current = Cursors.Default;
-
-            return adapter;
-        }
-
-        public SqlDataAdapter getAllStudentsWithSelectAdapter(string select = "*")
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            SqlDataAdapter adapter;
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            string query = $"SELECT {select} FROM Students WHERE 1 = 1";
-            adapter = new SqlDataAdapter(query, connection);
-            connection.Close();
-            Cursor.Current = Cursors.Default;
-
-            return adapter;
-        }
-
-        public SqlDataAdapter getAllStudentsWithFormatSelectionAdapter(
-           string selectString = "*")
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            SqlDataAdapter adapter;
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            string query = $"SELECT {selectString} FROM Students WHERE 1 = 1";
-            adapter = new SqlDataAdapter(query, connection);
-            connection.Close();
-            Cursor.Current = Cursors.Default;
-
-            return adapter;
-        }
-        public void createStudentSQL(StudentEntity student)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            using (SqlCommand command = connection.CreateCommand())
-            {
-                command.CommandText = "insert into Students (code, first_name, last_name, birthdate, gender, phone, address, avatar) values (@code, @first_name, @last_name, @birthdate, @gender, @phone, @address, @avatar)";
-                command.Parameters.AddWithValue("@code", student.code);
-                command.Parameters.AddWithValue("@first_name", student.first_name);
-                command.Parameters.AddWithValue("@last_name", student.last_name);
-                command.Parameters.AddWithValue("@birthdate", student.birthdate);
-                command.Parameters.AddWithValue("@gender", student.gender);
-                command.Parameters.AddWithValue("@phone", student.phone);
-                command.Parameters.AddWithValue("@address", student.address);
-                command.Parameters.AddWithValue("@avatar", student.avatar);
-
-                Console.WriteLine(command.CommandText);
-
-                var stdId = command.ExecuteScalar();
-                Console.WriteLine("New Student", stdId);
+                connection.Close();
                 Cursor.Current = Cursors.Default;
             }
-            connection.Close();
         }
-        public void updateStudentSQL(string code, StudentEntity student)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            using (SqlCommand command = connection.CreateCommand())
-            {
-                try
-                {
-                    command.CommandText =
-                       "UPDATE students " +
-                       "SET code = @code, first_name = @first_name, last_name = @last_name, birthdate = @birthdate, gender = @gender, phone = @phone, address = @address, avatar = @avatar " +
-                       $"WHERE code = {code} ";
 
+        public class StudentDB
+        {
+
+            public bool checkExistStudentCode(string code)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    try
+                    {
+                        command.CommandText = "SELECT code FROM students WHERE code = @code";
+                        command.Parameters.AddWithValue("@code", code);
+                        SqlDataReader dr = command.ExecuteReader();
+                        return dr.HasRows;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        Cursor.Current = Cursors.Default;
+                    }
+                }
+                connection.Close();
+                return false;
+            }
+            public void testConnection()
+            {
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    MessageBox.Show("Connected!");
+                }
+                connection.Close();
+            }
+            public SqlDataAdapter getAllStudentsAdapter(
+                string searchText = "",
+                StudentEntity.GenderType gender = StudentEntity.GenderType.All,
+                DateTime? fromDate = null,
+                DateTime? toDate = null)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                SqlDataAdapter adapter;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                string query = "SELECT * FROM Students WHERE 1 = 1";
+                if (!string.IsNullOrEmpty(searchText))
+                    query += $" AND (first_name + ' ' + last_name) LIKE '%{searchText}%' ";
+
+                if (gender.ToString() != StudentEntity.GenderType.All.ToString())
+                    query += $" AND gender = '{gender.ToString()}'";
+
+                if (fromDate != null && toDate != null)
+                    query += $" AND birthdate BETWEEN '{fromDate.ToString()}' AND '{toDate.ToString()}'";
+
+
+                query += " ORDER BY code DESC";
+                adapter = new SqlDataAdapter(query, connection);
+                connection.Close();
+
+                Cursor.Current = Cursors.Default;
+
+                return adapter;
+            }
+
+            public SqlDataAdapter getAllStudentsWithSelectAdapter(string select = "*")
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                SqlDataAdapter adapter;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                string query = $"SELECT {select} FROM Students WHERE 1 = 1";
+                adapter = new SqlDataAdapter(query, connection);
+                connection.Close();
+                Cursor.Current = Cursors.Default;
+
+                return adapter;
+            }
+            public SqlDataAdapter getAllStudentsWithFormatSelectionAdapter(
+               string selectString = "*")
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                SqlDataAdapter adapter;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                string query = $"SELECT {selectString} FROM Students WHERE 1 = 1";
+                adapter = new SqlDataAdapter(query, connection);
+                connection.Close();
+                Cursor.Current = Cursors.Default;
+
+                return adapter;
+            }
+            public void createStudentSQL(StudentEntity student)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "insert into Students (code, first_name, last_name, birthdate, gender, phone, address, avatar) values (@code, @first_name, @last_name, @birthdate, @gender, @phone, @address, @avatar)";
                     command.Parameters.AddWithValue("@code", student.code);
                     command.Parameters.AddWithValue("@first_name", student.first_name);
                     command.Parameters.AddWithValue("@last_name", student.last_name);
@@ -515,62 +560,101 @@ namespace std_management
                     command.Parameters.AddWithValue("@address", student.address);
                     command.Parameters.AddWithValue("@avatar", student.avatar);
 
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
+                    Console.WriteLine(command.CommandText);
+
+                    var stdId = command.ExecuteScalar();
+                    Console.WriteLine("New Student", stdId);
                     Cursor.Current = Cursors.Default;
                 }
+                connection.Close();
             }
-            connection.Close();
-        }
-        public void deleteStudentByIdSQL(string code)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            using (SqlCommand command = connection.CreateCommand())
+            public void updateStudentSQL(string code, StudentEntity student)
             {
-                command.CommandText = String.Format($"DELETE FROM Students WHERE code = @code");
-                command.Parameters.AddWithValue("@code", code);
-                command.ExecuteNonQuery();
-            }
-            connection.Close();
-            Cursor.Current = Cursors.Default;
-        }
-        public int countTotalStudents()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            using (SqlCommand command = connection.CreateCommand())
-            {
-                command.CommandText = "SELECT COUNT(*) FROM students";
-                int totalCount = (Int32)command.ExecuteScalar();
-                return totalCount;
-            }
-            connection.Close();
-            Cursor.Current = Cursors.Default;
-        }
-        public int countTotalStudentsByGender(bool isMale)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            SqlConnection connection = new SqlConnection(sqlConnectionString);
-            connection.Open();
-            using (SqlCommand command = connection.CreateCommand())
-            {
-                string gender = isMale ? "Male" : "Female";
-                command.CommandText = $"SELECT COUNT(*) FROM students WHERE gender = '{gender}'";
+                Cursor.Current = Cursors.WaitCursor;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    try
+                    {
+                        command.CommandText =
+                           "UPDATE students " +
+                           "SET code = @code, first_name = @first_name, last_name = @last_name, birthdate = @birthdate, gender = @gender, phone = @phone, address = @address, avatar = @avatar " +
+                           $"WHERE code = {code} ";
 
-                int totalCount = (Int32)command.ExecuteScalar();
-                return totalCount;
+                        command.Parameters.AddWithValue("@code", student.code);
+                        command.Parameters.AddWithValue("@first_name", student.first_name);
+                        command.Parameters.AddWithValue("@last_name", student.last_name);
+                        command.Parameters.AddWithValue("@birthdate", student.birthdate);
+                        command.Parameters.AddWithValue("@gender", student.gender);
+                        command.Parameters.AddWithValue("@phone", student.phone);
+                        command.Parameters.AddWithValue("@address", student.address);
+                        command.Parameters.AddWithValue("@avatar", student.avatar);
+
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        Cursor.Current = Cursors.Default;
+                    }
+                }
+                connection.Close();
             }
-            connection.Close();
-            Cursor.Current = Cursors.Default;
+            public void deleteStudentByIdSQL(string code)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = String.Format($"DELETE FROM Students WHERE code = @code");
+                    command.Parameters.AddWithValue("@code", code);
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+                Cursor.Current = Cursors.Default;
+            }
+            public int countTotalStudents()
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT COUNT(*) FROM students";
+                    int totalCount = (Int32)command.ExecuteScalar();
+                    return totalCount;
+                }
+                connection.Close();
+                Cursor.Current = Cursors.Default;
+            }
+            public int countTotalStudentsByGender(bool isMale)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                SqlConnection connection = new SqlConnection(sqlConnectionString);
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    string gender = "Male";
+                    if (isMale) gender = "Famale";
+
+                    command.CommandText = $"SELECT COUNT(*) FROM students WHERE gender = '{gender}'";
+
+                    int totalCount = (Int32)command.ExecuteScalar();
+                    return totalCount;
+                }
+                connection.Close();
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
+        public class ContactDB
+        {
+
         }
     }
 }

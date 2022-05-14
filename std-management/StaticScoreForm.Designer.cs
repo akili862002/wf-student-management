@@ -29,10 +29,20 @@ namespace std_management
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.staticByScoreLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.byScoreListBox = new System.Windows.Forms.ListBox();
             this.byResultListBox = new System.Windows.Forms.ListBox();
+            this.resultChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.averageScoreChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.resultChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.averageScoreChart)).BeginInit();
             this.SuspendLayout();
             // 
             // staticByScoreLabel
@@ -50,7 +60,7 @@ namespace std_management
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(405, 28);
+            this.label1.Location = new System.Drawing.Point(484, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 48);
@@ -59,8 +69,6 @@ namespace std_management
             // 
             // byScoreListBox
             // 
-            this.byScoreListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.byScoreListBox.BackColor = System.Drawing.Color.White;
             this.byScoreListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.byScoreListBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -73,7 +81,7 @@ namespace std_management
             "Dotnet: 6.50"});
             this.byScoreListBox.Location = new System.Drawing.Point(27, 98);
             this.byScoreListBox.Name = "byScoreListBox";
-            this.byScoreListBox.Size = new System.Drawing.Size(333, 196);
+            this.byScoreListBox.Size = new System.Drawing.Size(370, 196);
             this.byScoreListBox.TabIndex = 44;
             // 
             // byResultListBox
@@ -85,20 +93,52 @@ namespace std_management
             this.byResultListBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.byResultListBox.FormattingEnabled = true;
             this.byResultListBox.ItemHeight = 28;
-            this.byResultListBox.Items.AddRange(new object[] {
-            "Pass: 89%",
-            "Fail: 11%"});
-            this.byResultListBox.Location = new System.Drawing.Point(414, 98);
+            this.byResultListBox.Location = new System.Drawing.Point(492, 98);
             this.byResultListBox.Name = "byResultListBox";
-            this.byResultListBox.Size = new System.Drawing.Size(297, 196);
+            this.byResultListBox.Size = new System.Drawing.Size(399, 112);
             this.byResultListBox.TabIndex = 45;
+            // 
+            // resultChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.resultChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.resultChart.Legends.Add(legend1);
+            this.resultChart.Location = new System.Drawing.Point(492, 280);
+            this.resultChart.Name = "resultChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Pass";
+            this.resultChart.Series.Add(series1);
+            this.resultChart.Size = new System.Drawing.Size(357, 372);
+            this.resultChart.TabIndex = 46;
+            this.resultChart.Text = "chart1";
+            // 
+            // averageScoreChart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.averageScoreChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.averageScoreChart.Legends.Add(legend2);
+            this.averageScoreChart.Location = new System.Drawing.Point(12, 280);
+            this.averageScoreChart.Name = "averageScoreChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Score";
+            this.averageScoreChart.Series.Add(series2);
+            this.averageScoreChart.Size = new System.Drawing.Size(380, 393);
+            this.averageScoreChart.TabIndex = 47;
+            this.averageScoreChart.Text = "chart1";
             // 
             // StaticScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(723, 350);
+            this.ClientSize = new System.Drawing.Size(903, 714);
+            this.Controls.Add(this.averageScoreChart);
+            this.Controls.Add(this.resultChart);
             this.Controls.Add(this.byResultListBox);
             this.Controls.Add(this.byScoreListBox);
             this.Controls.Add(this.label1);
@@ -108,6 +148,8 @@ namespace std_management
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "StaticScoreForm";
             this.Load += new System.EventHandler(this.StaticScoreForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.resultChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.averageScoreChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +161,7 @@ namespace std_management
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox byScoreListBox;
         private System.Windows.Forms.ListBox byResultListBox;
+        private System.Windows.Forms.DataVisualization.Charting.Chart resultChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart averageScoreChart;
     }
 }

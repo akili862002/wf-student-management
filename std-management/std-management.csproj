@@ -74,6 +74,12 @@
     <Compile Include="AverageScoreByCourseForm.Designer.cs">
       <DependentUpon>AverageScoreByCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContactAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactAction.Designer.cs">
+      <DependentUpon>ContactAction.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AverageScoreByCourseForm.resx">
       <DependentUpon>AverageScoreByCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactAction.resx">
+      <DependentUpon>ContactAction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteCourseForm.resx">
       <DependentUpon>DeleteCourseForm.cs</DependentUpon>
